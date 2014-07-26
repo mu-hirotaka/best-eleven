@@ -1,0 +1,20 @@
+@import "bootstrap";
+
+$orange: #ff4e00;
+
+.jumbotron {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: $orange;
+  color: #fff;
+  h2 {
+    font-weight: bold;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.btn {
+	width: 100%;
+}
