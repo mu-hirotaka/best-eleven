@@ -15,6 +15,39 @@ $orange: #ff4e00;
   }
 }
 
+.question {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: $orange;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  color: #fff;
+  border-radius: 3px;
+  p {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+.question-btn {
+  ul {
+    padding-left: 0px;
+    li:first-child {
+      list-style-type: none;
+       margin-top: 0px;
+    }
+    li {
+      list-style-type: none;
+	  margin-top: 5px;
+    }
+  }
+}
+
+.my-form {
+	button {
+      margin-top: 5px;
+	}
+}
+
 .btn {
 	width: 100%;
 }
