@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'welcome#index'
-  get 'question' => 'question#index'
-  get 'formation' => 'formation#index'
+
+  get 'question' => 'question#index', as: :question_root
+  get 'question/update' => 'question#update', as: :question_update
+
+  get 'formation' => 'formation#index', as: :formation_root
+  get 'formation/update' => 'formation#update', as: :formation_update
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
