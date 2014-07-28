@@ -4,6 +4,8 @@ class SelectionController < ApplicationController
   def update
     redirect_to :selection_show
   end
+  def text
+  end
   def show
     positions = {
       1  => { :x => 470, :y => 200, :name => '柿谷' }, 
@@ -37,7 +39,6 @@ class SelectionController < ApplicationController
 
     # conposite image
     image_positions.each {|key, value|
-      logger.debug(value[:path])
       player = Magick::Image.read(value[:path]).first
       player.resize!(0.6)
       ground = ground.composite(player, value[:x], value[:y], Magick::OverCompositeOp)
@@ -54,6 +55,44 @@ class SelectionController < ApplicationController
 #    }
 #    dr.draw(ground)
 
+    send_data(ground.to_blob, :type => 'image/jpeg', :disposition => 'inline')
+  end
+  def show_text
+    logger.debug params.inspect
+
+    positions = {
+      1  => { :x => 470, :y => 200, :name => 'みのもんた' }, 
+      2  => { :x => 430, :y => 100, :name => 'ベッカム' },
+      3  => { :x => 430, :y => 300, :name => '竹内結子' },
+      4  => { :x => 330, :y =>  70, :name => 'ピカチュウ' }, 
+      5  => { :x => 330, :y => 330, :name => '指原' },
+      6  => { :x => 270, :y => 150, :name => 'タモリ' },
+      7  => { :x => 270, :y => 250, :name => 'さんま' }, 
+      8  => { :x => 150, :y => 130, :name => '北野武' }, 
+      9  => { :x => 150, :y => 200, :name => '三浦一良' }, 
+      10 => { :x => 150, :y => 270, :name => 'ペレ' }, 
+      11 => { :x =>  40, :y => 200, :name => 'トッティ' } 
+    }
+
+    ground = Magick::Image.read("public/images/ground.jpg").first
+
+    # draw text
+    dr = Magick::Draw.new
+    dr.font = 'ヒラギノ丸ゴ-Pro-W4'
+    dr.stroke('transparent')
+    dr.fill('black')
+    dr.pointsize = 18
+    
+    players = params[:players] || []
+    (1..10).to_a.each {|num|
+      position = positions[num]
+      if players[num-1].nil?
+        dr.text(position[:x], position[:y], position[:name])
+      else
+        dr.text(position[:x], position[:y], players[num-1])
+      end
+    }
+    dr.draw(ground)
     send_data(ground.to_blob, :type => 'image/jpeg', :disposition => 'inline')
   end
 end

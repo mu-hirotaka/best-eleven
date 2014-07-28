@@ -93,3 +93,15 @@ $orange: #ff4e00;
     background-size: contain !important;
   }
 }
+
+.block-anchor {
+  display: block;
+  background: #eee;
+}
+
+.selection-left-nav {
+  padding-right: 0px;
+}
+.selection-right-nav {
+  padding-left: 0px;
+}

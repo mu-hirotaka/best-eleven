@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get 'selection/update' => 'selection#update', as: :selection_update
   get 'selection/show' => 'selection#show', as: :selection_show
 
+  get 'selection/text' => 'selection#text', as: :selection_text
+  post 'selection/show_text' => 'selection#show_text', as: :selection_show_text
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

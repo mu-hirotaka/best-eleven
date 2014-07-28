@@ -1,0 +1,50 @@
+<div class="text-center">
+  <div class="question">
+    <p>選択</p>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 selection-left-nav">
+      <a href="<%= selection_root_path %>" class="block-anchor">image</a>
+    </div>
+    <div class="col-xs-6 selection-right-nav">
+      <a href="<%= selection_text_path %>" class="block-anchor">text</a>
+    </div>
+  </div>
+
+  <div class="player-selection-header">
+    <h2>11人選択してください</h2>
+  </div>
+  <form action='<%= selection_show_text_path %>' method='POST'>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="player-selection">
+      <ul>
+        <li>
+          <input type="checkbox" name="players[]" value="遠藤" style="background:url('/images/endo.png')">
+          <span>遠藤</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="長谷部" style="background:url('/images/hasebe.png')">
+          <span>長谷部</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="本田" style="background:url('/images/honda.png')">
+          <span>本田</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="香川" style="background:url('/images/kagawa.png')">
+          <span>香川</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="清武" style="background:url('/images/kiyotake.png')">
+          <span>清武</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="山口" style="background:url('/images/yamaguchi.png')">
+          <span>山口</span>
+        </li>
+      </ul>
+    </div>
+    <button type="submit" class="btn btn-lg btn-success">完了</button>
+  </form>
+</div>
