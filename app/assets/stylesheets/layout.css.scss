@@ -33,11 +33,11 @@ $orange: #ff4e00;
     padding-left: 0px;
     li:first-child {
       list-style-type: none;
-       margin-top: 0px;
+      margin-top: 0px;
     }
     li {
       list-style-type: none;
-	  margin-top: 5px;
+      margin-top: 5px;
     }
   }
 }
@@ -50,4 +50,46 @@ $orange: #ff4e00;
 
 .btn {
 	width: 100%;
+}
+
+.player-selection-header {
+  border-bottom: 2px solid #000;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  h2 {
+    text-align: left;
+    margin-bottom: 3px;
+  }
+}
+
+.player-selection {
+  ul {
+    padding-left: 0px;
+    list-style-type: none;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    li {
+      display: table-cell;
+      vertical-align: middle;
+      span {
+        display: block;
+      }
+    }
+  }
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    outline: none;
+    width: 100px;
+    height: 100px;
+    background-size: contain !important;
+  }
+  input[type="checkbox"]:checked:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: url(/images/checked.png);
+    background-size: contain !important;
+  }
 }

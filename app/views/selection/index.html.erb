@@ -3,5 +3,100 @@
     <p>選択</p>
   </div>
 
-  <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= selection_update_path %>'">完了</button>
+  <div class="player-selection-header">
+    <h2>GK</h2>
+  </div>
+  <div class="player-selection">
+    <ul>
+      <li>
+        <input type="checkbox" name="GK" value="kawashima" id="GK-1" style="background:url('/images/kawashima.png')">
+        <span>川島</span>
+      </li>
+      <li>
+        <input type="checkbox" name="GK" value="gonda" id="GK-2" style="background:url('/images/gonda.png')">
+        <span>権田</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="player-selection-header">
+    <h2>DF</h2>
+  </div>
+  <div class="player-selection">
+    <ul>
+      <li>
+        <input type="checkbox" name="DF" value="gsakai" id="DF-1" style="background:url('/images/gsakai.png')">
+        <span>酒井高</span>
+      </li>
+      <li>
+        <input type="checkbox" name="DF" value="hsakai" id="DF-2" style="background:url('/images/hsakai.png')">
+        <span>酒井宏</span>
+      </li>
+      <li>
+        <input type="checkbox" name="DF" value="konno" id="DF-3" style="background:url('/images/konno.png')">
+        <span>今野</span>
+      </li>
+      <li>
+        <input type="checkbox" name="DF" value="uchida" id="DF-4" style="background:url('/images/uchida.png')">
+        <span>内田</span>
+      </li>
+      <li>
+        <input type="checkbox" name="DF" value="yoshida" id="DF-5" style="background:url('/images/yoshida.png')">
+        <span>吉田</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="player-selection-header">
+    <h2>MF</h2>
+  </div>
+  <div class="player-selection">
+    <ul>
+      <li>
+        <input type="checkbox" name="DF" value="endo" id="MF-1" style="background:url('/images/endo.png')">
+        <span>遠藤</span>
+      </li>
+      <li>
+        <input type="checkbox" name="MF" value="hasebe" id="MF-2" style="background:url('/images/hasebe.png')">
+        <span>長谷部</span>
+      </li>
+      <li>
+        <input type="checkbox" name="MF" value="honda" id="MF-3" style="background:url('/images/honda.png')">
+        <span>本田</span>
+      </li>
+      <li>
+        <input type="checkbox" name="MF" value="kagawa" id="MF-4" style="background:url('/images/kagawa.png')">
+        <span>香川</span>
+      </li>
+      <li>
+        <input type="checkbox" name="MF" value="kiyotake" id="MF-5" style="background:url('/images/kiyotake.png')">
+        <span>清武</span>
+      </li>
+      <li>
+        <input type="checkbox" name="MF" value="yamaguchi" id="MF-6" style="background:url('/images/yamaguchi.png')">
+        <span>山口</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="player-selection-header">
+    <h2>FW</h2>
+  </div>
+  <div class="player-selection">
+    <ul>
+      <li>
+        <input type="checkbox" name="FW" value="kakitani" id="FW-1" style="background:url('/images/kakitani.png')">
+        <span>柿谷</span>
+      </li>
+      <li>
+        <input type="checkbox" name="FW" value="okazaki" id="FW-2" style="background:url('/images/okazaki.png')">
+        <span>岡崎</span>
+      </li>
+      <li>
+        <input type="checkbox" name="FW" value="osako" id="FW-3" style="background:url('/images/osako.png')">
+        <span>大迫</span>
+      </li>
+    </ul>
+  </div>
+  <button type="button" id="selection-done" class="btn btn-lg btn-success">完了</button>
 </div>
