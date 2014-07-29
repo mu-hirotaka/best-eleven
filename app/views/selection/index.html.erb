@@ -1,111 +1,134 @@
 <div class="text-center">
-  <div class="question">
-    <p>選択</p>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-6 selection-left-nav">
-      <a href="<%= selection_root_path %>" class="block-anchor">image</a>
+  <form action="<%= selection_show_path %>" method="POST">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="question">
+      <p>選択</p>
     </div>
-    <div class="col-xs-6 selection-right-nav">
-      <a href="<%= selection_text_path %>" class="block-anchor">text</a>
+  
+    <div class="row">
+      <div class="col-xs-6 selection-left-nav">
+        <a href="<%= selection_root_path %>" class="block-anchor">image</a>
+      </div>
+      <div class="col-xs-6 selection-right-nav">
+        <a href="<%= selection_text_path %>" class="block-anchor">text</a>
+      </div>
     </div>
-  </div>
-
-  <div class="player-selection-header">
-    <h2>GK</h2>
-  </div>
-  <div class="player-selection">
-    <ul>
-      <li>
-        <input type="checkbox" name="GK" value="kawashima" id="GK-1" style="background:url('/images/kawashima.png')">
-        <span>川島</span>
-      </li>
-      <li>
-        <input type="checkbox" name="GK" value="gonda" id="GK-2" style="background:url('/images/gonda.png')">
-        <span>権田</span>
-      </li>
-    </ul>
-  </div>
-
-  <div class="player-selection-header">
-    <h2>DF</h2>
-  </div>
-  <div class="player-selection">
-    <ul>
-      <li>
-        <input type="checkbox" name="DF" value="gsakai" id="DF-1" style="background:url('/images/gsakai.png')">
-        <span>酒井高</span>
-      </li>
-      <li>
-        <input type="checkbox" name="DF" value="hsakai" id="DF-2" style="background:url('/images/hsakai.png')">
-        <span>酒井宏</span>
-      </li>
-      <li>
-        <input type="checkbox" name="DF" value="konno" id="DF-3" style="background:url('/images/konno.png')">
-        <span>今野</span>
-      </li>
-      <li>
-        <input type="checkbox" name="DF" value="uchida" id="DF-4" style="background:url('/images/uchida.png')">
-        <span>内田</span>
-      </li>
-      <li>
-        <input type="checkbox" name="DF" value="yoshida" id="DF-5" style="background:url('/images/yoshida.png')">
-        <span>吉田</span>
-      </li>
-    </ul>
-  </div>
-
-  <div class="player-selection-header">
-    <h2>MF</h2>
-  </div>
-  <div class="player-selection">
-    <ul>
-      <li>
-        <input type="checkbox" name="DF" value="endo" id="MF-1" style="background:url('/images/endo.png')">
-        <span>遠藤</span>
-      </li>
-      <li>
-        <input type="checkbox" name="MF" value="hasebe" id="MF-2" style="background:url('/images/hasebe.png')">
-        <span>長谷部</span>
-      </li>
-      <li>
-        <input type="checkbox" name="MF" value="honda" id="MF-3" style="background:url('/images/honda.png')">
-        <span>本田</span>
-      </li>
-      <li>
-        <input type="checkbox" name="MF" value="kagawa" id="MF-4" style="background:url('/images/kagawa.png')">
-        <span>香川</span>
-      </li>
-      <li>
-        <input type="checkbox" name="MF" value="kiyotake" id="MF-5" style="background:url('/images/kiyotake.png')">
-        <span>清武</span>
-      </li>
-      <li>
-        <input type="checkbox" name="MF" value="yamaguchi" id="MF-6" style="background:url('/images/yamaguchi.png')">
-        <span>山口</span>
-      </li>
-    </ul>
-  </div>
-
-  <div class="player-selection-header">
-    <h2>FW</h2>
-  </div>
-  <div class="player-selection">
-    <ul>
-      <li>
-        <input type="checkbox" name="FW" value="kakitani" id="FW-1" style="background:url('/images/kakitani.png')">
-        <span>柿谷</span>
-      </li>
-      <li>
-        <input type="checkbox" name="FW" value="okazaki" id="FW-2" style="background:url('/images/okazaki.png')">
-        <span>岡崎</span>
-      </li>
-      <li>
-        <input type="checkbox" name="FW" value="osako" id="FW-3" style="background:url('/images/osako.png')">
-        <span>大迫</span>
-      </li>
-    </ul>
-  </div>
-  <button type="button" id="selection-done" class="btn btn-lg btn-success">完了</button>
+  
+    <div class="player-selection-header">
+      <h2>GK</h2>
+    </div>
+    <div class="player-selection">
+      <ul>
+        <li>
+          <input type="checkbox" name="players[]" value="24" style="background:url('/images/exile.jpg')">
+          <span>EXILE</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="25" style="background:url('/images/rihaku.jpg')">
+          <span>李白</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="19" style="background:url('/images/minomonta.jpg')">
+          <span>みのもんた</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="20" style="background:url('/images/taiho.jpg')">
+          <span>大鵬</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="21" style="background:url('/images/andre.jpg')">
+          <span>アンドレ・ザ・ジャイアント</span>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="player-selection-header">
+      <h2>DF</h2>
+    </div>
+    <div class="player-selection">
+      <ul>
+        <li>
+          <input type="checkbox" name="players[]" value="26" style="background:url('/images/yaguchi.jpg')">
+          <span>矢口真里</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="27" style="background:url('/images/tenryu.jpg')">
+          <span>天龍源一郎</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="28" style="background:url('/images/imai.jpg')">
+          <span>今井雄太郎</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="29" style="background:url('/images/darvish.jpg')">
+          <span>ダルビッシュ有</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="9" style="background:url('/images/yoshida.png')">
+          <span>吉田</span>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="player-selection-header">
+      <h2>MF</h2>
+    </div>
+    <div class="player-selection">
+      <ul>
+        <li>
+          <input type="checkbox" name="players[]" value="30" style="background:url('/images/makun.jpg')">
+          <span>田中将大</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="31" style="background:url('/images/abe.jpg')">
+          <span>阿部慎之助</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="15" style="background:url('/images/honda.png')">
+          <span>本田</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="2" style="background:url('/images/kagawa.png')">
+          <span>香川</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="3" style="background:url('/images/kiyotake.png')">
+          <span>清武</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="16" style="background:url('/images/yamaguchi.png')">
+          <span>山口</span>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="player-selection-header">
+      <h2>FW</h2>
+    </div>
+    <div class="player-selection">
+      <ul>
+        <li>
+          <input type="checkbox" name="players[]" value="22" style="background:url('/images/raiden.jpg')">
+          <span>雷電</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="23" style="background:url('/images/bokusui.jpg')">
+          <span>若山牧水</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="1" style="background:url('/images/kakitani.png')">
+          <span>柿谷</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="17" style="background:url('/images/okazaki.png')">
+          <span>岡崎</span>
+        </li>
+        <li>
+          <input type="checkbox" name="players[]" value="18" style="background:url('/images/osako.png')">
+          <span>大迫</span>
+        </li>
+      </ul>
+    </div>
+    <button type="submit" id="selection-done" class="btn btn-lg btn-success">完了</button>
+  </form>
 </div>

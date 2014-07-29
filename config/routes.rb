@@ -4,17 +4,16 @@ Rails.application.routes.draw do
 
   root 'welcome#index', as: :root
 
-  get 'question' => 'question#index', as: :question_root
-  get 'question/update' => 'question#update', as: :question_update
+  get  'question' => 'question#index', as: :question_root
+  get  'question/update' => 'question#update', as: :question_update
 
-  get 'formation' => 'formation#index', as: :formation_root
-  get 'formation/update' => 'formation#update', as: :formation_update
+  get  'formation' => 'formation#index', as: :formation_root
+  get  'formation/update' => 'formation#update', as: :formation_update
 
-  get 'selection' => 'selection#index', as: :selection_root
-  get 'selection/update' => 'selection#update', as: :selection_update
-  get 'selection/show' => 'selection#show', as: :selection_show
+  get  'selection' => 'selection#index', as: :selection_root
+  post 'selection/show' => 'selection#show', as: :selection_show
 
-  get 'selection/text' => 'selection#text', as: :selection_text
+  get  'selection/text' => 'selection#text', as: :selection_text
   post 'selection/show_text' => 'selection#show_text', as: :selection_show_text
 
   # Example of regular route:

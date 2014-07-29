@@ -3,4 +3,3 @@ $ ->
     $(':checkbox').each (index, element) =>
       if $(element).is(':checked')
         console.log $(element).val()
-    location.href = '/selection/update'

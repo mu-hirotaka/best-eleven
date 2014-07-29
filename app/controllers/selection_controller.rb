@@ -1,25 +1,9 @@
 class SelectionController < ApplicationController
   def index
   end
-  def update
-    redirect_to :selection_show
-  end
   def text
   end
   def show
-    positions = {
-      1  => { :x => 470, :y => 200, :name => '柿谷' }, 
-      2  => { :x => 430, :y => 100, :name => '香川' },
-      3  => { :x => 430, :y => 300, :name => '清武' },
-      4  => { :x => 330, :y =>  70, :name => '長友' }, 
-      5  => { :x => 330, :y => 330, :name => '内田' },
-      6  => { :x => 270, :y => 150, :name => '長谷部' },
-      7  => { :x => 270, :y => 250, :name => '遠藤' }, 
-      8  => { :x => 150, :y => 130, :name => '今野' }, 
-      9  => { :x => 150, :y => 200, :name => '吉田' }, 
-      10 => { :x => 150, :y => 270, :name => '森重' }, 
-      11 => { :x =>  40, :y => 200, :name => '川島' } 
-    }
 
     image_positions = {
       1  => { :x => 470, :y => 150, :path => 'public/images/kakitani.png' }, 
@@ -35,30 +19,61 @@ class SelectionController < ApplicationController
       11 => { :x =>  40, :y => 150, :path => 'public/images/kawashima.png' } 
     }
 
+    pid_to_img = {
+      1  => { :path => 'public/images/kakitani.png' }, 
+      2  => { :path => 'public/images/kagawa.png' },
+      3  => { :path => 'public/images/kiyotake.png' },
+      4  => { :path => 'public/images/nagatomo.png' }, 
+      5  => { :path => 'public/images/uchida.png' },
+      6  => { :path => 'public/images/hasebe.png' },
+      7  => { :path => 'public/images/endo.png' }, 
+      8  => { :path => 'public/images/konno.png' }, 
+      9  => { :path => 'public/images/yoshida.png' }, 
+      10 => { :path => 'public/images/morishige.png' }, 
+      11 => { :path => 'public/images/kawashima.png' },
+      12 => { :path => 'public/images/gonda.png' },
+      13 => { :path => 'public/images/gsakai.png' },
+      14 => { :path => 'public/images/hsakai.png' }, 
+      15 => { :path => 'public/images/honda.png' },
+      16 => { :path => 'public/images/yamaguchi.png' },
+      17 => { :path => 'public/images/okazaki.png' },
+      18 => { :path => 'public/images/osako.png' },
+      19 => { :path => 'public/images/minomonta.jpg' },
+      20 => { :path => 'public/images/taiho.jpg' },
+      21 => { :path => 'public/images/andre.jpg' },
+      22 => { :path => 'public/images/raiden.jpg' },
+      23 => { :path => 'public/images/bokusui.jpg' },
+      24 => { :path => 'public/images/exile.jpg' },
+      25 => { :path => 'public/images/rihaku.jpg' },
+      26 => { :path => 'public/images/yaguchi.jpg' },
+      27 => { :path => 'public/images/tenryu.jpg' },
+      28 => { :path => 'public/images/imai.jpg' },
+      29 => { :path => 'public/images/darvish.jpg' },
+      30 => { :path => 'public/images/makun.jpg' },
+      31 => { :path => 'public/images/abe.jpg' }
+    }
+
+    logger.debug params.inspect
     ground = Magick::Image.read("public/images/ground.jpg").first
 
+    logger.debug pid_to_img[1]
     # conposite image
-    image_positions.each {|key, value|
-      player = Magick::Image.read(value[:path]).first
+    player_ids = params[:players].shuffle
+    image_positions.each_with_index {|(key, value),i|
+      if player_ids[i].nil?
+        player = Magick::Image.read(value[:path]).first
+      else
+        logger.debug player_ids[i]
+        player = Magick::Image.read(pid_to_img[player_ids[i].to_i][:path]).first
+      end
       player.resize!(0.6)
       ground = ground.composite(player, value[:x], value[:y], Magick::OverCompositeOp)
     }
     
-    # draw text
-#    dr = Magick::Draw.new
-#    dr.font = 'ヒラギノ丸ゴ-Pro-W4'
-#    dr.stroke('transparent')
-#    dr.fill('black')
-#    dr.pointsize = 18
-#    positions.each { |key, value|
-#      dr.text(value[:x], value[:y], value[:name])
-#    }
-#    dr.draw(ground)
 
     send_data(ground.to_blob, :type => 'image/jpeg', :disposition => 'inline')
   end
   def show_text
-    logger.debug params.inspect
 
     positions = {
       1  => { :x => 470, :y => 200, :name => 'みのもんた' }, 
@@ -84,11 +99,14 @@ class SelectionController < ApplicationController
     dr.pointsize = 18
     
     players = params[:players] || []
-    (1..10).to_a.each {|num|
+    (1..11).to_a.each {|num|
       position = positions[num]
       if players[num-1].nil?
-        dr.text(position[:x], position[:y], position[:name])
+        dr.fill('black')
+        random_key = positions.keys.sample
+        dr.text(position[:x], position[:y], positions[random_key][:name])
       else
+        dr.fill('red')
         dr.text(position[:x], position[:y], players[num-1])
       end
     }
