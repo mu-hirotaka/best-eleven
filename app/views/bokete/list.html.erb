@@ -1,0 +1,19 @@
+<div class="text-center">
+  <div class="question">
+    <p>みんなの結果</p>
+  </div>
+
+  <% @user_bokete_images.each do |image| %>
+    <div class="row">
+      <div class="col-xs-6">
+        <img src="/images/bokete/<%= image.base_image_id %>.png">
+      </div>
+      <div class="col-xs-6" style="background-color: #FA8072;">
+        <span style="font-size: 30px;"><%= image.comment %></span>
+      </div>
+    </div>
+    <div class="hr"></div>
+  <% end %>
+
+  <button type="button" class="btn btn-lg btn-primary" onclick="location.href='/bokete'">トップページ</button>
+</div>

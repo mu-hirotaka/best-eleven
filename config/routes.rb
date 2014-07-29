@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   root 'welcome#index', as: :root
 
+  get  'bokete' => 'bokete#index', as: :bokete_root
+  get  'bokete/select' => 'bokete#select', as: :bokete_select
+  get  'bokete/list' => 'bokete#list', as: :bokete_list
+  post 'bokete/show' => 'bokete#show', as: :bokete_show
+
   get  'question' => 'question#index', as: :question_root
   get  'question/update' => 'question#update', as: :question_update
 
