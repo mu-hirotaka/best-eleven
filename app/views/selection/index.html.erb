@@ -1,3 +1,4 @@
+<%= @keys %>
 <div class="text-center">
   <div id="formation-base">
     <div class="position-1" data-pid="0" data-fid="1"></div>
@@ -11,6 +12,12 @@
     <div class="position-9" data-pid="0" data-fid="9"></div>
     <div class="position-10" data-pid="0" data-fid="10"></div>
     <div class="position-11" data-pid="0" data-fid="11"></div>
+  </div>
+  <div class="storage" style="display: none;">
+    <div id="player-master-0" data-pid="0" data-image-path="/images/no_image.png"></div>
+    <% @pid_to_player.each do |key, value| %>
+      <div id="player-master-<%= key %>" data-pid="<%= key %>" data-image-path="<%= value[:path] %>"></div>
+    <% end %>
   </div>
 </div>
 <!--

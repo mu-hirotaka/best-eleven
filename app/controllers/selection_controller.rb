@@ -1,5 +1,41 @@
 class SelectionController < ApplicationController
+require 'redis'
   def index
+#    Redis.current.set('hoge', 'fuga')
+#    @keys = Redis.current.keys
+    @pid_to_player = {
+      1  => { :name => '柿谷', :path => '/images/kakitani.png' }, 
+      2  => { :name => '香川', :path => '/images/kagawa.png' },
+      3  => { :name => '清武', :path => '/images/kiyotake.png' },
+      4  => { :name => '長友', :path => '/images/nagatomo.png' }, 
+      5  => { :name => '内田', :path => '/images/uchida.png' },
+      6  => { :name => '長谷部', :path => '/images/hasebe.png' },
+      7  => { :name => '遠藤', :path => '/images/endo.png' }, 
+      8  => { :name => '今野', :path => '/images/konno.png' }, 
+      9  => { :name => '吉田', :path => '/images/yoshida.png' }, 
+      10 => { :name => '森重', :path => '/images/morishige.png' }, 
+      11 => { :name => '川島', :path => '/images/kawashima.png' },
+      12 => { :name => '権田', :path => '/images/gonda.png' },
+      13 => { :name => '酒井高', :path => '/images/gsakai.png' },
+      14 => { :name => '酒井宏', :path => '/images/hsakai.png' }, 
+      15 => { :name => '本田', :path => '/images/honda.png' },
+      16 => { :name => '山口', :path => '/images/yamaguchi.png' },
+      17 => { :name => '岡崎', :path => '/images/okazaki.png' },
+      18 => { :name => '大迫', :path => '/images/osako.png' },
+      19 => { :name => 'みのもんた', :path => '/images/minomonta.jpg' },
+      20 => { :name => '大鵬', :path => '/images/taiho.jpg' },
+      21 => { :name => 'アンドレ', :path => '/images/andre.jpg' },
+      22 => { :name => '雷電', :path => '/images/raiden.jpg' },
+      23 => { :name => '牧水', :path => '/images/bokusui.jpg' },
+      24 => { :name => 'EXILE', :path => '/images/exile.jpg' },
+      25 => { :name => '李白', :path => '/images/rihaku.jpg' },
+      26 => { :name => '矢口', :path => '/images/yaguchi.jpg' },
+      27 => { :name => '天龍', :path => '/images/tenryu.jpg' },
+      28 => { :name => '今井', :path => '/images/imai.jpg' },
+      29 => { :name => 'ダルビッシュ', :path => '/images/darvish.jpg' },
+      30 => { :name => '田中', :path => '/images/makun.jpg' },
+      31 => { :name => '阿部', :path => '/images/abe.jpg' }
+    }
   end
   def text
   end

@@ -23,17 +23,28 @@ $ ->
       size = width * 0.2;
       halfSize = size / 2;
       $position = $('.position-' + i)
-      $position.css({'margin-left': - halfSize,  width: size, height: size});
-      $position.addClass('formation-player-base-image');
-      cache = localStorage.getItem('fid' + i);
-#      if cache
-#        $position.css("background-image", "url('" + players
-#      playerImage.css("background-image", "url('/images/" + item.group + '/' + item.id + ".png')");
+      $position.css({'margin-left': - halfSize,  width: size, height: size})
+      $position.addClass('formation-player-base-image')
+      pidCache = localStorage.getItem('fid' + i)
+      if pidCache
+        $playerMaster = $('#player-master-' + pidCache)
+        $position = $('.position-' + i)
+        $position.css("background-image", "url('" + $playerMaster.attr('data-image-path') + "')")
+        $position.attr('data-pid', pidCache);
       $('.position-' + i).on click: ->
         bid = $(this).attr('data-pid')
         fid = $(this).attr('data-fid')
         location.href = '/selection/select?bid=' + bid + '&fid=' + fid
-    console.log getQueryString()
+
+    queryParams = getQueryString()
+    if queryParams
+      fid = queryParams['fid']
+      pid = queryParams['aid']
+      $playerMaster = $('#player-master-' + pid)
+      $position = $('.position-' + fid)
+      $position.css("background-image", "url('" + $playerMaster.attr('data-image-path') + "')")
+      $position.attr('data-pid', pid);
+      localStorage.setItem('fid' + fid, pid)
 
   $('.selection.select').ready ->
     $('#select-target').on change: ->
