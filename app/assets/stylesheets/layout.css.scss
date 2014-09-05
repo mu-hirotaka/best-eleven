@@ -249,3 +249,42 @@ $orange: #ff4e00;
     top: 83%; 
   }
 }
+
+#select-player-before {
+  border: 3px solid #000;
+  border-radius: 10px;
+  height: 70px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image:url('/images/no_image.png');
+}
+
+#select-player-after {
+  border: 3px solid #000;
+  border-radius: 10px;
+  height: 70px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image:url('/images/no_image.png');
+}
+
+#arrow {
+  width: 100%;
+  height: 70px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image:url('/images/arrow.png');
+}
+
+#select-target {
+  margin-top: 15px;
+}
+
+button#select-done-btn {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+

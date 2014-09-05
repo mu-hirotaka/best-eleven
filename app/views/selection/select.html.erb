@@ -1,0 +1,25 @@
+<div class="text-center">
+  <div class="row">
+    <div class="col-xs-4">
+      <div id="select-player-before" data-pid="<%= @bid %>" <% if (@pid_to_player[@bid.to_i]) then %>style="background-image:url('<%= @pid_to_player[@bid.to_i][:path] %>');"<% end %>></div>
+    </div>
+    <div class="col-xs-4">
+      <div id="arrow"></div>
+    </div>
+    <div class="col-xs-4">
+      <div id="select-player-after" data-pid="0" data-fid="<%= @fid %>"></div>
+    </div>
+  </div>
+
+  <form action="" method="post">
+    <select name="aid" id="select-target">
+      <option value="0" data-image-path="/images/no_image.png">選択してください</option>
+      <% @pid_to_player.each do |key, value| %>
+        <option value="<%= key %>" data-image-path="<%= value[:path] %>"><%= value[:name] %></option>
+      <% end %>
+    </select>
+  </form>
+
+  <button type="button" id="select-done-btn" class="btn btn-lg btn-primary">決定</button>
+  <button type="button" class="btn btn-lg btn-warning" onclick="location.href='/selection'">キャンセル</button>
+</div>
