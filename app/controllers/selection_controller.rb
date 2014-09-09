@@ -1,5 +1,6 @@
 class SelectionController < ApplicationController
 require 'redis'
+require 'RMagick'
   def index
 #    Redis.current.set('hoge', 'fuga')
 #    @keys = Redis.current.keys
