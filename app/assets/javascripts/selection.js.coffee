@@ -67,6 +67,7 @@ $ ->
       $after = $('#select-player-after')
       location.href = '/selection?aid=' + $after.attr('data-pid') + '&fid=' + $after.attr('data-fid')
 
+#    _.each {one : 1, two : 2, three : 3}, (num, key) -> console.log num
 #  $('#selection-done').on click: ->
 #    $(':checkbox').each (index, element) =>
 #      if $(element).is(':checked')
