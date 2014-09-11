@@ -19,7 +19,12 @@
       <div id="player-master-<%= key %>" data-pid="<%= key %>" data-image-path="<%= value[:path] %>"></div>
     <% end %>
   </div>
+  <form id="create-form" method="POST" action="<%= selection_show_path %>">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <button type="button" id="create-btn" class="btn btn-primary">決定</button>
+  </form>
 </div>
+<!--
 <div class="text-center">
   <form action="<%= selection_show_path %>" method="POST">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -154,3 +159,4 @@
     <button type="submit" id="selection-done" class="btn btn-lg btn-success">完了</button>
   </form>
 </div>
+-->

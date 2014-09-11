@@ -57,6 +57,7 @@ require 'RMagick'
     }
 
     pid_to_img = {
+      0  => { :path => 'public/images/no_image.png' },
       1  => { :path => 'public/images/kakitani.png' }, 
       2  => { :path => 'public/images/kagawa.png' },
       3  => { :path => 'public/images/kiyotake.png' },
@@ -93,7 +94,6 @@ require 'RMagick'
     logger.debug params.inspect
     ground = Magick::Image.read("public/images/ground-half.jpg").first
 
-    logger.debug pid_to_img[1]
     # conposite image
     player_ids = params[:players].shuffle
     image_positions.each_with_index {|(key, value),i|

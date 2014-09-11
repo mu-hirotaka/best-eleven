@@ -46,6 +46,18 @@ $ ->
       $position.attr('data-pid', pid);
       localStorage.setItem('fid' + fid, pid)
 
+    $('#create-btn').on click: ->
+      form = $('#create-form')
+      for i in [1..11]
+        $position = $('.position-' + i)
+        bid = $position.attr('data-pid')
+        $elm = $('<input>');
+        $elm.attr('name', 'players[]')
+        $elm.attr('type', 'hidden')
+        $elm.attr('value', bid)
+        form.append($elm)
+      form.submit()
+
   $('.selection.select').ready ->
     $('#select-target').on change: ->
       $('#select-player-after').css("background-image", "url('" + $('#select-target option:selected').attr('data-image-path') + "')")
