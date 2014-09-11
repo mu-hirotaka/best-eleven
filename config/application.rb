@@ -32,5 +32,8 @@ module Be
       g.controller_specs false
       g.view_specs false
     end
+
+    config.autoload_paths += %w(#{config.root}/lib)
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
   end
 end

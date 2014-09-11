@@ -23,6 +23,12 @@ Rails.application.routes.draw do
   get  'selection/text' => 'selection#text', as: :selection_text
   post 'selection/show_text' => 'selection#show_text', as: :selection_show_text
 
+  get 'home/index'
+  get '/tweet', :to => 'home#tweet', :as => 'tweet'
+  get '/auth/:provider/callback', :to => 'sessions#callback'
+  post '/auth/:provider/callback', :to => 'sessions#callback'
+  get '/logout' => 'sessions#destroy', :as => :logout
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
