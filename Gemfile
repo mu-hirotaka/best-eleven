@@ -18,6 +18,10 @@ gem 'execjs'
 gem 'rmagick'
 gem 'settingslogic'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'twitter', "~> 4.8"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
