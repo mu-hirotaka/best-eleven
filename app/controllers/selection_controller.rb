@@ -43,17 +43,17 @@ require 'RMagick'
   def show
 
     image_positions = {
-      1  => { :x => 470, :y => 150, :path => 'public/images/kakitani.png' }, 
-      2  => { :x => 430, :y =>  50, :path => 'public/images/kagawa.png' },
-      3  => { :x => 430, :y => 250, :path => 'public/images/kiyotake.png' },
-      4  => { :x => 330, :y =>  20, :path => 'public/images/nagatomo.png' }, 
-      5  => { :x => 330, :y => 280, :path => 'public/images/uchida.png' },
-      6  => { :x => 270, :y => 100, :path => 'public/images/hasebe.png' },
-      7  => { :x => 270, :y => 200, :path => 'public/images/endo.png' }, 
-      8  => { :x => 150, :y =>  80, :path => 'public/images/konno.png' }, 
-      9  => { :x => 150, :y => 150, :path => 'public/images/yoshida.png' }, 
-      10 => { :x => 150, :y => 220, :path => 'public/images/morishige.png' }, 
-      11 => { :x =>  40, :y => 150, :path => 'public/images/kawashima.png' } 
+      1  => { :x => 150, :y => 60, :path => 'public/images/kakitani.png' }, 
+      2  => { :x => 360, :y => 60, :path => 'public/images/kagawa.png' },
+      3  => { :x => 260, :y => 150, :path => 'public/images/kiyotake.png' },
+      4  => { :x => 100, :y => 220, :path => 'public/images/nagatomo.png' }, 
+      5  => { :x => 410, :y => 220, :path => 'public/images/uchida.png' },
+      6  => { :x => 260, :y => 270, :path => 'public/images/hasebe.png' },
+      7  => { :x =>  70, :y => 400, :path => 'public/images/endo.png' }, 
+      8  => { :x => 150, :y => 420, :path => 'public/images/konno.png' }, 
+      9  => { :x => 360, :y => 420, :path => 'public/images/yoshida.png' }, 
+      10 => { :x => 410, :y => 400, :path => 'public/images/morishige.png' }, 
+      11 => { :x => 260, :y => 500, :path => 'public/images/kawashima.png' } 
     }
 
     pid_to_img = {
@@ -91,7 +91,7 @@ require 'RMagick'
     }
 
     logger.debug params.inspect
-    ground = Magick::Image.read("public/images/ground.jpg").first
+    ground = Magick::Image.read("public/images/ground-half.jpg").first
 
     logger.debug pid_to_img[1]
     # conposite image
