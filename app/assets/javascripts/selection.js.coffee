@@ -69,6 +69,8 @@ $ ->
 
 
   $('.selection.show').ready ->
+    $footer = $('#footer')
+    $footer.hide()
     players = []
     for fieldId in [1..11]
       cache = localStorage.getItem('fid' + fieldId)
@@ -89,6 +91,7 @@ $ ->
         img = $('<img>').attr({ src: data.path, width: width, height: height})
         $('#result-image').append(img)
         $('#twitter-tweet-btn').css({opacity:"1.0"})
+        $footer.show()
 
 #    _.each {one : 1, two : 2, three : 3}, (num, key) -> console.log num
 #  $('#selection-done').on click: ->
