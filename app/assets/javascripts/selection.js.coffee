@@ -59,8 +59,8 @@ $ ->
       form.submit()
 
   $('.selection.select').ready ->
-    $('#select-target').on change: ->
-      $('#select-player-after').css("background-image", "url('" + $('#select-target option:selected').attr('data-image-path') + "')")
+    $('.select-target').on change: ->
+      $('#select-player-after').css("background-image", "url('" + $('option:selected', this).attr('data-image-path') + "')")
       $('#select-player-after').attr('data-pid', $(this).val());
  
     $('#select-done-btn').on click: ->

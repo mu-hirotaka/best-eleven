@@ -15,14 +15,17 @@
     </div>
   </div>
 
-  <form action="" method="post">
-    <select name="aid" id="select-target">
-      <option value="0" data-image-path="/images/no_image.png">選択してください</option>
-      <% @pid_to_player.each do |key, value| %>
-        <option value="<%= key %>" data-image-path="<%= value[:path] %>"><%= value[:name] %></option>
-      <% end %>
-    </select>
-  </form>
+  <% @type_to_players.each do |key, value| %>
+    <form action="" method="post">
+      <span><%= @type_to_name[key.to_i] %>: </span>
+      <select name="aid" class="select-target">
+        <option value="0" data-image-path="/images/no_image.png">選択してください</option>
+        <% value.each do |key, value| %>
+          <option value="<%= key %>" data-image-path="<%= value[:path] %>"><%= value[:name] %></option>
+        <% end %>
+      </select>
+    </form>
+  <% end %>
 
   <button type="button" id="select-done-btn" class="btn btn-lg btn-primary">決定</button>
   <button type="button" class="btn btn-lg btn-warning" onclick="location.href='/selection'">キャンセル</button>
