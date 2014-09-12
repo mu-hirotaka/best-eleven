@@ -3,14 +3,14 @@
     <a href="http://www.soccer-king.jp/"><img height="44" src="/images/logo.png" alt="サッカーキング - 世界のサッカー情報サイト"></a>
   </div>
 
-  <div class="row">
-    <div class="col-xs-4">
+  <div class="row" style="margin-top:5px;">
+    <div class="col-xs-5" style="padding-left:10px; padding-right:10px;">
       <div id="select-player-before" data-pid="<%= @bid %>" <% if (@pid_to_player[@bid.to_i]) then %>style="background-image:url('<%= @pid_to_player[@bid.to_i][:path] %>');"<% end %>></div>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-2" style="padding-left:10px; padding-right:10px;">
       <div id="arrow"></div>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-5" style="padding-left:10px; padding-right:10px;">
       <div id="select-player-after" data-pid="0" data-fid="<%= @fid %>"></div>
     </div>
   </div>

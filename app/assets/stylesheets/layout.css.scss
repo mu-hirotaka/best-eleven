@@ -280,9 +280,10 @@ html, body {
 }
 
 #select-player-before {
-  border: 3px solid #000;
-  border-radius: 10px;
-  height: 70px;
+  height: 100px;
+  width:100%;
+  padding-left: 10px;
+  padding-right: 10px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -290,9 +291,10 @@ html, body {
 }
 
 #select-player-after {
-  border: 3px solid #000;
-  border-radius: 10px;
-  height: 70px;
+  height: 100px;
+  width:100%;
+  padding-left: 10px;
+  padding-right: 10px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -301,7 +303,7 @@ html, body {
 
 #arrow {
   width: 100%;
-  height: 70px;
+  height: 100px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -329,7 +331,6 @@ button#create-btn {
   border: 1px solid #0090c4;
   color: white;
   font-weight: bold;
-  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
 }
 
 #spinner-container {
