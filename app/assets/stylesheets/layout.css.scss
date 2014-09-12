@@ -398,12 +398,22 @@ button#create-btn {
 
 #footer {
   position: absolute;
-  width: 100%;
   bottom: 0;
+  width: 100%;
   background-color: #ffee00;
-  text-align: center;
   font-size: 11px;
-  margin-top: 10px;
   height: 15px;
+  margin-top: 10px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+#footer-relative {
+  background-color: #ffee00;
+  font-size: 11px;
+  height: 15px;
+  margin-top: 10px;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 
