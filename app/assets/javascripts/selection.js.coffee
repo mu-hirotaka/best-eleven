@@ -13,6 +13,11 @@ $ ->
     else
       return 0
 
+  $('.formation.index').ready ->
+    $('.formation-btn').on click: ->
+      localStorage.clear()
+      location.href = '/selection/'
+
   $('.selection.index').ready ->
     width = screen.width * 0.9;
     height = 4 / 3 * width;
