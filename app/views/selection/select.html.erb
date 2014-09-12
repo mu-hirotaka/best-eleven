@@ -1,4 +1,8 @@
 <div class="text-center">
+  <div class="sk-header">
+    <a href="http://www.soccer-king.jp/"><img height="44" src="/images/logo.png" alt="サッカーキング - 世界のサッカー情報サイト"></a>
+  </div>
+
   <div class="row">
     <div class="col-xs-4">
       <div id="select-player-before" data-pid="<%= @bid %>" <% if (@pid_to_player[@bid.to_i]) then %>style="background-image:url('<%= @pid_to_player[@bid.to_i][:path] %>');"<% end %>></div>
@@ -22,4 +26,6 @@
 
   <button type="button" id="select-done-btn" class="btn btn-lg btn-primary">決定</button>
   <button type="button" class="btn btn-lg btn-warning" onclick="location.href='/selection'">キャンセル</button>
+
+  <div id="footer">Copyright 2010-2014 FromOne co.,Ltd All Rights Reserved.</div>
 </div>
