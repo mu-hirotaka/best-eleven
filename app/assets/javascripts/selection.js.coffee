@@ -67,6 +67,29 @@ $ ->
       $after = $('#select-player-after')
       location.href = '/selection?aid=' + $after.attr('data-pid') + '&fid=' + $after.attr('data-fid')
 
+
+  $('.selection.show').ready ->
+    players = []
+    for fieldId in [1..11]
+      cache = localStorage.getItem('fid' + fieldId)
+      if cache
+        players.push(cache)
+      else
+        players.push(0)
+    $.ajax '/image/create',
+      type: 'POST'
+      dataType: 'json'
+      data: { players: players }
+      error: (jqXHR, textStatus, errorThrown) ->
+        console.log 'error'
+      success: (data, textStatus, jqXHR) ->
+        $('#spinner-container').hide()
+        width = screen.width * 0.9;
+        height = 4 / 3 * width;
+        img = $('<img>').attr({ src: data.path, width: width, height: height})
+        $('#result-image').append(img)
+        $('#twitter-tweet-btn').css({opacity:"1.0"})
+
 #    _.each {one : 1, two : 2, three : 3}, (num, key) -> console.log num
 #  $('#selection-done').on click: ->
 #    $(':checkbox').each (index, element) =>

@@ -18,10 +18,12 @@ Rails.application.routes.draw do
   get  'selection' => 'selection#index', as: :selection_root
   post 'selection/show' => 'selection#show', as: :selection_show
   get  'selection/select' => 'selection#select', as: :selection_select
-  get  'selection/select_exec' => 'selection#select_exec', as: :selection_select_exec
+#  get  'selection/select_exec' => 'selection#select_exec', as: :selection_select_exec
 
   get  'selection/text' => 'selection#text', as: :selection_text
   post 'selection/show_text' => 'selection#show_text', as: :selection_show_text
+
+  post 'image/create' => 'image#create', as: :image_create
 
   get 'home/index'
   get '/tweet', :to => 'home#tweet', :as => 'tweet'
