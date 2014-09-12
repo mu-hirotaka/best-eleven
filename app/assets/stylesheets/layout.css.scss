@@ -7,6 +7,10 @@ html, body {
   height:100%;
 }
 
+.container {
+  min-height:100%;
+}
+
 .sk-header {
   height: 50px;
   background-color: #ffee00;
@@ -400,5 +404,6 @@ button#create-btn {
   text-align: center;
   font-size: 11px;
   margin-top: 10px;
+  height: 15px;
 }
 
