@@ -16,14 +16,18 @@ $ ->
   $('.formation.index').ready ->
     $('.formation-btn').on click: ->
       localStorage.clear()
-      location.href = '/selection/'
+      $this = $(this)
+      localStorage.setItem('current-formation-type', 'formation-' + $this.attr('data-formation-type'))
+      formationId = $this.attr('data-formation-id')
+      localStorage.setItem('current-formation-id', formationId)
+      location.href = '/selection?foId=' + formationId
 
   $('.selection.index').ready ->
     width = screen.width * 0.9;
     height = 4 / 3 * width;
     $('#formation-base').css({ width: width, height: height });
     $('#formation-base').addClass('formation-base-image');
-    $('#formation-base').addClass('formation-4-4-2');
+    $('#formation-base').addClass(localStorage.getItem('current-formation-type'));
     for i in [1..11]
       size = width * 0.2;
       halfSize = size / 2;
@@ -43,13 +47,14 @@ $ ->
 
     queryParams = getQueryString()
     if queryParams
-      fid = queryParams['fid']
-      pid = queryParams['aid']
-      $playerMaster = $('#player-master-' + pid)
-      $position = $('.position-' + fid)
-      $position.css("background-image", "url('" + $playerMaster.attr('data-image-path') + "')")
-      $position.attr('data-pid', pid);
-      localStorage.setItem('fid' + fid, pid)
+      if queryParams['fid'] > 0
+        fid = queryParams['fid']
+        pid = queryParams['aid']
+        $playerMaster = $('#player-master-' + pid)
+        $position = $('.position-' + fid)
+        $position.css("background-image", "url('" + $playerMaster.attr('data-image-path') + "')")
+        $position.attr('data-pid', pid);
+        localStorage.setItem('fid' + fid, pid)
 
     $('#create-btn').on click: ->
       form = $('#create-form')

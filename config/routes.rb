@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get  'question/update' => 'question#update', as: :question_update
 
   get  'formation' => 'formation#index', as: :formation_root
-  get  'formation/update' => 'formation#update', as: :formation_update
 
   get  'selection' => 'selection#index', as: :selection_root
   post 'selection/show' => 'selection#show', as: :selection_show
