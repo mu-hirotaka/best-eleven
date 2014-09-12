@@ -1,4 +1,11 @@
 $ ->
+  initView = ->
+    footer = $("#footer")
+    offset = footer.offset().top + footer.height()
+    win_h = $(window).height()
+    if offset < win_h
+      footer.css({"position":"absolute", "bottom":"0"})
+
   getQueryString = ->
     if window.location.search.length > 1
       query = window.location.search.substring(1)
@@ -12,6 +19,8 @@ $ ->
       return res
     else
       return 0
+
+  initView()
 
   $('.selection.index').ready ->
     width = screen.width * 0.9;
