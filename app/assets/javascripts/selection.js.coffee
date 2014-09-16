@@ -13,12 +13,19 @@ $ ->
     else
       return 0
 
-  $('.formation.index').ready ->
-    $('.formation-btn').on click: ->
-      localStorage.clear()
+  $('.question.index').ready ->
+    localStorage.clear()
+    $('.question-each-btn').on click: ->
       $this = $(this)
-      localStorage.setItem('current-formation-type', 'formation-' + $this.attr('data-formation-type'))
+      localStorage.setItem('current-question-id', $this.attr('data-question-id'))
+      localStorage.setItem('current-question-title', $this.attr('data-question-title'))
+      location.href = '/formation'
+
+  $('.formation.index').ready ->
+    $('.formation-each-btn').on click: ->
+      $this = $(this)
       formationId = $this.attr('data-formation-id')
+      localStorage.setItem('current-formation-type', 'formation-' + $this.attr('data-formation-type'))
       localStorage.setItem('current-formation-id', formationId)
       location.href = '/selection?foId=' + formationId
 
@@ -87,6 +94,10 @@ $ ->
     formationId = localStorage.getItem('current-formation-id')
     if !formationId
       formationId = 1
+    questionTitle = localStorage.getItem('current-question-title')
+    if questionTitle
+      $title = $('.common-title > p')
+      $title.text(questionTitle + 'ベストイレブン')
     $.ajax '/image/create',
       type: 'POST'
       dataType: 'json'

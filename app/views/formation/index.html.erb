@@ -9,7 +9,7 @@
   <div class="question-btn">
   	<ul>
       <% @formations.each do |key, value| %>
-        <li><button type="button" class="btn btn-lg btn-success formation-btn" data-formation-id="<%= key %>" data-formation-type="<%= value[:type] %>"><%= value[:title] %></button></li>
+        <li><button type="button" class="btn btn-lg btn-success formation-each-btn" data-formation-id="<%= key %>" data-formation-type="<%= value[:type] %>"><%= value[:title] %></button></li>
       <% end %>
     </ul>
   </div>

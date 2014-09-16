@@ -10,10 +10,7 @@ Rails.application.routes.draw do
   post 'bokete/show' => 'bokete#show', as: :bokete_show
 
   get  'question' => 'question#index', as: :question_root
-  get  'question/update' => 'question#update', as: :question_update
-
   get  'formation' => 'formation#index', as: :formation_root
-
   get  'selection' => 'selection#index', as: :selection_root
   post 'selection/show' => 'selection#show', as: :selection_show
   get  'selection/select' => 'selection#select', as: :selection_select

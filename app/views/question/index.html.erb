@@ -6,20 +6,11 @@
     <p>お題を選択</p>
   </div>
 
-  <!--
-  <div class="my-form">
-    <form role="form">
-      <input type="text" class="form-control" id="question-input" placeholder="">
-      <button type="button" class="btn btn-lg btn-primary" onclick="location.href='<%= question_update_path %>'">決定</button>
-    </form>
-  </div>
-  -->
-
   <div class="question-btn">
   	<ul>
-      <li><button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= question_update_path %>'">伝説の酒豪</button></li>
-      <li><button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= question_update_path %>'">アイドル</button></li>
-      <li><button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= question_update_path %>'">野球</button></li>
+      <% @questions.each do |key, value| %>
+        <li><button type="button" class="btn btn-lg btn-success question-each-btn" data-question-id="<%= value[:id] %>" data-question-title="<%= value[:title] %>"><%= value[:title] %></button></li>
+      <% end %>
     </ul>
   </div>
 
