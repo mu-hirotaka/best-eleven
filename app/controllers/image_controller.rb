@@ -1,6 +1,8 @@
 class ImageController < ApplicationController
 require 'redis'
 require 'RMagick'
+  AWS.config(access_key_id: Settings.s3.access_key_id, secret_access_key: Settings.s3.secret_access_key, region: Settings.s3.region)
+  @@random = Random.new(100)
 
   def create
     image_positions = {
@@ -66,8 +68,14 @@ require 'RMagick'
       player.resize!(0.8)
       ground = ground.composite(player, value[:x], value[:y], Magick::OverCompositeOp)
     }
-    output_path = './public/images/output/out.png'
-    ground.write(output_path)
-    render :json => { :status => 'success', :path => '/images/output/out.png' }
+    output_filename = Time.now.strftime("%Y%m%d-%H%M%S") + '-' + @@random.rand(1000).to_s + '.png'
+
+    # S3へ保存
+    s3 = AWS::S3.new
+    bucket = s3.buckets[Settings.s3.buckets_name]
+    object = bucket.objects['images/' + output_filename]
+    object.write(ground.to_blob, :acl => :public_read)
+
+    render :json => { :status => 'success', :path => Settings.s3.image_url_path + output_filename }
   end
 end

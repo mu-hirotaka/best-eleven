@@ -7,6 +7,12 @@ development:
     consumer_secret: sXLXy374wMc9kJAAiexWe68hIqRtjqytHHWG4UXQv8ol7xwuxO
   tweet_setting:
     text: "time %s"
+  s3:
+    access_key_id: AKIAJRGSFJMLQRUTICAA
+    secret_access_key: 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
+    region: ap-northeast-1
+    buckets_name: best-eleven-contents
+    image_url_path: http://s3-ap-northeast-1.amazonaws.com/best-eleven-contents/images/
 
 test:
   <<: *defaults
@@ -18,3 +24,10 @@ production:
     consumer_secret: sXLXy374wMc9kJAAiexWe68hIqRtjqytHHWG4UXQv8ol7xwuxO
   tweet_setting:
     text: "time %s"
+  s3:
+    access_key_id: AKIAJRGSFJMLQRUTICAA
+    secret_access_key: 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
+    region: ap-northeast-1
+    buckets_name: best-eleven-contents
+    image_url_path: http://s3-ap-northeast-1.amazonaws.com/best-eleven-contents/images/
+
