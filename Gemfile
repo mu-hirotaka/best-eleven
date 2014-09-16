@@ -17,6 +17,7 @@ gem 'spring',        group: :development
 gem 'execjs'
 gem 'rmagick'
 gem 'settingslogic'
+gem 'aws-sdk'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
