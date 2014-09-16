@@ -5,7 +5,11 @@
 
   <div class="row" style="margin-top:5px;">
     <div class="col-xs-5" style="padding-left:10px; padding-right:10px;">
-      <div id="select-player-before" data-pid="<%= @bid %>" <% if (@pid_to_player[@bid.to_i]) then %>style="background-image:url('<%= @pid_to_player[@bid.to_i][:path] %>');"<% end %>></div>
+      <% if (@before_player) then %>
+        <div id="select-player-before" data-pid="<%= @bid %>" style="background-image:url('/images/players/<%= @bid %>.jpg');"></div>
+      <% else %>
+        <div id="select-player-before" data-pid="0" style="background-image:url('/images/players/0.jpg');"></div>
+      <% end %>
     </div>
     <div class="col-xs-2" style="padding-left:10px; padding-right:10px;">
       <div id="arrow"></div>
@@ -19,9 +23,9 @@
     <form action="" method="post">
       <span><%= @type_to_name[key.to_i] %>: </span>
       <select name="aid" class="select-target">
-        <option value="0" data-image-path="/images/no_image.png">選択してください</option>
+        <option value="0" data-image-path="/images/players/0.jpg">選択してください</option>
         <% value.each do |key, value| %>
-          <option value="<%= key %>" data-image-path="<%= value[:path] %>"><%= value[:name] %></option>
+          <option value="<%= key %>" data-image-path="/images/players/<%= key %>.jpg"><%= value[:fullName] %></option>
         <% end %>
       </select>
     </form>
