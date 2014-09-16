@@ -84,10 +84,13 @@ $ ->
         players.push(cache)
       else
         players.push(0)
+    formationId = localStorage.getItem('current-formation-id')
+    if !formationId
+      formationId = 1
     $.ajax '/image/create',
       type: 'POST'
       dataType: 'json'
-      data: { players: players }
+      data: { players: players, foId: formationId }
       error: (jqXHR, textStatus, errorThrown) ->
         console.log 'error'
       success: (data, textStatus, jqXHR) ->

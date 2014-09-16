@@ -5,19 +5,40 @@ require 'RMagick'
   @@random = Random.new(100)
 
   def create
-    image_positions = {
-      1  => { :x => 270, :y => 100 }, 
-      2  => { :x => 540, :y => 100 },
-      3  => { :x => 405, :y => 320 },
-      4  => { :x => 120, :y => 450 }, 
-      5  => { :x => 405, :y => 580 },
-      6  => { :x => 670, :y => 450 },
-      7  => { :x =>  55, :y => 790 }, 
-      8  => { :x => 280, :y => 830 }, 
-      9  => { :x => 530, :y => 830 }, 
-      10 => { :x => 750, :y => 790 }, 
-      11 => { :x => 405, :y => 1100 } 
+
+    formation_id = params[:foId].to_i
+
+    formation_id_to_position = {
+      1 => {
+        1  => { :x => 270, :y => 100 }, 
+        2  => { :x => 540, :y => 100 },
+        3  => { :x => 405, :y => 320 },
+        4  => { :x => 120, :y => 450 }, 
+        5  => { :x => 405, :y => 580 },
+        6  => { :x => 670, :y => 450 },
+        7  => { :x =>  55, :y => 790 }, 
+        8  => { :x => 280, :y => 830 }, 
+        9  => { :x => 530, :y => 830 }, 
+        10 => { :x => 750, :y => 790 }, 
+        11 => { :x => 405, :y => 1100 } 
+      },
+      2 => {
+        1  => { :x => 405, :y => 100 }, 
+        2  => { :x => 160, :y => 180 },
+        3  => { :x => 650, :y => 180 },
+
+        4  => { :x => 130, :y => 520 }, 
+        5  => { :x => 405, :y => 370 },
+        6  => { :x => 670, :y => 520 },
+        7  => { :x => 405, :y => 630 },
+
+        8  => { :x => 180, :y => 830 }, 
+        9  => { :x => 405, :y => 870 }, 
+        10 => { :x => 630, :y => 830 }, 
+        11 => { :x => 405, :y => 1100 } 
+      },
     }
+    image_positions = formation_id_to_position[formation_id].nil? ? formation_id_to_position[1] : formation_id_to_position[formation_id]
 
     logger.debug params.inspect
     ground = Magick::Image.read("public/images/ground.jpg").first
