@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
     session[:name] = auth['info']['name']
     session[:oauth_token] = auth['credentials']['token']
     session[:oauth_token_secret] = auth['credentials']['secret']
-    redirect_to controller: 'home', action: 'index'
+    redirect_to controller: 'twitter', action: 'index'
   end
 
   def destroy
     reset_session
-    redirect_to controller: 'home', action: 'index'
+    redirect_to :root
   end
 end

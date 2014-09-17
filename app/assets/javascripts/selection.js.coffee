@@ -84,6 +84,30 @@ $ ->
 
 
   $('.selection.show').ready ->
+    $tweetBtn = $('#twitter-tweet-btn')
+    $imageComment = $('#user-image-comment')
+    $commentLength = $('#user-image-comment-length')
+    setCommentLength = (init) ->
+      length = $imageComment.val().length
+      if length > 140
+        $commentLength.text(length + '文字(文字数を減らしてください)')
+        $commentLength.css({"color":"red"})
+        $tweetBtn.css({opacity:"0.3"})
+        $tweetBtn.attr("disabled", "disabled")
+      else
+        $commentLength.text(length + '文字')
+        $commentLength.css({"color":"black"})
+        if !init
+          $tweetBtn.css({opacity:"1.0"})
+          $tweetBtn.removeAttr("disabled")
+
+    questionTitle = localStorage.getItem('current-question-title')
+    if questionTitle
+      $title = $('.common-title > p')
+      $title.text(questionTitle + 'ベストイレブン')
+    $imageComment.text('お題「' + questionTitle + 'ベストイレブン」 #なんでもベストイレブン')
+
+    setCommentLength('init')
     players = []
     for fieldId in [1..11]
       cache = localStorage.getItem('fid' + fieldId)
@@ -94,23 +118,46 @@ $ ->
     formationId = localStorage.getItem('current-formation-id')
     if !formationId
       formationId = 1
-    questionTitle = localStorage.getItem('current-question-title')
-    if questionTitle
-      $title = $('.common-title > p')
-      $title.text(questionTitle + 'ベストイレブン')
+    $imageComment.keyup (e) ->
+      setCommentLength()
+
+    $tweetBtn.on click: ->
+      localStorage.setItem('current-comment', $imageComment.val())
+      location.href = '/twitter'
+
     $.ajax '/image/create',
       type: 'POST'
       dataType: 'json'
       data: { players: players, foId: formationId }
       error: (jqXHR, textStatus, errorThrown) ->
-        console.log 'error'
+        $('#spinner-container').hide()
+        $('#result-error-comment').show()
       success: (data, textStatus, jqXHR) ->
         $('#spinner-container').hide()
         width = screen.width * 0.9;
         height = 4 / 3 * width;
         img = $('<img>').attr({ src: data.path, width: width, height: height})
         $('#result-image').append(img)
-        $('#twitter-tweet-btn').css({opacity:"1.0"})
+        localStorage.setItem('current-image-url', data.path)
+        if $imageComment.val().length <= 140
+          $tweetBtn.css({opacity:"1.0"})
+          $tweetBtn.removeAttr("disabled")
+
+  $('.twitter.index').ready ->
+    url = localStorage.getItem('current-image-url')
+    comment = localStorage.getItem('current-comment')
+    $.ajax '/twitter/tweet',
+      type: 'POST'
+      dataType: 'json'
+      data: { url: url, comment: comment }
+      error: (jqXHR, textStatus, errorThrown) ->
+        $('.common-title > p').text('投稿エラー')
+        $('#spinner-container').hide()
+        $('#result-error-comment').show()
+      success: (data, textStatus, jqXHR) ->
+        $('.common-title > p').text('投稿完了')
+        $('#spinner-container').hide()
+        $('#result-comment').show()
 
 #    _.each {one : 1, two : 2, three : 3}, (num, key) -> console.log num
 #  $('#selection-done').on click: ->

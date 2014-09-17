@@ -1,11 +1,10 @@
 class BaseController < ApplicationController
-  protect_from_forgery
   helper_method :current_user
 
   def login_required
     @current_user = current_user
     unless @current_user
-      redirect_to controller: 'home', action: 'index'
+      redirect_to '/auth/twitter'
     end
   end
 
