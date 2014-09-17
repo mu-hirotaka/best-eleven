@@ -19,9 +19,9 @@ Rails.application.routes.draw do
 #  post 'selection/show_text' => 'selection#show_text', as: :selection_show_text
 
   post 'image/create' => 'image#create', as: :image_create
+  get 'twitter', :to => 'twitter#index', as: :twitter_root
+  post 'twitter/tweet', :to => 'twitter#tweet'
 
-  get 'home/index'
-  get '/tweet', :to => 'home#tweet', :as => 'tweet'
   get '/auth/:provider/callback', :to => 'sessions#callback'
   post '/auth/:provider/callback', :to => 'sessions#callback'
   get '/logout' => 'sessions#destroy', :as => :logout
