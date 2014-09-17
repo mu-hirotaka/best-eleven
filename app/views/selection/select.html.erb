@@ -20,15 +20,21 @@
   </div>
 
   <% @type_to_players.each do |key, value| %>
-    <form action="" method="post">
-      <span><%= @type_to_name[key.to_i] %>: </span>
-      <select name="aid" class="select-target">
-        <option value="0" data-image-path="/images/players/0.jpg">選択してください</option>
-        <% value.each do |key, value| %>
-          <option value="<%= key %>" data-image-path="/images/players/<%= key %>.jpg"><%= value[:fullName] %></option>
-        <% end %>
-      </select>
-    </form>
+    <div class="row" style="margin-top:5px;">
+      <form action="" method="post">
+        <div class="col-xs-6" style="text-align: right;">
+          <span><%= @type_to_name[key.to_i] %>: </span>
+        </div>
+        <div class="col-xs-6" style="text-align: left;">
+          <select name="aid" class="select-target">
+            <option value="0" data-image-path="/images/players/0.jpg">選択してください</option>
+            <% value.each do |key, value| %>
+              <option value="<%= key %>" data-image-path="/images/players/<%= key %>.jpg"><%= value[:fullName] %></option>
+            <% end %>
+          </select>
+        </div>
+      </form>
+    </div>
   <% end %>
 
   <button type="button" id="select-done-btn" class="btn btn-lg btn-primary">決定</button>
