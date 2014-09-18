@@ -18,47 +18,10 @@ require 'RMagick'
     @bid = params[:bid].to_i
     @fid = params[:fid]
 
-    pid_to_player = {
-      1  => { :fullName => '武藤嘉紀' }, 
-      2  => { :fullName => '皆川佑介' },
-      3  => { :fullName => '大迫勇也' },
-      4  => { :fullName => '柿谷曜一朗' }, 
-      5  => { :fullName => '本田圭佑' },
-      6  => { :fullName => '岡崎慎司' },
-      7  => { :fullName => '柴崎岳' }, 
-      8  => { :fullName => '扇原貴宏' }, 
-      9  => { :fullName => '森岡亮太' }, 
-      10 => { :fullName => '田中順也' }, 
-      11 => { :fullName => '細貝萌' },
-      12 => { :fullName => '長谷部誠' },
-      13 => { :fullName => '松原健' },
-      14 => { :fullName => '酒井高徳' }, 
-      15 => { :fullName => '坂井達弥' },
-      16 => { :fullName => '酒井宏樹' },
-      17 => { :fullName => '吉田麻也' },
-      18 => { :fullName => '森重真人' },
-      19 => { :fullName => '長友佑都' },
-      20 => { :fullName => '水本裕貴' },
-      21 => { :fullName => '林彰洋' },
-      22 => { :fullName => '西川周作' },
-      23 => { :fullName => '川島永嗣' },
-      24 => { :fullName => '遠藤保仁' },
-      25 => { :fullName => '香川真司' },
-      26 => { :fullName => '清武弘嗣' },
-      27 => { :fullName => '斎藤学' },
-      28 => { :fullName => '内田篤人' },
-      29 => { :fullName => '山口蛍' },
-      30 => { :fullName => '今野泰幸' },
-      31 => { :fullName => '権田修一' },
-      32 => { :fullName => '阿部慎之助' },
-      33 => { :fullName => 'ダルビッシュ有' },
-      34 => { :fullName => '田中将大' },
-      35 => { :fullName => 'EXILE' },
-      36 => { :fullName => 'みのもんた' },
-      37 => { :fullName => '矢口真里' },
-    }
+    players = Player.all.map{|player| [player.id, player.attributes]}
+    players = Hash[players]
 
-    @before_player = pid_to_player[@bid].nil? ? nil : pid_to_player[@bid]
+    @before_player = players[@bid].nil? ? nil : players[@bid]
 
     @type_to_name = {
       1 => 'サッカー日本代表',
@@ -66,51 +29,7 @@ require 'RMagick'
       3 => '芸能人',
     }
 
-    @type_to_players = {
-      1 => {
-        1  => { :fullName => '武藤嘉紀' }, 
-        2  => { :fullName => '皆川佑介' },
-        3  => { :fullName => '大迫勇也' },
-        4  => { :fullName => '柿谷曜一朗' }, 
-        5  => { :fullName => '本田圭佑' },
-        6  => { :fullName => '岡崎慎司' },
-        7  => { :fullName => '柴崎岳' }, 
-        8  => { :fullName => '扇原貴宏' }, 
-        9  => { :fullName => '森岡亮太' }, 
-        10 => { :fullName => '田中順也' }, 
-        11 => { :fullName => '細貝萌' },
-        12 => { :fullName => '長谷部誠' },
-        13 => { :fullName => '松原健' },
-        14 => { :fullName => '酒井高徳' }, 
-        15 => { :fullName => '坂井達弥' },
-        16 => { :fullName => '酒井宏樹' },
-        17 => { :fullName => '吉田麻也' },
-        18 => { :fullName => '森重真人' },
-        19 => { :fullName => '長友佑都' },
-        20 => { :fullName => '水本裕貴' },
-        21 => { :fullName => '林彰洋' },
-        22 => { :fullName => '西川周作' },
-        23 => { :fullName => '川島永嗣' },
-        24 => { :fullName => '遠藤保仁' },
-        25 => { :fullName => '香川真司' },
-        26 => { :fullName => '清武弘嗣' },
-        27 => { :fullName => '斎藤学' },
-        28 => { :fullName => '内田篤人' },
-        29 => { :fullName => '山口蛍' },
-        30 => { :fullName => '今野泰幸' },
-        31 => { :fullName => '権田修一' },
-      },
-      2 => {
-        32 => { :fullName => '阿部慎之助' },
-        33 => { :fullName => 'ダルビッシュ有' },
-        34 => { :fullName => '田中将大' },
-      },
-      3 => {
-        35 => { :fullName => 'EXILE' },
-        36 => { :fullName => 'みのもんた' },
-        37 => { :fullName => '矢口真里' },
-      },
-    }
+    @type_to_players = Player.all.group_by(&:type_id)
   end
 
 #  def show_text
