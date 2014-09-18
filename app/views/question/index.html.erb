@@ -8,8 +8,8 @@
 
   <div class="question-btn">
   	<ul>
-      <% @questions.each do |key, value| %>
-        <li><button type="button" class="btn btn-lg btn-success question-each-btn" data-question-id="<%= value[:id] %>" data-question-title="<%= value[:title] %>"><%= value[:title] %></button></li>
+      <% @questions.each do |value| %>
+        <li><button type="button" class="btn btn-lg btn-success question-each-btn" data-question-id="<%= value.id %>" data-question-title="<%= value.title %>"><%= value.title %></button></li>
       <% end %>
     </ul>
   </div>
