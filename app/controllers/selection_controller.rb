@@ -2,18 +2,9 @@ class SelectionController < ApplicationController
 require 'redis'
 require 'RMagick'
   def index
-#    Redis.current.set('hoge', 'fuga')
-#    @keys = Redis.current.keys
-
-    @formations = {
-      1 => '',
-      2 => ''
-    }
   end
-
   def show
   end
-
   def select
     @bid = params[:bid].to_i
     @fid = params[:fid]
@@ -33,6 +24,8 @@ require 'RMagick'
   end
 
 #  def show_text
+#    Redis.current.set('hoge', 'fuga')
+#    @keys = Redis.current.keys
 #
 #    positions = {
 #      1  => { :x => 470, :y => 200, :name => 'みのもんた' }, 

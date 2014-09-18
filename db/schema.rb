@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918022830) do
+ActiveRecord::Schema.define(version: 20140918050512) do
+
+  create_table "formations", force: true do |t|
+    t.string   "type_name",      null: false
+    t.string   "title",          null: false
+    t.string   "css_title",      null: false
+    t.text     "image_position", null: false
+    t.text     "text_position",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "players", force: true do |t|
     t.integer  "type_id",    null: false
