@@ -85,3 +85,17 @@ end
   question.save
 end
 
+[
+  { :id => 1, :title => 'サッカー日本代表' },
+  { :id => 2, :title => 'プロ野球選手' },
+  { :id => 3, :title => '芸能人' },
+].each do |record|
+  player_type = PlayerType.where(:id => record[:id]).first
+  if player_type
+    player_type.title = record[:title]
+  else
+    player_type = PlayerType.new(record)
+  end
+  player_type.save
+end
+

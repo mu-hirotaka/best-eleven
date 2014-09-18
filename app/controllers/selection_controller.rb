@@ -11,14 +11,10 @@ require 'RMagick'
 
     players = Player.all.map{|player| [player.id, player.attributes]}
     players = Hash[players]
-
     @before_player = players[@bid].nil? ? nil : players[@bid]
 
-    @type_to_name = {
-      1 => 'サッカー日本代表',
-      2 => 'プロ野球選手',
-      3 => '芸能人',
-    }
+    type_to_name = PlayerType.all.map{|record| [record.id, record.title]}
+    @type_to_name = Hash[type_to_name]
 
     @type_to_players = Player.all.group_by(&:type_id)
   end
