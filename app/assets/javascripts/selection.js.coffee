@@ -49,7 +49,8 @@ $ ->
       $('.position-' + i).on click: ->
         bid = $(this).attr('data-pid')
         fid = $(this).attr('data-fid')
-        location.href = '/selection/select?bid=' + bid + '&fid=' + fid
+        qid = localStorage.getItem('current-question-id')
+        location.href = '/selection/select?bid=' + bid + '&fid=' + fid + '&qid=' + qid
 
     queryParams = getQueryString()
     if queryParams
