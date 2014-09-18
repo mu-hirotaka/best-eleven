@@ -17,4 +17,5 @@ test:
 production:
   <<: *default
   database: best_eleven
+  socket: /var/lib/mysql/mysql.sock
 #  password: <%= ENV['TEST-MYSQL_DATABASE_PASSWORD'] %>
