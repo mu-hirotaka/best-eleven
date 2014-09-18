@@ -22,10 +22,10 @@
   <% @type_to_players.each do |key, value| %>
     <div class="row" style="margin-top:5px;">
       <form action="" method="post">
-        <div class="col-xs-6" style="text-align: right;">
+        <div class="col-xs-6" style="text-align: right; padding-right: 2px;">
           <span><%= @type_to_name[key.to_i] %>: </span>
         </div>
-        <div class="col-xs-6" style="text-align: left;">
+        <div class="col-xs-6" style="text-align: left; padding-left: 2px;">
           <select name="aid" class="select-target">
             <option value="0" data-image-path="/images/players/0.jpg">選択してください</option>
             <% value.each do |player| %>
