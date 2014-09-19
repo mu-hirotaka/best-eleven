@@ -1,4 +1,6 @@
 <div class="text-center">
+  <%= render 'shared/header' %>
+
   <div class="common-title">
     <p>投稿中</p>
   </div>
@@ -17,5 +19,6 @@
   <div id="result-comment">投稿完了しました。</div>
   <div id="result-error-comment">通信エラーが発生しました。電波の良い環境で、はじめからやり直してください。</div>
   <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'">トップページ</button>
-  <div id="footer-relative">Copyright 2010-2014 FromOne co.,Ltd All Rights Reserved.</div>
+
+  <%= render 'shared/footer_relative' %>
 </div>

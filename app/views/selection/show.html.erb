@@ -1,4 +1,6 @@
 <div class="text-center">
+  <%= render 'shared/header' %>
+
   <div class="common-title">
     <p>結果</p>
   </div>
@@ -20,5 +22,6 @@
   <p id="user-image-comment-length"></p>
   <button id="twitter-tweet-btn" type="button" class="btn btn-lg" disabled>tweet</button>
   <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'">トップページ</button>
-  <div id="footer-relative">Copyright 2010-2014 FromOne co.,Ltd All Rights Reserved.</div>
+
+  <%= render 'shared/footer_relative' %>
 </div>

@@ -1,19 +1,11 @@
 <div class="text-center">
-  <div class="sk-header">
-    <a href="http://www.soccer-king.jp/"><img height="44" src="/images/logo.png" alt="サッカーキング - 世界のサッカー情報サイト"></a>
-  </div>
+  <%= render 'shared/header' %>
+
   <div class="jumbotron">
     <h2>なんでも<br>ベストイレブン</h2>
     <p>この世にあるありとあらゆるものの最強の11人(ときに人間ではなくモノも)を選んでください。</p>
   </div>
   <button type="button" class="btn btn-lg btn-primary" onclick="location.href='/question'">はじめる</button>
 
-  <% if current_user %>
-    <div id="footer-top">
-      <p><%= current_user.name %>さんでログイン中 <%= link_to 'ログアウト', logout_path %></p>
-      <p>Copyright 2010-2014 FromOne co.,Ltd All Rights Reserved.</p>
-    </div>
-  <% else %>
-    <div id="footer">Copyright 2010-2014 FromOne co.,Ltd All Rights Reserved.</div>
-  <% end %>
+  <%= render 'shared/footer_welcome' %>
 </div>
