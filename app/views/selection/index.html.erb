@@ -1,4 +1,7 @@
 <div class="text-center">
+  <div class="sk-header">
+    <a href="http://www.soccer-king.jp/"><img height="44" src="/images/logo.png" alt="サッカーキング - 世界のサッカー情報サイト"></a>
+  </div>
   <div id="formation-base">
     <div class="position-1" data-pid="0" data-fid="1"></div>
     <div class="position-2" data-pid="0" data-fid="2"></div>
@@ -14,7 +17,7 @@
   </div>
   <form id="create-form" method="POST" action="<%= selection_show_path %>">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <button type="button" id="create-btn" class="btn btn-lg btn-primary">決定</button>
+    <button type="button" id="create-btn" class="btn btn-lg btn-primary" disabled>決定</button>
   </form>
   <div id="footer">Copyright 2010-2014 FromOne co.,Ltd All Rights Reserved.</div>
 </div>

@@ -30,6 +30,18 @@ $ ->
       location.href = '/selection?foId=' + formationId
 
   $('.selection.index').ready ->
+    $createBtn = $('#create-btn')
+    isValidSelection = ->
+      count = 0
+      for i in [1..11]
+        pid = $('.position-' + i).attr('data-pid')
+        if pid > 0
+          count++
+      if count == 11
+        return true
+      else
+        return false
+
     width = screen.width * 0.9;
     height = 4 / 3 * width;
     $('#formation-base').css({ width: width, height: height });
@@ -62,7 +74,12 @@ $ ->
         $position.attr('data-pid', pid);
         localStorage.setItem('fid' + fid, pid)
 
-    $('#create-btn').on click: ->
+    if isValidSelection()
+      $createBtn.removeAttr("disabled")
+    else
+      $createBtn.attr("disabled", "disabled")
+
+    $createBtn.on click: ->
       form = $('#create-form')
       for i in [1..11]
         $position = $('.position-' + i)
