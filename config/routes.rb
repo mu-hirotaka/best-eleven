@@ -4,11 +4,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index', as: :root
 
-  get  'bokete' => 'bokete#index', as: :bokete_root
-  get  'bokete/select' => 'bokete#select', as: :bokete_select
-  get  'bokete/list' => 'bokete#list', as: :bokete_list
-  post 'bokete/show' => 'bokete#show', as: :bokete_show
-
   get  'question' => 'question#index', as: :question_root
   get  'formation' => 'formation#index', as: :formation_root
   get  'selection' => 'selection#index', as: :selection_root
@@ -25,6 +20,8 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', :to => 'sessions#callback'
   post '/auth/:provider/callback', :to => 'sessions#callback'
   get '/logout' => 'sessions#destroy', :as => :logout
+
+  get '*anything' => 'errors#routing_error'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
