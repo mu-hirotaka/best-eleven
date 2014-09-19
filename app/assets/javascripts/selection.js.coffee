@@ -42,8 +42,11 @@ $ ->
       else
         return false
 
-    width = screen.width * 0.9;
-    height = 4 / 3 * width;
+#    width = screen.width * 0.9
+#    width = document.documentElement.clientWidth * 0.9
+    width = $('html').prop('clientWidth') * 0.9
+    height = 4 / 3 * width
+
     $('#formation-base').css({ width: width, height: height });
     $('#formation-base').addClass('formation-base-image');
     $('#formation-base').addClass(localStorage.getItem('current-formation-type'));
