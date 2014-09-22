@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918064543) do
+ActiveRecord::Schema.define(version: 20140922065020) do
 
   create_table "formations", force: true do |t|
     t.string   "type_name",      null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140918064543) do
     t.text     "valid_player_type_ids", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "valid_st",              null: false
   end
 
 end

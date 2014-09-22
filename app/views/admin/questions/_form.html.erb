@@ -7,10 +7,14 @@
   <%= f.text_field :title, required: true %>
 </div>
 <div>
-  <%= f.label :description, 'description', class: 'required' %>
-  <%= f.text_field :description, required: true %>
+  <%= f.label :description, 'description' %>
+  <%= f.text_field :description %>
 </div>
 <div>
   <%= f.label :valid_player_type_ids, 'valid_player_type_ids', class: 'required' %>
   <%= f.text_field :valid_player_type_ids, required: true %>
+</div>
+<div>
+  <%= f.label :valid_st, 'valid_st', class: 'required' %>
+  <%= f.text_field :valid_st, required: true %>
 </div>

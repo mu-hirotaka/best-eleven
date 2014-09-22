@@ -24,7 +24,7 @@ class Admin::QuestionsController < Admin::Base
 
   private
   def question_params
-    params.require(:question).permit(:title, :description, :valid_player_type_ids)
+    params.require(:question).permit(:title, :description, :valid_player_type_ids, :valid_st)
   end
 
 end

@@ -1,5 +1,5 @@
 class QuestionController < ApplicationController
   def index
-    @questions = Question.all
+    @questions = Question.where("valid_st = ?", 1).order('id DESC')
   end
 end
