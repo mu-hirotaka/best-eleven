@@ -70,15 +70,16 @@ end
 end
 
 [
-  { :id => 1, :title => '伝説の酒豪', :description => '', :valid_player_type_ids => '[]' },
-  { :id => 2, :title => 'アイドル', :description => '', :valid_player_type_ids => '[]' },
-  { :id => 3, :title => '野球', :description => '', :valid_player_type_ids => '[]' },
+  { :id => 1, :title => '伝説の酒豪', :description => '酒めっちゃ飲みそうな人ベストイレブン', :valid_player_type_ids => '[]', :valid_st => 1 },
+  { :id => 2, :title => 'アイドル', :description => 'アイドルでベストイレブン', :valid_player_type_ids => '[]', :valid_st => 1 },
+  { :id => 3, :title => '野球', :description => '野球選手でベストイレブン', :valid_player_type_ids => '[]', :valid_st => 1 },
 ].each do |record|
   question = Question.where(:id => record[:id]).first
   if question
     question.title = record[:title]
     question.description = record[:description]
     question.valid_player_type_ids = record[:valid_player_type_ids]
+    question.valid_st = record[:valid_st]
   else
     question = Question.new(record)
   end
