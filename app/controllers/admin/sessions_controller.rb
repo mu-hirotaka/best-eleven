@@ -11,11 +11,9 @@ class Admin::SessionsController < Admin::Base
   def create
     @form = Admin::LoginForm.new(params[:admin_login_form])
 
-    if @form.username.present?
-      if @form.username == 'sk' && @form.password == 'ks'
-        session[:admin_member] = 1
-        redirect_to :admin_root and return
-      end
+    if Admin::Authenticator.new(@form).authenticate()
+      session[:admin_member] = 1
+      redirect_to :admin_root and return
     end
     render action: 'new'
   end
