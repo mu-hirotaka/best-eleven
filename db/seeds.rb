@@ -39,6 +39,14 @@
   { :id => 35, :type_id => 3, :full_name => 'EXILE', :short_name => 'EXILE', :valid_st => 1 },
   { :id => 36, :type_id => 3, :full_name => 'みのもんた', :short_name => 'みのもんた', :valid_st => 1 },
   { :id => 37, :type_id => 3, :full_name => '矢口真里', :short_name => '矢口', :valid_st => 1 },
+  { :id => 38, :type_id => 2, :full_name => '大谷翔平', :short_name => '大谷', :valid_st => 1 },
+  { :id => 39, :type_id => 2, :full_name => '内川聖一', :short_name => '内川', :valid_st => 1 },
+  { :id => 40, :type_id => 2, :full_name => '井端弘和', :short_name => '井端', :valid_st => 1 },
+  { :id => 41, :type_id => 2, :full_name => '坂本勇人', :short_name => '坂本', :valid_st => 1 },
+  { :id => 42, :type_id => 2, :full_name => '鳥谷敬', :short_name => '鳥谷', :valid_st => 1 },
+  { :id => 43, :type_id => 2, :full_name => '川崎宗則', :short_name => '川崎', :valid_st => 1 },
+  { :id => 44, :type_id => 2, :full_name => '中田翔', :short_name => '中田', :valid_st => 1 },
+  { :id => 45, :type_id => 2, :full_name => 'イチロー', :short_name => 'イチロー', :valid_st => 1 },
 ].each do |record|
   player = Player.where(:id => record[:id]).first
   if player
