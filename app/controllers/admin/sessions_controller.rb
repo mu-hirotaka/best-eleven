@@ -1,4 +1,5 @@
 class Admin::SessionsController < Admin::Base
+  skip_before_action :authorize
   def new
     if current_admin_member
       redirect_to :admin_root
