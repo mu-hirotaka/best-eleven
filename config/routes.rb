@@ -21,6 +21,13 @@ Rails.application.routes.draw do
   post '/auth/:provider/callback', :to => 'sessions#callback'
   get '/logout' => 'sessions#destroy', :as => :logout
 
+  namespace :admin do
+    root 'top#index'
+    get 'login' => 'sessions#new', as: :login
+    post 'session' => 'sessions#create', as: :session
+    delete 'session' => 'sessions#destroy'
+  end
+
   get '*anything' => 'errors#routing_error'
 
   # Example of regular route:

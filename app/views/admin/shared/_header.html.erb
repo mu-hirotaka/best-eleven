@@ -1,0 +1,10 @@
+<header>
+  <span class="logo-mark">DEBUG</span>
+  <%=
+    if current_admin_member
+      link_to 'ログアウト', :admin_session, method: :delete
+    else
+      link_to 'ログイン', :admin_login
+    end
+  %>
+</header>
