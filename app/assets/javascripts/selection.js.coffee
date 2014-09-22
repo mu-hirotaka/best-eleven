@@ -44,7 +44,8 @@ $ ->
 
 #    width = screen.width * 0.9
 #    width = document.documentElement.clientWidth * 0.9
-    width = $('html').prop('clientWidth') * 0.9
+#    width = $('html').prop('clientWidth') * 0.9
+    width = $('.container').width()
     height = 4 / 3 * width
 
     $('#formation-base').css({ width: width, height: height });
@@ -155,7 +156,7 @@ $ ->
         $('#result-error-comment').show()
       success: (data, textStatus, jqXHR) ->
         $('#spinner-container').hide()
-        width = screen.width * 0.9;
+        width = $('.container').width()
         height = 4 / 3 * width;
         img = $('<img>').attr({ src: data.path, width: width, height: height})
         $('#result-image').append(img)
