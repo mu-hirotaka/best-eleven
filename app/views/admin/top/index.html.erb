@@ -1,1 +1,8 @@
 <%= render 'admin/shared/header' %>
+
+<ul>
+  <li><%= link_to '選手一覧', [ :admin, :players ] %></li>
+  <li><%= link_to 'フォーメーション一覧', [ :admin, :formations ] %></li>
+  <li><%= link_to 'お題一覧', [ :admin, :questions ] %></li>
+  <li><%= link_to '選手タイプ一覧', [ :admin, :player_types ] %></li>
+</ul>

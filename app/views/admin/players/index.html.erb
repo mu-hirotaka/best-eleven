@@ -1,0 +1,29 @@
+<%= render 'admin/shared/header' %>
+
+<% @title = '選手一覧' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <table class="listing">
+    <tr>
+      <th>id</th>
+      <th>type_id</th>
+      <th>full_name</th>
+      <th>short_name</th>
+      <th>valid_st</th>
+      <th>アクション</th>
+    </tr>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.id %></td>
+        <td><%= player.type_id %></td>
+        <td><%= player.full_name %></td>
+        <td><%= player.short_name %></td>
+        <td><%= player.valid_st %></td>
+        <td class="actions">
+          <%= link_to '編集', [ :edit, :admin, player ] %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

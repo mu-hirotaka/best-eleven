@@ -1,0 +1,31 @@
+<%= render 'admin/shared/header' %>
+
+<% @title = 'フォーメーション一覧' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <table class="listing">
+    <tr>
+      <th>id</th>
+      <th>type_name</th>
+      <th>title</th>
+      <th>css_title</th>
+      <th>image_position</th>
+      <th>text_position</th>
+      <th>アクション</th>
+    </tr>
+    <% @formations.each do |formation| %>
+      <tr>
+        <td><%= formation.id %></td>
+        <td><%= formation.type_name %></td>
+        <td><%= formation.title %></td>
+        <td><%= formation.css_title %></td>
+        <td><%= formation.image_position %></td>
+        <td><%= formation.text_position %></td>
+        <td class="actions">
+          <%= link_to '編集', [ :edit, :admin, formation ] %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

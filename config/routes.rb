@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     get 'login' => 'sessions#new', as: :login
     post 'session' => 'sessions#create', as: :session
     delete 'session' => 'sessions#destroy'
+    resources :players, except: [ :new, :create, :destroy ]
+    resources :formations, except: [ :new, :create, :destroy ]
+    resources :questions, except: [ :new, :create, :destroy ]
+    resources :player_types, except: [ :new, :create, :destroy ]
   end
 
   get '*anything' => 'errors#routing_error'

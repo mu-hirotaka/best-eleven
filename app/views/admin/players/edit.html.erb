@@ -1,0 +1,14 @@
+<%= render 'admin/shared/header' %>
+
+<% @title = '選手編集' %>
+<h1><%= @title %></h1>
+
+<div id="generic-form">
+  <%= form_for [ :admin, @player ] do |f| %>
+    <%= render 'form', f: f %>
+    <div class="buttons">
+      <%= f.submit '更新' %>
+      <%= link_to 'キャンセル', :admin_players %>
+    </div>
+  <% end %>
+</div>

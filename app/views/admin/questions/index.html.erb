@@ -1,0 +1,27 @@
+<%= render 'admin/shared/header' %>
+
+<% @title = 'お題一覧' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <table class="listing">
+    <tr>
+      <th>id</th>
+      <th>title</th>
+      <th>description</th>
+      <th>valid_player_type_ids</th>
+      <th>アクション</th>
+    </tr>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.id %></td>
+        <td><%= question.title %></td>
+        <td><%= question.description %></td>
+        <td><%= question.valid_player_type_ids %></td>
+        <td class="actions">
+          <%= link_to '編集', [ :edit, :admin, question ] %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
