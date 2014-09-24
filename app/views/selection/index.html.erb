@@ -19,6 +19,7 @@
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <button type="button" id="create-btn" class="btn btn-lg btn-primary" disabled>決定</button>
   </form>
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'" style="margin-top: 5px;">トップページ</button>
 
   <%= render 'shared/footer_relative' %>
 </div>

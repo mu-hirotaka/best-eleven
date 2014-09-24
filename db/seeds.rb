@@ -47,6 +47,17 @@
   { :id => 43, :type_id => 2, :full_name => '川崎宗則', :short_name => '川崎', :valid_st => 1 },
   { :id => 44, :type_id => 2, :full_name => '中田翔', :short_name => '中田', :valid_st => 1 },
   { :id => 45, :type_id => 2, :full_name => 'イチロー', :short_name => 'イチロー', :valid_st => 1 },
+  { :id => 46, :type_id => 4, :full_name => '生駒里奈', :short_name => '生駒', :valid_st => 1 },
+  { :id => 47, :type_id => 4, :full_name => '宮脇咲良', :short_name => '宮脇', :valid_st => 1 },
+  { :id => 48, :type_id => 4, :full_name => '百田夏菜子', :short_name => '百田', :valid_st => 1 },
+  { :id => 49, :type_id => 4, :full_name => '浅川梨奈', :short_name => '浅川', :valid_st => 1 },
+  { :id => 50, :type_id => 4, :full_name => '傳谷英里香', :short_name => '傳谷', :valid_st => 1 },
+  { :id => 51, :type_id => 4, :full_name => '藤本結衣', :short_name => '藤本', :valid_st => 1 },
+  { :id => 52, :type_id => 4, :full_name => '真山りか', :short_name => '真山', :valid_st => 1 },
+  { :id => 53, :type_id => 4, :full_name => '夢眠ねむ', :short_name => '夢眠', :valid_st => 1 },
+  { :id => 54, :type_id => 4, :full_name => '道重さゆみ', :short_name => '道重', :valid_st => 1 },
+  { :id => 55, :type_id => 4, :full_name => '指原莉乃', :short_name => '指原', :valid_st => 1 },
+  { :id => 56, :type_id => 4, :full_name => '高橋みなみ', :short_name => '高橋', :valid_st => 1 },
 ].each do |record|
   player = Player.where(:id => record[:id]).first
   if player
@@ -79,8 +90,8 @@ end
 
 [
   { :id => 1, :title => '伝説の酒豪', :description => '酒めっちゃ飲みそうな人ベストイレブン', :valid_player_type_ids => '[]', :valid_st => 1 },
-  { :id => 2, :title => 'アイドル', :description => 'アイドルでベストイレブン', :valid_player_type_ids => '[]', :valid_st => 1 },
-  { :id => 3, :title => '野球', :description => '野球選手でベストイレブン', :valid_player_type_ids => '[]', :valid_st => 1 },
+  { :id => 2, :title => 'アイドル', :description => 'アイドルでベストイレブン', :valid_player_type_ids => '[4]', :valid_st => 1 },
+  { :id => 3, :title => '野球', :description => '野球選手でベストイレブン', :valid_player_type_ids => '[2]', :valid_st => 1 },
 ].each do |record|
   question = Question.where(:id => record[:id]).first
   if question
@@ -98,6 +109,7 @@ end
   { :id => 1, :title => 'サッカー日本代表' },
   { :id => 2, :title => 'プロ野球選手' },
   { :id => 3, :title => '芸能人' },
+  { :id => 4, :title => 'アイドル' },
 ].each do |record|
   player_type = PlayerType.where(:id => record[:id]).first
   if player_type

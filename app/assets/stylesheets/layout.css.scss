@@ -91,38 +91,6 @@ html, body {
   }
 }
 
-.player-selection {
-  ul {
-    padding-left: 0px;
-    list-style-type: none;
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    li {
-      display: table-cell;
-      vertical-align: middle;
-      span {
-        display: block;
-      }
-    }
-  }
-  input[type="checkbox"] {
-    -webkit-appearance: none;
-    outline: none;
-    width: 100px;
-    height: 100px;
-    background-size: contain !important;
-  }
-  input[type="checkbox"]:checked:before {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: url(/images/checked.png);
-    background-size: contain !important;
-  }
-}
-
 .block-anchor {
   display: block;
   background: #eee;
@@ -524,4 +492,14 @@ button#create-btn {
   border-bottom-color: #000000;
   border-width: 14px;
   margin-left: -14px;
+}
+
+.player-selection {
+  margin: 15px 0px 0px 0px;
+  padding: 5px 0px;
+  background-color: #ffdfd9;
+  border: 2px solid #999999;
+  -moz-box-shadow: 0px 0px 14px #000000;
+  -webkit-box-shadow: 0px 0px 14px #000000;
+  box-shadow: 0px 0px 14px #000000;
 }
