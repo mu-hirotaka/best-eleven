@@ -14,7 +14,6 @@ class ImageController < ApplicationController
 
     # draw text
     dr = Magick::Draw.new
-#    dr.font = 'ヒラギノ丸ゴ-Pro-W4'
     dr.font = Rails.root.join('app', 'assets', 'fonts', 'ipaexg.ttf').to_s
     dr.stroke('transparent')
     dr.fill('black')
