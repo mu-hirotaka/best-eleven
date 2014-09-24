@@ -1,0 +1,21 @@
+<%= render 'admin/shared/header' %>
+
+<% @title = 'ユーザー投稿画像一覧' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <table class="listing">
+    <tr>
+      <th>id</th>
+      <th>question_id</th>
+      <th>image</th>
+    </tr>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= image.id %></td>
+        <td><%= @question_to_title[image.question_id] %></td>
+        <td><%= image_tag(@image_host + image.image_name, :size => '300x400') %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

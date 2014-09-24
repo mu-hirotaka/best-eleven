@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :formations, except: [ :new, :create, :destroy ]
     resources :questions, except: [ :new, :create, :destroy ]
     resources :player_types, except: [ :new, :create, :destroy ]
+    resources :user_post_images, only: [ :index ]
   end
 
   get '*anything' => 'errors#routing_error'
