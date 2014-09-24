@@ -1,6 +1,6 @@
-class ImageController < ApplicationController
 require 'redis'
 require 'RMagick'
+class ImageController < ApplicationController
   AWS.config(access_key_id: Settings.s3.access_key_id, secret_access_key: Settings.s3.secret_access_key, region: Settings.s3.region)
   @@random = Random.new(100)
 
@@ -14,7 +14,8 @@ require 'RMagick'
 
     # draw text
     dr = Magick::Draw.new
-    dr.font = 'ヒラギノ丸ゴ-Pro-W4'
+#    dr.font = 'ヒラギノ丸ゴ-Pro-W4'
+    dr.font = Rails.root.join('app', 'assets', 'fonts', 'ipaexg.ttf').to_s
     dr.stroke('transparent')
     dr.fill('black')
     dr.pointsize = 32
@@ -51,5 +52,13 @@ require 'RMagick'
     user_post_image.save
 
     render :json => { :status => 'success', :path => Settings.s3.image_url_path + output_filename }
+  end
+end
+module Magick
+  class Draw
+    # Specify text drawing font
+    def font(name)
+      primitive "font '#{name}'"
+    end
   end
 end
