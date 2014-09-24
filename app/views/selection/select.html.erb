@@ -1,23 +1,23 @@
 <div class="text-center">
   <%= render 'shared/header' %>
 
-  <div class="row" style="margin-top:5px;">
-    <div class="col-xs-5" style="padding-left:10px; padding-right:10px;">
-      <% if (@before_player) then %>
-        <div id="select-player-before" data-pid="<%= @bid %>" style="background-image:url('/images/players/<%= @bid %>.jpg');"></div>
-      <% else %>
-        <div id="select-player-before" data-pid="0" style="background-image:url('/images/players/0.jpg');"></div>
-      <% end %>
-    </div>
-    <div class="col-xs-2" style="padding-left:10px; padding-right:10px;">
-      <div id="arrow"></div>
-    </div>
-    <div class="col-xs-5" style="padding-left:10px; padding-right:10px;">
-      <div id="select-player-after" data-pid="0" data-fid="<%= @fid %>"></div>
-    </div>
-  </div>
-
   <div class="player-selection">
+    <div class="row" style="margin-top:5px;">
+      <div class="col-xs-5" style="padding-left:10px; padding-right:10px;">
+        <% if (@before_player) then %>
+          <div id="select-player-before" data-pid="<%= @bid %>" style="background-image:url('/images/players/<%= @bid %>.jpg');"></div>
+        <% else %>
+          <div id="select-player-before" data-pid="0" style="background-image:url('/images/players/0.jpg');"></div>
+        <% end %>
+      </div>
+      <div class="col-xs-2" style="padding-left:10px; padding-right:10px;">
+        <div id="arrow"></div>
+      </div>
+      <div class="col-xs-5" style="padding-left:10px; padding-right:10px;">
+        <div id="select-player-after" data-pid="0" data-fid="<%= @fid %>"></div>
+      </div>
+    </div>
+
     <% @type_to_players.each do |key, value| %>
       <div class="row" style="margin-top:5px;">
         <form action="" method="post">
