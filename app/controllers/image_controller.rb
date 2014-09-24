@@ -5,6 +5,7 @@ require 'RMagick'
   @@random = Random.new(100)
 
   def create
+    question_id = params[:qid].to_i
     formation_id = params[:foId].to_i
     formation = Formation.find_by(id: formation_id)
     positions = JSON.parse(formation.image_position)
@@ -29,6 +30,10 @@ require 'RMagick'
     bucket = s3.buckets[Settings.s3.buckets_name]
     object = bucket.objects['images/' + output_filename]
     object.write(ground.to_blob, :acl => :public_read)
+
+    # DB保存
+    user_post_image = UserPostImage.new(question_id: question_id, image_name: output_filename)
+    user_post_image.save
 
     render :json => { :status => 'success', :path => Settings.s3.image_url_path + output_filename }
   end

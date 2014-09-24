@@ -123,6 +123,7 @@ $ ->
           $tweetBtn.css({opacity:"1.0"})
           $tweetBtn.removeAttr("disabled")
 
+    qid = localStorage.getItem('current-question-id')
     questionTitle = localStorage.getItem('current-question-title')
     if questionTitle
       $title = $('.common-title > p')
@@ -150,7 +151,7 @@ $ ->
     $.ajax '/image/create',
       type: 'POST'
       dataType: 'json'
-      data: { players: players, foId: formationId }
+      data: { players: players, foId: formationId, qid: qid }
       error: (jqXHR, textStatus, errorThrown) ->
         $('#spinner-container').hide()
         $('#result-error-comment').show()
