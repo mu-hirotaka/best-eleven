@@ -4,6 +4,7 @@
 <h1><%= @title %></h1>
 
 <div class="table-wrapper">
+  <%= paginate @images %>
   <table class="listing">
     <tr>
       <th>id</th>
@@ -18,4 +19,5 @@
       </tr>
     <% end %>
   </table>
+  <%= paginate @images %>
 </div>
