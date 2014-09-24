@@ -12,17 +12,32 @@ require 'RMagick'
 
     ground = Magick::Image.read("public/images/ground.jpg").first
 
+    # draw text
+    dr = Magick::Draw.new
+    dr.font = 'ヒラギノ丸ゴ-Pro-W4'
+    dr.stroke('transparent')
+    dr.fill('black')
+    dr.pointsize = 32
+    dr.text_antialias = true
+
     # conposite image
     player_ids = params[:players]
+    players = Player.where(id: player_ids).map{|record| [record.id, record.attributes]}
+    players = Hash[players]
     positions.each_with_index {|(key, value),i|
       if player_ids[i].nil?
         player = Magick::Image.read('public/images/no_image.png').first
       else
         player = Magick::Image.read('public/images/players/' + player_ids[i] + '.jpg').first
       end
+      tmp_player = players[player_ids[i].to_i]
+      metrix = dr.get_type_metrics(tmp_player["short_name"])
+      dr.text(value["x"].to_i + 100 - metrix.width / 2, value["y"].to_i + 230, tmp_player["short_name"])
       player.resize!(2.0)
       ground = ground.composite(player, value["x"].to_i, value["y"].to_i, Magick::OverCompositeOp)
     }
+    dr.draw(ground)
+
     output_filename = Time.now.strftime("%Y%m%d-%H%M%S") + '-' + @@random.rand(1000).to_s + '.png'
 
     # S3へ保存
