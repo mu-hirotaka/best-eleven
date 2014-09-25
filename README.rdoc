@@ -35,6 +35,23 @@
   $ rbenv exec gem install bundler
   $ rbenv rehash
 
+=== Amazon S3 セットアップ
+{こちら}[http://joppot.info/2014/06/13/1583]を参考に、
+S3にバケットを作成し、access_key_idとsecret_access_keyを取得した後、下記の作業を行う。
+  $ echo 'export S3_ACCESS_KEY_ID=*****' >> ~/.bash_profile
+  $ export S3_ACCESS_KEY_ID=*****
+  $ echo 'export S3_SECRET_ACCESS_KEY=*****' >> ~/.bash_profile
+  $ export S3_SECRET_ACCESS_KEY=*****
+  # 例) 下記はregionがap-northeast-1の場合
+  $ echo 'export AWS_REGION=ap-northeast-1' >> ~/.bash_profile
+  $ export AWS_REGION=ap-northeast-1
+  # 例) 下記はバケット名がbest-eleven-contentsの場合
+  $ echo 'export BUCKETS_NAME=best-eleven-contents' >> ~/.bash_profile
+  $ export BUCKETS_NAME=best-eleven-contents
+  # 例) 下記はurlがhttp://s3-ap-northeast-1.amazonaws.com/best-eleven-contents/の場合
+  $ echo 'export S3_IMAGE_URL_PATH=http://s3-ap-northeast-1.amazonaws.com/best-eleven-contents/' >> ~/.bash_profile
+  $ export S3_IMAGE_URL_PATH=http://s3-ap-northeast-1.amazonaws.com/best-eleven-contents/
+
 === best-eleven install
   $ git clone https://github.com/mu-hirotaka/best-eleven.git
   $ cd best-eleven

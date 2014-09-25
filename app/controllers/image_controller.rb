@@ -43,7 +43,7 @@ class ImageController < ApplicationController
     # S3へ保存
     s3 = AWS::S3.new
     bucket = s3.buckets[Settings.s3.buckets_name]
-    object = bucket.objects['images/' + output_filename]
+    object = bucket.objects[output_filename]
     object.write(ground.to_blob, :acl => :public_read)
 
     # DB保存
