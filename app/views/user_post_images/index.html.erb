@@ -1,0 +1,13 @@
+<div class="text-center">
+  <%= render 'shared/header' %>
+  <div class="common-title">
+    <p>最近投稿された画像</p>
+  </div>
+  <% @images.each do |image| %>
+    <div><%= @question_to_title[image.question_id] %>ベストイレブン</div>
+    <div><%= image_tag(@image_host + image.image_name, class: 'user-post-image') %></div>
+  <% end %>
+  <%= paginate @images %>
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'" style="margin-top: 5px;">トップページ</button>
+  <%= render 'shared/footer_relative' %>
+</div>

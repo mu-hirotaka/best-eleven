@@ -182,6 +182,11 @@ $ ->
         $('#spinner-container').hide()
         $('#result-comment').show()
 
+  $('.user_post_images.index').ready ->
+    width = $('.container').width()
+    height = 4 / 3 * width
+    $('.user-post-image').css({ width: width, height: height });
+
 #    _.each {one : 1, two : 2, three : 3}, (num, key) -> console.log num
 #  $('#selection-done').on click: ->
 #    $(':checkbox').each (index, element) =>

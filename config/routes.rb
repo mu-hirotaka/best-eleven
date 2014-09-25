@@ -10,9 +10,6 @@ Rails.application.routes.draw do
   post 'selection/show' => 'selection#show', as: :selection_show
   get  'selection/select' => 'selection#select', as: :selection_select
 
-#  get  'selection/text' => 'selection#text', as: :selection_text
-#  post 'selection/show_text' => 'selection#show_text', as: :selection_show_text
-
   post 'image/create' => 'image#create', as: :image_create
   get 'twitter', :to => 'twitter#index', as: :twitter_root
   post 'twitter/tweet', :to => 'twitter#tweet'
@@ -20,6 +17,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', :to => 'sessions#callback'
   post '/auth/:provider/callback', :to => 'sessions#callback'
   get '/logout' => 'sessions#destroy', :as => :logout
+  resources :user_post_images, only: [ :index ]
 
   namespace :admin do
     root 'top#index'
