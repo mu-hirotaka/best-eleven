@@ -1,28 +1,60 @@
-== README
+== Installation(on Amazon Linux AMI 2014.09)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== いろいろインストール
+  $ sudo yum -y update
+  $ sudo yum install -y gcc gcc-c++ git mysql-server mysql-devel openssl-devel ruby-devel curl-devel patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel make bzip2 iconv-devel ImageMagick-devel libxml2-devel libxslt-devel
 
-Things you may want to cover:
+=== 日本時間に設定
+  $ sudo cp /usr/share/zoneinfo/Japan /etc/localtime
 
-* Ruby version
+=== mysql設定
+  $ sudo service mysqld start
+  $ sudo chkconfig mysqld on
 
-* System dependencies
+=== redis install
+  $ sudo yum --enablerepo=epel -y install redis
+  $ sudo service redis start
+  $ sudo chkconfig redis on
 
-* Configuration
+=== rbenv install
+  $ cd ~
+  $ git clone git://github.com/sstephenson/rbenv.git .rbenv
+  $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+  $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+  $ exec $SHELL -l
 
-* Database creation
+=== ruby-build install
+  $ git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-* Database initialization
+=== ruby install
+  $ rbenv install 2.0.0-p353
+  $ rbenv global 2.0.0-p353
+  $ rbenv rehash
 
-* How to run the test suite
+=== bundler install
+  $ rbenv exec gem install bundler
+  $ rbenv rehash
 
-* Services (job queues, cache servers, search engines, etc.)
+=== best-eleven install
+  $ git clone https://github.com/mu-hirotaka/best-eleven.git
+  $ cd best-eleven
+  $ bin/bundle install --deployment
+  $ bin/rake db:create RAILS_ENV=production
+  $ bin/rake db:migrate RAILS_ENV=production
+  $ bin/rake db:seed RAILS_ENV=production
+  $ ruby -e 'require "securerandom"; print SecureRandom.hex(64)' > ~/.rails_secret_key_base
+  $ export SECRET_KEY_BASE=`cat ~/.rails_secret_key_base`
+  $ bin/bundle exec unicorn_rails -c config/unicorn.rb -D -E production
 
-* Deployment instructions
+=== nginx install(ec2-userで起動する場合の例)
+  $ sudo yum -y install nginx
+  $ cd ~
+  $ git clone https://github.com/mu-hirotaka/rails-settings.git 
+  # best-eleven.conf内のec2-userになってる部分は適宜書き換える
+  $ sudo cp ~/rails-settings/nginx/best-eleven.conf /etc/nginx/conf.d/
+  # ユーザー名をec2-userに書き換える
+  $ sudo vim /etc/nginx/nginx.conf
+  # user ec2-user;
+  $ sudo service nginx start
+  $ sudo chkconfig nginx on
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
