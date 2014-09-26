@@ -6,4 +6,10 @@ class UserPostImagesController < ApplicationController
     questions = Question.all.map{|record| [record.id, record.title]}
     @question_to_title = Hash[questions]
   end
+  def good
+    @image = UserPostImage.find(params[:id])
+    @image.point = @image.point + 1;
+    @image.save
+    render :json => { :status => 'success' }
+  end
 end

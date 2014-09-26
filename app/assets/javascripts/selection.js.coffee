@@ -190,10 +190,33 @@ $ ->
         $('#result-comment').show()
 
   $('.user_post_images.index').ready ->
+    $pointBtn = $('.btn-point')
     width = $('.container').width()
     height = 4 / 3 * width
     $('.user-post-image').css({ width: width, height: height });
 
+    $pointBtn.each ->
+      $this = $(this)
+      if !localStorage.getItem('good-' + $this.attr('data-image-id'))
+        $this.css({opacity:"1.0"})
+        $this.removeAttr("disabled")
+
+    $pointBtn.on click: ->
+      $this = $(this)
+      $this.css({opacity:"0.8"})
+      $this.attr("disabled", "disabled")
+      id = $this.attr('data-image-id')
+      $point = $this.children('span')
+      nextPoint = parseInt($point.text()) + 1
+      $point.text(nextPoint)
+      localStorage.setItem('good-' + id, true)
+      $.ajax '/user_post_image/good',
+        type: 'POST'
+        dataType: 'json'
+        data: { id: id }
+        error: (jqXHR, textStatus, errorThrown) ->
+        success: (data, textStatus, jqXHR) ->
+ 
 #    _.each {one : 1, two : 2, three : 3}, (num, key) -> console.log num
 #  $('#selection-done').on click: ->
 #    $(':checkbox').each (index, element) =>

@@ -14,10 +14,12 @@ Rails.application.routes.draw do
   get 'twitter', :to => 'twitter#index', as: :twitter_root
   post 'twitter/tweet', :to => 'twitter#tweet'
 
+  get 'user_post_image' => 'user_post_images#index', as: :user_post_image_root
+  post 'user_post_image/good' => 'user_post_images#good'
+
   get '/auth/:provider/callback', :to => 'sessions#callback'
   post '/auth/:provider/callback', :to => 'sessions#callback'
   get '/logout' => 'sessions#destroy', :as => :logout
-  resources :user_post_images, only: [ :index ]
 
   namespace :admin do
     root 'top#index'

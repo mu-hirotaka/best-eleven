@@ -4,8 +4,11 @@
     <p>最近投稿された画像</p>
   </div>
   <% @images.each do |image| %>
-    <div><%= @question_to_title[image.question_id] %>ベストイレブン</div>
-    <div><%= image_tag(@image_host + image.image_name, class: 'user-post-image') %></div>
+    <div class="user-post-image-question"><%= @question_to_title[image.question_id] %>ベストイレブン</div>
+    <div style="position:relative;">
+      <%= image_tag(@image_host + image.image_name, class: 'user-post-image') %>
+      <button class="btn-point" data-image-id="<%= image.id %>" disabled><span><%= image.point %></span> Good</button>
+    </div>
     <% if image.comment && image.comment.length > 0 %>
       <div class="user-posted-comment"><%= image.comment %></div>
     <% end %>
