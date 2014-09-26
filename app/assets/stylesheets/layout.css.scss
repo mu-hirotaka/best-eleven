@@ -525,7 +525,8 @@ button#create-btn {
 .btn-point {
   position: absolute;
   right: 10px;
-  bottom: 20px;
+  bottom: 10px;
+  font-size: 10px;
   opacity: 0.8;
   background: -moz-linear-gradient(top,#0099CC 0%,#006699);
   background: -webkit-gradient(linear, left top, left bottom, from(#0099CC), to(#006699));
@@ -542,4 +543,8 @@ button#create-btn {
 .user-post-image-question {
   font-size: 17px;
   margin-top: 5px;
+}
+
+.point-value {
+  font-size: 14px;
 }
