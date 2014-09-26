@@ -203,7 +203,7 @@ $ ->
 
     $pointBtn.on click: ->
       $this = $(this)
-      $this.css({opacity:"0.7"})
+      $this.css({opacity:"0.6"})
       $this.attr("disabled", "disabled")
       id = $this.attr('data-image-id')
       $point = $this.children('span')
