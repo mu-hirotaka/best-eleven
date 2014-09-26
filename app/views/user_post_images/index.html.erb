@@ -10,7 +10,7 @@
       <button class="btn-point" data-image-id="<%= image.id %>" disabled><span class="point-value"><%= image.point %></span> Good</button>
     </div>
     <% if image.comment && image.comment.length > 0 %>
-      <div class="user-posted-comment"><%= image.comment %></div>
+      <div class="arrow_box"><%= image.comment %></div>
     <% end %>
   <% end %>
   <%= paginate @images %>
