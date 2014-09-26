@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924030447) do
+ActiveRecord::Schema.define(version: 20140926023010) do
 
   create_table "formations", force: true do |t|
     t.string   "type_name",      null: false
@@ -48,11 +48,12 @@ ActiveRecord::Schema.define(version: 20140924030447) do
   end
 
   create_table "user_post_images", force: true do |t|
-    t.integer  "question_id", null: false
-    t.string   "image_name",  null: false
+    t.integer  "question_id",             null: false
+    t.string   "image_name",              null: false
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "point",       default: 0
   end
 
 end
