@@ -31,6 +31,7 @@ $ ->
 
   $('.selection.index').ready ->
     $createBtn = $('#create-btn')
+    $comment = $('#post-image-comment')
     isValidSelection = ->
       count = 0
       for i in [1..11]
@@ -66,7 +67,13 @@ $ ->
         bid = $(this).attr('data-pid')
         fid = $(this).attr('data-fid')
         qid = localStorage.getItem('current-question-id')
+        if $comment.val().length > 0
+          localStorage.setItem('current-internal-comment', $comment.val())
         location.href = '/selection/select?bid=' + bid + '&fid=' + fid + '&qid=' + qid
+
+    internalComment = localStorage.getItem('current-internal-comment')
+    if internalComment
+      $comment.text(internalComment)
 
     queryParams = getQueryString()
     if queryParams
@@ -84,16 +91,11 @@ $ ->
       $createBtn.attr("disabled", "disabled")
 
     $createBtn.on click: ->
-      form = $('#create-form')
-      for i in [1..11]
-        $position = $('.position-' + i)
-        bid = $position.attr('data-pid')
-        $elm = $('<input>');
-        $elm.attr('name', 'players[]')
-        $elm.attr('type', 'hidden')
-        $elm.attr('value', bid)
-        form.append($elm)
-      form.submit()
+      if $comment.val().length > 0
+        localStorage.setItem('current-internal-comment', $comment.val())
+      else
+        localStorage.removeItem('current-internal-comment')
+      location.href = '/selection/show'
 
   $('.selection.select').ready ->
     $('.select-target').on change: ->
@@ -128,7 +130,12 @@ $ ->
     if questionTitle
       $title = $('.common-title > p')
       $title.text(questionTitle + 'ベストイレブン')
-    $imageComment.text('お題「' + questionTitle + 'ベストイレブン」 #なんでもベストイレブン')
+
+    internalComment = localStorage.getItem('current-internal-comment')
+    if internalComment
+      $imageComment.text(internalComment + ' #' + questionTitle + 'ベストイレブン #なんでもベストイレブン')
+    else
+      $imageComment.text(' #' + questionTitle + 'ベストイレブン #なんでもベストイレブン')
 
     setCommentLength('init')
     players = []
@@ -151,7 +158,7 @@ $ ->
     $.ajax '/image/create',
       type: 'POST'
       dataType: 'json'
-      data: { players: players, foId: formationId, qid: qid }
+      data: { players: players, foId: formationId, qid: qid, comment: internalComment }
       error: (jqXHR, textStatus, errorThrown) ->
         $('#spinner-container').hide()
         $('#result-error-comment').show()

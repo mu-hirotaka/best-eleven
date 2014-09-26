@@ -15,10 +15,8 @@
     <div class="position-10" data-pid="0" data-fid="10"></div>
     <div class="position-11" data-pid="0" data-fid="11"></div>
   </div>
-  <form id="create-form" method="POST" action="<%= selection_show_path %>">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <button type="button" id="create-btn" class="btn btn-lg btn-primary" disabled>決定</button>
-  </form>
+  <textarea rows="4" id="post-image-comment" placeholder="コメントを入力してください(任意)"></textarea>
+  <button type="button" id="create-btn" class="btn btn-lg btn-primary" disabled>決定</button>
   <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'" style="margin-top: 5px;">トップページ</button>
 
   <%= render 'shared/footer_relative' %>

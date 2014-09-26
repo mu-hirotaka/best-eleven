@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   root 'welcome#index', as: :root
 
-  get  'question' => 'question#index', as: :question_root
-  get  'formation' => 'formation#index', as: :formation_root
-  get  'selection' => 'selection#index', as: :selection_root
-  post 'selection/show' => 'selection#show', as: :selection_show
-  get  'selection/select' => 'selection#select', as: :selection_select
+  get 'question' => 'question#index', as: :question_root
+  get 'formation' => 'formation#index', as: :formation_root
+  get 'selection' => 'selection#index', as: :selection_root
+  get 'selection/show' => 'selection#show', as: :selection_show
+  get 'selection/select' => 'selection#select', as: :selection_select
 
   post 'image/create' => 'image#create', as: :image_create
   get 'twitter', :to => 'twitter#index', as: :twitter_root

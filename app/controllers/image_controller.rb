@@ -7,6 +7,7 @@ class ImageController < ApplicationController
   def create
     question_id = params[:qid].to_i
     formation_id = params[:foId].to_i
+    comment = params[:comment]
     formation = Formation.find_by(id: formation_id)
     positions = JSON.parse(formation.image_position)
 
@@ -47,7 +48,11 @@ class ImageController < ApplicationController
     object.write(ground.to_blob, :acl => :public_read)
 
     # DB保存
-    user_post_image = UserPostImage.new(question_id: question_id, image_name: output_filename)
+    if comment
+      user_post_image = UserPostImage.new(question_id: question_id, image_name: output_filename, comment: comment)
+    else
+      user_post_image = UserPostImage.new(question_id: question_id, image_name: output_filename)
+    end
     user_post_image.save
 
     render :json => { :status => 'success', :path => Settings.s3.image_url_path + output_filename }

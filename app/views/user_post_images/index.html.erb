@@ -6,6 +6,9 @@
   <% @images.each do |image| %>
     <div><%= @question_to_title[image.question_id] %>ベストイレブン</div>
     <div><%= image_tag(@image_host + image.image_name, class: 'user-post-image') %></div>
+    <% if image.comment && image.comment.length > 0 %>
+      <div class="user-posted-comment"><%= image.comment %></div>
+    <% end %>
   <% end %>
   <%= paginate @images %>
   <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'" style="margin-top: 5px;">トップページ</button>
