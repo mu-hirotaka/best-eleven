@@ -18,8 +18,8 @@ test:
 production:
   <<: *defaults
   twitter:
-    consumer_key: cIXurcheLQEE5HjgO1VJn7CXZ
-    consumer_secret: sXLXy374wMc9kJAAiexWe68hIqRtjqytHHWG4UXQv8ol7xwuxO
+    consumer_key: rb0xTsTnYEVxeHXLut1ihi9IW
+    consumer_secret: 6T1T2uYRouebwLn48svGBmA6u1wZmuG29cW7PDVHCkQwGYF3vD
   s3:
     access_key_id: <%= ENV["S3_ACCESS_KEY_ID"] %>
     secret_access_key: <%= ENV["S3_SECRET_ACCESS_KEY"] %>
