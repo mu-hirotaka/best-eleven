@@ -328,6 +328,11 @@ button#create-btn {
   margin-top: 5px;
 }
 
+button#question-request-btn {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
 #twitter-tweet-btn {
   opacity: 0.3;
   margin-top: 10px;
@@ -447,9 +452,17 @@ button#create-btn {
   width: 100%;
 }
 
-
 #user-image-comment-length {
   text-align: right;
+}
+
+#user-question-request-comment {
+  margin-top: 10px;
+  resize: none;
+  width: 100%;
+}
+#question-request-done-comment {
+  text-align: center;
 }
 
 #result-comment {

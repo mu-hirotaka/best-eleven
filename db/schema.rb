@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926023010) do
+ActiveRecord::Schema.define(version: 20141010075411) do
 
   create_table "formations", force: true do |t|
     t.string   "type_name",      null: false
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(version: 20140926023010) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "point",       default: 0
+  end
+
+  create_table "user_question_requests", force: true do |t|
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

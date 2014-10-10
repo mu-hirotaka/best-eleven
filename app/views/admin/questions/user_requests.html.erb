@@ -1,0 +1,21 @@
+<%= render 'admin/shared/header' %>
+
+<% @title = 'ユーザーお題リクエスト一覧' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <%= paginate @user_requests %>
+  <table class="listing">
+    <tr>
+      <th>id</th>
+      <th>comment</th>
+    </tr>
+    <% @user_requests.each do |user_request| %>
+      <tr>
+        <td><%= user_request.id %></td>
+        <td><%= user_request.comment %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= paginate @user_requests %>
+</div>

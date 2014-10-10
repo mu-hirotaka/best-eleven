@@ -22,6 +22,11 @@ class Admin::QuestionsController < Admin::Base
     end
   end
 
+  def user_requests
+    @user_requests = UserQuestionRequest.all.order(created_at: :desc)
+    @user_requests = @user_requests.page(params[:page])
+  end
+
   private
   def question_params
     params.require(:question).permit(:title, :description, :valid_player_type_ids, :valid_st)
