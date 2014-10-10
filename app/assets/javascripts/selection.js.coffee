@@ -43,9 +43,6 @@ $ ->
       else
         return false
 
-#    width = screen.width * 0.9
-#    width = document.documentElement.clientWidth * 0.9
-#    width = $('html').prop('clientWidth') * 0.9
     width = $('.container').width()
     height = 4 / 3 * width
 
@@ -60,9 +57,12 @@ $ ->
       $position.addClass('formation-player-base-image')
       pidCache = localStorage.getItem('fid' + i)
       if pidCache
-        $position = $('.position-' + i)
         $position.css("background-image", "url('/images/players/" + pidCache + ".jpg')")
         $position.attr('data-pid', pidCache);
+      playerNameCache = localStorage.getItem('f' + i + '-player-name')
+      if playerNameCache
+        $('.position-' + i + ' > .selection-inner-player-name').text(playerNameCache)
+
       $('.position-' + i).on click: ->
         bid = $(this).attr('data-pid')
         fid = $(this).attr('data-fid')
@@ -98,13 +98,34 @@ $ ->
       location.href = '/selection/show'
 
   $('.selection.select').ready ->
+    fieldId = $('#select-player-after').attr('data-fid')
+    localStorage.removeItem('tmp-f' + fieldId + '-player-name')
     $('.select-target').on change: ->
-      $('#select-player-after').css("background-image", "url('" + $('option:selected', this).attr('data-image-path') + "')")
-      $('#select-player-after').attr('data-pid', $(this).val());
- 
+      $selected = $('option:selected', this)
+      $after = $('#select-player-after')
+      $afterPlayerName = $('#select-player-after > .selection-select-inner-player-name')
+      playerId = $(this).val()
+      tmpKeyName = 'tmp-f' + fieldId + '-player-name'
+      $after.css("background-image", "url('" + $selected.attr('data-image-path') + "')")
+      $after.attr('data-pid', playerId);
+      if playerId > 0
+        $afterPlayerName.text($selected.text())
+        localStorage.setItem(tmpKeyName, $selected.text())
+      else
+        $afterPlayerName.text('')
+        localStorage.removeItem(tmpKeyName)
+
     $('#select-done-btn').on click: ->
       $after = $('#select-player-after')
-      location.href = '/selection?aid=' + $after.attr('data-pid') + '&fid=' + $after.attr('data-fid')
+      playerId = $after.attr('data-pid')
+      keyName = 'f' + fieldId + '-player-name'
+      tmpKeyName = 'tmp-f' + fieldId + '-player-name'
+      if playerId > 0
+        localStorage.setItem(keyName, localStorage.getItem(tmpKeyName))
+      else
+        localStorage.removeItem(keyName)
+        localStorage.removeItem(tmpKeyName)
+      location.href = '/selection?aid=' + playerId + '&fid=' + fieldId
 
 
   $('.selection.show').ready ->

@@ -5,7 +5,7 @@
     <div class="row" style="margin-top:5px;">
       <div class="col-xs-5" style="padding-left:10px; padding-right:10px;">
         <% if (@before_player) then %>
-          <div id="select-player-before" data-pid="<%= @bid %>" style="background-image:url('/images/players/<%= @bid %>.jpg');"></div>
+          <div id="select-player-before" data-pid="<%= @bid %>" style="background-image:url('/images/players/<%= @bid %>.jpg');"><div class="selection-select-inner-player-name"><%= @before_player["full_name"] %></div></div>
         <% else %>
           <div id="select-player-before" data-pid="0" style="background-image:url('/images/players/0.jpg');"></div>
         <% end %>
@@ -14,12 +14,23 @@
         <div id="arrow"></div>
       </div>
       <div class="col-xs-5" style="padding-left:10px; padding-right:10px;">
-        <div id="select-player-after" data-pid="0" data-fid="<%= @fid %>"></div>
+        <div id="select-player-after" data-pid="0" data-fid="<%= @fid %>"><div class="selection-select-inner-player-name"></div></div>
       </div>
     </div>
 
     <% @type_to_players.each do |key, value| %>
-      <div class="row" style="margin-top:5px;">
+      <div style="margin-top:20px; margin-bottom:5px;">
+        <form action="" method="post">
+          <select name="aid" class="select-target">
+            <option value="0" data-image-path="/images/players/0.jpg">選択してください</option>
+            <% value.each do |player| %>
+              <option value="<%= player[:id] %>" data-image-path="/images/players/<%= player[:id] %>.jpg"><%= player[:full_name] %></option>
+            <% end %>
+          </select>
+        </form>
+      </div>
+<!-- 
+      <div class="row" style="margin-top:20px;">
         <form action="" method="post">
           <div class="col-xs-6" style="text-align: right; padding-right: 2px;">
             <span style="font-weight: bold;"><%= @type_to_name[key.to_i] %>: </span>
@@ -34,6 +45,7 @@
           </div>
         </form>
       </div>
+-->
     <% end %>
   </div>
 

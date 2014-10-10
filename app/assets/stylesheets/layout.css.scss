@@ -316,6 +316,7 @@ div.selection-attention {
 }
 
 .select-target {
+  font-size: 16px;
 }
 
 button#select-done-btn {
@@ -543,4 +544,17 @@ button#create-btn {
 
 .point-value {
   font-size: 13px;
+}
+
+.selection-inner-player-name {
+  position: relative;
+  top:100%;
+  font-size:16px;
+  font-weight:bold;
+}
+.selection-select-inner-player-name {
+  position: relative;
+  top:100%;
+  font-size:16px;
+  font-weight:bold;
 }
