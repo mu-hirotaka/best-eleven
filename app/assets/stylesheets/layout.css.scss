@@ -44,6 +44,19 @@ html, body {
   }
 }
 
+.popular-user-post-image-title {
+  margin-top: 15px;
+  margin-bottom: -10px;
+  background-color: $orange;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  color: #fff;
+  p {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
 .question-title {
   margin-top: 10px;
   margin-bottom: 5px;

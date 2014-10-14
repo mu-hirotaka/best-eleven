@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141010075411) do
+ActiveRecord::Schema.define(version: 20141014050748) do
 
   create_table "formations", force: true do |t|
     t.string   "type_name",      null: false
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20141010075411) do
     t.datetime "updated_at"
     t.integer  "point",       default: 0
   end
+
+  add_index "user_post_images", ["question_id", "point"], name: "index_user_post_images_on_question_id_and_point", using: :btree
 
   create_table "user_question_requests", force: true do |t|
     t.string   "comment"

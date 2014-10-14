@@ -17,11 +17,39 @@ $ ->
     localStorage.clear()
     $('.question-each-btn').on click: ->
       $this = $(this)
-      localStorage.setItem('current-question-id', $this.attr('data-question-id'))
+      questionId = $this.attr('data-question-id')
+      localStorage.setItem('current-question-id', questionId)
       localStorage.setItem('current-question-title', $this.attr('data-question-title'))
-      location.href = '/formation'
+      location.href = '/formation' + '?qid=' + questionId
 
   $('.formation.index').ready ->
+    $pointBtn = $('.btn-point')
+    width = $('.container').width()
+    height = 4 / 3 * width
+    $('.user-post-image').css({ width: width, height: height });
+
+    $pointBtn.each ->
+      $this = $(this)
+      if !localStorage.getItem('good-' + $this.attr('data-image-id'))
+        $this.css({opacity:"1.0"})
+        $this.removeAttr("disabled")
+
+    $pointBtn.on click: ->
+      $this = $(this)
+      $this.css({opacity:"0.6"})
+      $this.attr("disabled", "disabled")
+      id = $this.attr('data-image-id')
+      $point = $this.children('span')
+      nextPoint = parseInt($point.text()) + 1
+      $point.text(nextPoint)
+      localStorage.setItem('good-' + id, true)
+      $.ajax '/user_post_image/good',
+        type: 'POST'
+        dataType: 'json'
+        data: { id: id }
+        error: (jqXHR, textStatus, errorThrown) ->
+        success: (data, textStatus, jqXHR) ->
+
     $('.formation-each-btn').on click: ->
       $this = $(this)
       formationId = $this.attr('data-formation-id')

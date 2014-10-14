@@ -13,5 +13,22 @@
     </ul>
   </div>
 
-  <%= render 'shared/footer' %>
+  <div class="popular-user-post-image-title">
+    <p>人気のある画像</p>
+  </div>
+  <% @images.each do |image| %>
+    <div class="user-post-image-question"><%= @question_to_title[image.question_id] %>ベストイレブン</div>
+    <div style="position:relative;">
+      <%= image_tag(@image_host + image.image_name, class: 'user-post-image') %>
+      <button class="btn-point" data-image-id="<%= image.id %>" disabled><span class="point-value"><%= image.point %></span> Good</button>
+    </div>
+    <% if image.comment && image.comment.length > 0 %>
+      <div class="arrow_box"><%= image.comment %></div>
+    <% end %>
+  <% end %>
+
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= user_post_image_root_path %>'" style="margin-top: 8px;">最近投稿された画像</button>
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'" style="margin-top: 5px;">トップページ</button>
+
+  <%= render 'shared/footer_relative' %>
 </div>

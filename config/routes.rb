@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'user_post_image' => 'user_post_images#index', as: :user_post_image_root
   post 'user_post_image/good' => 'user_post_images#good'
+  get 'user_post_image/popular' => 'user_post_images#popular'
 
   get '/auth/:provider/callback', :to => 'sessions#callback'
   post '/auth/:provider/callback', :to => 'sessions#callback'
