@@ -52,6 +52,13 @@ S3にバケットを作成し、access_key_idとsecret_access_keyを取得した
   $ echo 'export S3_IMAGE_URL_PATH=http://s3-ap-northeast-1.amazonaws.com/best-eleven-contents/' >> ~/.bash_profile
   $ export S3_IMAGE_URL_PATH=http://s3-ap-northeast-1.amazonaws.com/best-eleven-contents/
 
+=== Twitter関連 セットアップ
+  # 下記についてはメールでシェアいたします。
+  $ echo 'TW_CONSUMER_KEY=*****' >> ~/.bash_profile
+  $ export TW_CONSUMER_KEY=*****
+  $ echo 'TW_CONSUMER_SECRET=*****' >> ~/.bash_profile
+  $ export TW_CONSUMER_SECRET=*****
+
 === best-eleven install
   $ git clone https://github.com/mu-hirotaka/best-eleven.git
   $ cd best-eleven
