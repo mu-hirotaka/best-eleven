@@ -49,6 +49,8 @@
   { :id => 45, :type_id => 2, :full_name => '卓球選手', :short_name => '卓球選手', :valid_st => 1 },
   { :id => 46, :type_id => 2, :full_name => 'プロレスラー', :short_name => 'プロレスラー', :valid_st => 1 },
   { :id => 47, :type_id => 2, :full_name => '空手家', :short_name => '空手家', :valid_st => 1 },
+  { :id => 48, :type_id => 1, :full_name => 'なめこ', :short_name => 'なめこ', :valid_st => 1 },
+  { :id => 49, :type_id => 1, :full_name => 'わかめ', :short_name => 'わかめ', :valid_st => 1 },
 ].each do |record|
   player = Player.where(:id => record[:id]).first
   if player
