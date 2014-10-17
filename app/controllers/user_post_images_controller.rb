@@ -1,4 +1,4 @@
-class UserPostImagesController < ApplicationController
+class UserPostImagesController < BaseController
   def index
     @images = UserPostImage.all.order(created_at: :desc)
     @images = @images.page(params[:page])

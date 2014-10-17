@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class SessionsController < BaseController
   def callback
     auth = request.env['omniauth.auth']
     session[:user_id] = auth['uid']

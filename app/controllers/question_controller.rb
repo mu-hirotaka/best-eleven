@@ -1,4 +1,4 @@
-class QuestionController < ApplicationController
+class QuestionController < BaseController
   def index
     @questions = Question.where("valid_st = ?", 1).order('id DESC')
   end

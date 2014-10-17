@@ -1,4 +1,4 @@
-class FormationController < ApplicationController
+class FormationController < BaseController
   def index
     @formations = Formation.all
     @image_host = Settings.s3.image_url_path

@@ -1,4 +1,4 @@
-class SelectionController < ApplicationController
+class SelectionController < BaseController
 require 'redis'
 #    Redis.current.set('hoge', 'fuga')
 #    @keys = Redis.current.keys
