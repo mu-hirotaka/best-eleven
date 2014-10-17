@@ -1,0 +1,19 @@
+<% @title = 'メンテナンス情報作成' %>
+
+<div id="login-form">
+  <h1><%= @title %></h1>
+
+  <%= form_for [:admin, @maintenance] do |f| %>
+    <div>
+      <%= f.label :id, 'id' %>
+      <%= f.text_field :id %>
+    </div>
+    <div>
+      <%= f.label :valid_st, 'valid_st' %>
+      <%= f.text_field :valid_st %>
+    </div>
+    <div>
+      <%= f.submit '登録' %>
+    </div>
+  <% end %>
+</div>

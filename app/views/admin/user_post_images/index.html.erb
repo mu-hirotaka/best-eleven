@@ -10,6 +10,7 @@
       <th>id</th>
       <th>question_id</th>
       <th>image</th>
+      <th>point<th>
       <th>comment</th>
     </tr>
     <% @images.each do |image| %>
@@ -17,6 +18,7 @@
         <td><%= image.id %></td>
         <td><%= @question_to_title[image.question_id] %></td>
         <td><%= image_tag(@image_host + image.image_name, :size => '300x400') %></td>
+        <td><%= image.point %></td>
         <td><% if image.comment && image.comment.length > 0 %><td><%= image.comment %></td><% end %></td>
       </tr>
     <% end %>

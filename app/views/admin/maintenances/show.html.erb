@@ -1,0 +1,23 @@
+<%= render 'admin/shared/header' %>
+
+<% @title = 'メンテナンス情報' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <table class="listing">
+    <tr>
+      <th>id</th>
+      <th>valid</th>
+      <th>アクション</th>
+    </tr>
+    <% if @maintenance %>
+      <tr>
+        <td><%= @maintenance.id %></td>
+        <td><%= @maintenance.valid_st %></td>
+        <td class="actions">
+          <%= link_to '編集', '/admin/maintenances/edit' %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'welcome#index', as: :root
+  get  'maintenance' => 'maintenance#index', as: :maintenance_root
 
   get  'question' => 'question#index', as: :question_root
   post 'question/send_request' => 'question#send_request', as: :question_send_request
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
     get 'user_question_requests' => 'questions#user_requests'
     resources :player_types, except: [ :new, :create, :destroy ]
     resources :user_post_images, only: [ :index ]
+    resource :maintenances, except: [ :index, :destroy ]
   end
 
   get '*anything' => 'errors#routing_error'
