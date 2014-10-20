@@ -346,6 +346,21 @@ button#question-request-btn {
   margin-bottom: 5px;
 }
 
+button.user-image-opinion-btn {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.more-btn {
+  font-size: 10px;
+  background-color: #ffee00;
+  border: 2px solid #333;
+  color: #000;
+  font-weight: bold;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
+}
+
 #twitter-tweet-btn {
   opacity: 0.3;
   margin-top: 10px;
@@ -487,6 +502,12 @@ button#question-request-btn {
   text-align: center;
 }
 
+.user-image-opinion {
+  margin-top: 10px;
+  resize: none;
+  width: 100%;
+}
+
 .arrow_box {
   padding: 5px;
   margin-top: 5px;
@@ -599,4 +620,20 @@ button#question-request-btn {
   top:100%;
   font-size:14px;
   font-weight:bold;
+}
+
+.bs-callout {
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  border: 1px solid #333;
+  border-left-width: 5px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
+  -moz-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
+  text-align: left;
+}
+
+.bs-callout-info {
+  border-left-color: #ffee00;
 }

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get  'user_post_images/:id'    => 'user_post_images#show'
   post 'user_post_images/good'   => 'user_post_images#good'
 
+  post 'user_comments/create'   => 'user_comments#create'
+
   get  '/auth/:provider/callback', :to => 'sessions#callback'
   post '/auth/:provider/callback', :to => 'sessions#callback'
   get  '/logout' => 'sessions#destroy', :as => :logout
