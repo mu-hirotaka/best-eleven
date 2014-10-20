@@ -1,0 +1,23 @@
+<%= render 'admin/shared/header' %>
+
+<% @title = 'ユーザーコメント一覧' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <table class="listing">
+    <tr>
+      <th>id</th>
+      <th>image_id</th>
+      <th>comment</th>
+      <th>削除</th>
+    </tr>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.id %></td>
+        <td><%= comment.image_id %></td>
+        <td><%= comment.comment %></td>
+        <td><%= link_to '削除', '/admin/user_comments/' + comment.id.to_s, :method => :delete %>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :player_types, except: [ :new, :create, :destroy ]
     resources :user_post_images, only: [ :index ]
     resource :maintenances, except: [ :index, :destroy ]
+    resources :user_comments, only: [ :index, :destroy ]
   end
 
   get '*anything' => 'errors#routing_error'
