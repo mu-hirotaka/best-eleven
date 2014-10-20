@@ -181,10 +181,11 @@ $ ->
       $title.text(questionTitle + 'ベストイレブン')
 
     internalComment = localStorage.getItem('current-internal-comment')
+    url = 'http://' + location.host + '/'
     if internalComment
-      $imageComment.text(internalComment + ' #' + questionTitle + 'ベストイレブン #なんでもベストイレブン')
+      $imageComment.text(internalComment + ' #' + questionTitle + 'ベストイレブン #なんでもベストイレブン ' + url)
     else
-      $imageComment.text(' #' + questionTitle + 'ベストイレブン #なんでもベストイレブン')
+      $imageComment.text(' #' + questionTitle + 'ベストイレブン #なんでもベストイレブン ' + url)
 
     setCommentLength('init')
     players = []
