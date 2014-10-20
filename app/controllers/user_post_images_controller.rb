@@ -6,6 +6,12 @@ class UserPostImagesController < BaseController
     questions = Question.all.map{|record| [record.id, record.title]}
     @question_to_title = Hash[questions]
   end
+  def show
+    @image = UserPostImage.find(params[:id])
+    @image_host = Settings.s3.image_url_path
+    questions = Question.all.map{|record| [record.id, record.title]}
+    @question_to_title = Hash[questions]
+  end
   def good
     @image = UserPostImage.find(params[:id])
     @image.point = @image.point + 1;

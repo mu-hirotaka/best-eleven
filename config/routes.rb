@@ -13,16 +13,16 @@ Rails.application.routes.draw do
   get  'selection/select' => 'selection#select', as: :selection_select
 
   post 'image/create' => 'image#create', as: :image_create
-  get 'twitter', :to => 'twitter#index', as: :twitter_root
+  get  'twitter', :to => 'twitter#index', as: :twitter_root
   post 'twitter/tweet', :to => 'twitter#tweet'
 
-  get 'user_post_image' => 'user_post_images#index', as: :user_post_image_root
-  post 'user_post_image/good' => 'user_post_images#good'
-  get 'user_post_image/popular' => 'user_post_images#popular'
+  get  'user_post_images'        => 'user_post_images#index', as: :user_post_image_root
+  get  'user_post_images/:id'    => 'user_post_images#show'
+  post 'user_post_images/good'   => 'user_post_images#good'
 
-  get '/auth/:provider/callback', :to => 'sessions#callback'
+  get  '/auth/:provider/callback', :to => 'sessions#callback'
   post '/auth/:provider/callback', :to => 'sessions#callback'
-  get '/logout' => 'sessions#destroy', :as => :logout
+  get  '/logout' => 'sessions#destroy', :as => :logout
 
   namespace :admin do
     root 'top#index'
