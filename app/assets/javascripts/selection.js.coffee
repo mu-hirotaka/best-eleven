@@ -24,6 +24,7 @@ $ ->
 
   $('.formation.index').ready ->
     $pointBtn = $('.btn-point')
+    $tweetBtn = $('.btn-tweet')
     width = $('.container').width()
     height = 4 / 3 * width
     $('.user-post-image').css({ width: width, height: height });
@@ -56,6 +57,13 @@ $ ->
       localStorage.setItem('current-formation-type', 'formation-' + $this.attr('data-formation-type'))
       localStorage.setItem('current-formation-id', formationId)
       location.href = '/selection?foId=' + formationId
+
+    $tweetBtn.on click: ->
+      $this = $(this)
+      id = $this.attr('data-image-id')
+      host = location.host + '/user_post_images/' + id
+      url = 'http://twitter.com/share?url=http://' + host + '&text='
+      location.href = url
 
   $('.selection.index').ready ->
     $createBtn = $('#create-btn')
