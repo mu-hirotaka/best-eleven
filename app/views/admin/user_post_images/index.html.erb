@@ -12,6 +12,7 @@
       <th>image</th>
       <th>point<th>
       <th>comment</th>
+      <th>created_at</th>
       <th>削除</th>
     </tr>
     <% @images.each do |image| %>
@@ -21,6 +22,7 @@
         <td><%= image_tag(@image_host + image.image_name, :size => '300x400') %></td>
         <td><%= image.point %></td>
         <td><% if image.comment && image.comment.length > 0 %><td><%= image.comment %></td><% end %></td>
+        <td><%= image.created_at %></td>
         <td><%= link_to '削除', '/admin/user_post_images/' + image.id.to_s, :method => :delete %>
       </tr>
     <% end %>
