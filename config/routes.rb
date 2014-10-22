@@ -16,9 +16,10 @@ Rails.application.routes.draw do
   get  'twitter', :to => 'twitter#index', as: :twitter_root
   post 'twitter/tweet', :to => 'twitter#tweet'
 
-  get  'user_post_images'        => 'user_post_images#index', as: :user_post_image_root
-  get  'user_post_images/:id'    => 'user_post_images#show'
-  post 'user_post_images/good'   => 'user_post_images#good'
+  get  'user_post_images'                => 'user_post_images#index', as: :user_post_image_root
+  get  'user_post_images/order_by_point' => 'user_post_images#index_order_by_point'
+  get  'user_post_images/:id'            => 'user_post_images#show'
+  post 'user_post_images/good'           => 'user_post_images#good'
 
   post 'user_comments/create'   => 'user_comments#create'
 

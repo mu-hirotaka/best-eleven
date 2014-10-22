@@ -283,6 +283,42 @@ $ ->
         error: (jqXHR, textStatus, errorThrown) ->
         success: (data, textStatus, jqXHR) ->
  
+  $('.user_post_images.index_order_by_point').ready ->
+    $pointBtn = $('.btn-point')
+    $tweetBtn = $('.btn-tweet')
+    width = $('.container').width()
+    height = 4 / 3 * width
+    $('.user-post-image').css({ width: width, height: height });
+
+    $pointBtn.each ->
+      $this = $(this)
+      if !localStorage.getItem('good-' + $this.attr('data-image-id'))
+        $this.css({opacity:"1.0"})
+        $this.removeAttr("disabled")
+
+    $tweetBtn.on click: ->
+      $this = $(this)
+      id = $this.attr('data-image-id')
+      host = location.host + '/user_post_images/' + id
+      url = 'http://twitter.com/share?url=http://' + host + '&text='
+      location.href = url
+
+    $pointBtn.on click: ->
+      $this = $(this)
+      $this.css({opacity:"0.6"})
+      $this.attr("disabled", "disabled")
+      id = $this.attr('data-image-id')
+      $point = $this.children('span')
+      nextPoint = parseInt($point.text()) + 1
+      $point.text(nextPoint)
+      localStorage.setItem('good-' + id, true)
+      $.ajax '/user_post_images/good',
+        type: 'POST'
+        dataType: 'json'
+        data: { id: id }
+        error: (jqXHR, textStatus, errorThrown) ->
+        success: (data, textStatus, jqXHR) ->
+
   $('.user_post_images.show').ready ->
     $pointBtn = $('.btn-point')
     $tweetBtn = $('.btn-tweet')
