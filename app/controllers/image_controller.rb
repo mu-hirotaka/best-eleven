@@ -32,7 +32,7 @@ class ImageController < BaseController
       if player_ids[i].nil?
         player = Magick::Image.read('public/images/no_image.png').first
       else
-        player = Magick::Image.read('public/images/players/' + player_ids[i] + '.jpg').first
+        player = Magick::Image.read('public/images/players/' + player_ids[i] + '.png').first
       end
       tmp_player = players[player_ids[i].to_i]
       metrix = dr.get_type_metrics(tmp_player["short_name"])

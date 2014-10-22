@@ -93,7 +93,7 @@ $ ->
       $position.addClass('formation-player-base-image')
       pidCache = localStorage.getItem('fid' + i)
       if pidCache
-        $position.css("background-image", "url('/images/players/" + pidCache + ".jpg')")
+        $position.css("background-image", "url('/images/players/" + pidCache + ".png')")
         $position.attr('data-pid', pidCache);
       playerNameCache = localStorage.getItem('f' + i + '-player-name')
       if playerNameCache
@@ -117,7 +117,7 @@ $ ->
         fid = queryParams['fid']
         pid = queryParams['aid']
         $position = $('.position-' + fid)
-        $position.css("background-image", "url('/images/players/" + pid + ".jpg')")
+        $position.css("background-image", "url('/images/players/" + pid + ".png')")
         $position.attr('data-pid', pid);
         localStorage.setItem('fid' + fid, pid)
 
