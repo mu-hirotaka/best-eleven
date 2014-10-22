@@ -6,4 +6,9 @@ class Admin::UserPostImagesController < Admin::Base
     questions = Question.all.map{|record| [record.id, record.title]}
     @question_to_title = Hash[questions]
   end
+  def destroy
+    image = UserPostImage.find(params[:id])
+    image.destroy!
+    redirect_to :action => 'index'
+  end
 end
