@@ -1,5 +1,8 @@
 require 'redis'
 require 'RMagick'
+
+FONT_SIZE = 34
+
 class ImageController < BaseController
   AWS.config(access_key_id: Settings.s3.access_key_id, secret_access_key: Settings.s3.secret_access_key, region: Settings.s3.region)
   @@random = Random.new(100)
@@ -16,9 +19,9 @@ class ImageController < BaseController
     # draw text
     dr = Magick::Draw.new
     dr.font = Rails.root.join('app', 'assets', 'fonts', 'ipaexg.ttf').to_s
-    dr.stroke('transparent')
-    dr.fill('black')
-    dr.pointsize = 32
+    dr.stroke = 'black'
+    dr.fill = 'black'
+    dr.pointsize = FONT_SIZE
     dr.text_antialias = true
 
     # conposite image
