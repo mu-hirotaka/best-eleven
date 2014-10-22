@@ -8,7 +8,7 @@
   <div class="question-btn">
   	<ul>
       <% @formations.each do |formation| %>
-        <li><button type="button" class="btn btn-lg btn-success formation-each-btn" data-formation-id="<%= formation.id %>" data-formation-type="<%= formation.css_title %>"><%= formation.title %></button></li>
+        <li><button type="button" class="btn btn-lg btn-primary formation-each-btn" data-formation-id="<%= formation.id %>" data-formation-type="<%= formation.css_title %>"><%= formation.title %></button></li>
       <% end %>
     </ul>
   </div>
