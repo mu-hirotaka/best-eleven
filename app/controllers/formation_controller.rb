@@ -1,6 +1,6 @@
 class FormationController < BaseController
   def index
-    @formations = Formation.all
+    @formations = Formation.all.order(id: :desc)
     @image_host = Settings.s3.image_url_path
     questions = Question.all.map{|record| [record.id, record.title]}
     @question_to_title = Hash[questions]
