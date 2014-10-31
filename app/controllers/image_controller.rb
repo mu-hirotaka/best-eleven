@@ -1,7 +1,7 @@
 require 'redis'
 require 'RMagick'
 
-FONT_SIZE = 34
+FONT_SIZE = 20
 
 class ImageController < BaseController
   AWS.config(access_key_id: Settings.s3.access_key_id, secret_access_key: Settings.s3.secret_access_key, region: Settings.s3.region)
@@ -14,12 +14,13 @@ class ImageController < BaseController
     formation = Formation.find_by(id: formation_id)
     positions = JSON.parse(formation.image_position)
 
-    ground = Magick::Image.read("public/images/ground.jpg").first
+    ground = Magick::Image.read("public/images/ground.png").first
 
     # draw text
     dr = Magick::Draw.new
     dr.font = Rails.root.join('app', 'assets', 'fonts', 'ipaexg.ttf').to_s
-    dr.stroke = 'black'
+ #   dr.stroke = 'black'
+    dr.stroke = 'transparent'
     dr.fill = 'black'
     dr.pointsize = FONT_SIZE
     dr.text_antialias = true
@@ -36,8 +37,8 @@ class ImageController < BaseController
       end
       tmp_player = players[player_ids[i].to_i]
       metrix = dr.get_type_metrics(tmp_player["short_name"])
-      dr.text(value["x"].to_i + 100 - metrix.width / 2, value["y"].to_i + 230, tmp_player["short_name"])
-      player.resize!(2.0)
+      dr.text(value["x"].to_i + 42 - metrix.width / 2, value["y"].to_i + 108, tmp_player["short_name"])
+      player.resize!(0.85)
       ground = ground.composite(player, value["x"].to_i, value["y"].to_i, Magick::OverCompositeOp)
     }
     dr.draw(ground)
