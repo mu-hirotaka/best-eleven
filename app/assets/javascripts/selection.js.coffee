@@ -134,6 +134,11 @@ $ ->
       location.href = '/selection/show'
 
   $('.selection.select').ready ->
+    for index in [1..11]
+      cache = localStorage.getItem('fid' + index)
+      if cache
+        selector = 'select.select-target option[value=' + cache + ']'
+        $(selector).remove()
     fieldId = $('#select-player-after').attr('data-fid')
     localStorage.removeItem('tmp-f' + fieldId + '-player-name')
     $('.select-target').on change: ->
