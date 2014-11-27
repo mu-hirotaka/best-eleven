@@ -67,6 +67,7 @@ $ ->
 
   $('.selection.index').ready ->
     $createBtn = $('#create-btn')
+    $formationChangeBtn = $('#formation-change-btn')
     $comment = $('#post-image-comment')
     isValidSelection = ->
       count = 0
@@ -132,6 +133,9 @@ $ ->
       else
         localStorage.removeItem('current-internal-comment')
       location.href = '/selection/show'
+
+    $formationChangeBtn.on click: ->
+      location.href = '/formation?qid=' + localStorage.getItem('current-question-id')
 
   $('.selection.select').ready ->
     for index in [1..11]
