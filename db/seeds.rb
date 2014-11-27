@@ -109,6 +109,15 @@
   { :id => 104, :type_id => 3, :full_name => '森島寛晃', :short_name => '森島寛晃', :valid_st => 1 },
   { :id => 105, :type_id => 3, :full_name => '柳沢敦', :short_name => '柳沢敦', :valid_st => 1 },
   { :id => 106, :type_id => 3, :full_name => '呂比須ワグナー', :short_name => '呂比須', :valid_st => 1 },
+  { :id => 107, :type_id => 1, :full_name => 'もやし', :short_name => 'もやし', :valid_st => 1 },
+  { :id => 108, :type_id => 1, :full_name => 'ひじき', :short_name => 'ひじき', :valid_st => 1 },
+  { :id => 109, :type_id => 1, :full_name => 'たけのこ', :short_name => 'たけのこ', :valid_st => 1 },
+  { :id => 110, :type_id => 1, :full_name => 'みょうが', :short_name => 'みょうが', :valid_st => 1 },
+  { :id => 111, :type_id => 1, :full_name => 'れんこん', :short_name => 'れんこん', :valid_st => 1 },
+  { :id => 112, :type_id => 1, :full_name => 'とろろ昆布', :short_name => 'とろろ昆布', :valid_st => 1 },
+  { :id => 113, :type_id => 1, :full_name => 'ちくわ', :short_name => 'ちくわ', :valid_st => 1 },
+  { :id => 114, :type_id => 1, :full_name => 'あら汁', :short_name => 'あら汁', :valid_st => 1 },
+  { :id => 115, :type_id => 1, :full_name => 'じゃがいも', :short_name => 'じゃがいも', :valid_st => 1 },
 ].each do |record|
   player = Player.where(:id => record[:id]).first
   if player
