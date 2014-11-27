@@ -23,6 +23,10 @@ html, body {
   margin-bottom: 10px;
   background-color: $orange;
   color: #fff;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('/images/top.png');
   h2 {
     font-weight: bold;
   }
