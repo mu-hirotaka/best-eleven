@@ -180,15 +180,15 @@ end
   player_type.save
 end
 
-[
-  { :id => 1, :valid_st => 0 },
-].each do |record|
-  maintenance = Maintenance.where(:id => record[:id]).first
-  if maintenance
-    maintenance.valid_st = record[:valid_st]
-  else
-    maintenance = Maintenance.new(record)
-  end
-  maintenance.save
-end
-
+#[
+#  { :id => 1, :valid_st => 0 },
+#].each do |record|
+#  maintenance = Maintenance.where(:id => record[:id]).first
+#  if maintenance
+#    maintenance.valid_st = record[:valid_st]
+#  else
+#    maintenance = Maintenance.new(record)
+#  end
+#  maintenance.save
+#end
+#
