@@ -1,5 +1,5 @@
 module ApplicationHelper
   def document_title
-    '俺イレブン'
+    '俺ブン'
   end
 end
