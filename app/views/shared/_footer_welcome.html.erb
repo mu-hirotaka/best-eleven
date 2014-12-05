@@ -1,8 +1,8 @@
 <% if current_user %>
-  <div id="footer-top">
+  <div id="footer-top-relative">
     <p><%= current_user.name %>さんでログイン中 <%= link_to 'ログアウト', logout_path %></p>
     <p>Copyright 2010-2014 FromOne co.,Ltd All Rights Reserved.</p>
   </div>
 <% else %>
-  <%= render 'shared/footer' %>
+  <%= render 'shared/footer_relative' %>
 <% end %>
