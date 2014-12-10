@@ -604,7 +604,7 @@ button.user-image-opinion-btn {
 
 .arrow_box {
   padding: 5px;
-  margin-top: 5px;
+  margin: 5px auto 0px auto;
   position: relative;
   background: #ffee00;
   border: 3px solid #000000;
@@ -742,7 +742,7 @@ button.user-image-opinion-btn {
 
 .sns_btn .twBtn {
 	display: table-cell;
-	width: 45%;
+	width: 49%;
 	height: 45px;
   font-size: 14px;
 	line-height: 45px;
@@ -781,12 +781,12 @@ button.user-image-opinion-btn {
 .sns_btn .goodBtn {
   display: table-cell;
   opacity: 0.6;
-	width: 45%;
+	width: 49%;
 	height: 45px;
   font-size: 14px;
 	line-height: 45px;
 	background-color: #ffee00;
-	background-image: url('/images/icon/btn_fb.png');
+	background-image: url('/images/icon/btn_good.png');
 	background-repeat: no-repeat;
 	background-position: 5px 50%;
 	background-size: 40px 40px;
@@ -796,5 +796,9 @@ button.user-image-opinion-btn {
 	text-indent: 1em;
 	border-bottom: 3px solid rgba(0,0,0,0.4);
 	border-radius:2px;
+}
+
+.other-user-comment {
+  margin: 7px auto 7px auto;
 }
 

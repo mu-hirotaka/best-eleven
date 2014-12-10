@@ -16,20 +16,28 @@
   <div class="popular-user-post-image-title">
     <p>人気のあるイレブン</p>
   </div>
+  <br>
   <% @images.each do |image| %>
     <div class="user-post-image-question"><%= @question_to_title[image.question_id] %>ベストイレブン</div>
     <div style="position:relative;">
       <%= image_tag(@image_host + image.image_name, class: 'user-post-image') %>
-      <button class="btn-tweet" data-image-id="<%= image.id %>">Tweet</button>
-      <button class="btn-point" data-image-id="<%= image.id %>" disabled><span class="point-value"><%= image.point %></span> Good</button>
     </div>
     <% if image.comment && image.comment.length > 0 %>
       <div class="arrow_box"><%= image.comment %></div>
     <% end %>
+
+    <div class="sns_btn">
+      <a class="twBtn" data-image-id="<%= image.id %>">ツイート</a>
+      <!--
+      <a class="fbBtn" href="#">いいね！</a>
+      -->
+      <a class="goodBtn" data-image-id="<%= image.id %>"><span class="point-value"><%= image.point %></span> Good</a>
+    </div>
+
     <% if @image_id_to_comments[image.id] %>
       <% @image_id_to_comments[image.id].each_with_index do |elm, index| %>
         <% if index < 3 %>
-          <div class="bs-callout bs-callout-info"><%= elm.comment %></div>
+          <div class="bs-callout bs-callout-info other-user-comment"><%= elm.comment %></div>
         <% end %>
       <% end %>
       <% path = '/user_post_images/' + image.id.to_s %>
@@ -37,7 +45,7 @@
     <% end %>
     <form method="POST" action="/user_comments/create">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <textarea rows="2" class="user-image-opinion" name="comment" placeholder="コメントを入力して下さい"></textarea>
+      <div><textarea rows="2" class="user-image-opinion" name="comment" placeholder="コメントを入力して下さい"></textarea></div>
       <button type="submit" class="btn btn-warning user-image-opinion-btn">コメント送信</button>
       <input type="hidden" name="image_id" value="<%= image.id %>" />
     </form>

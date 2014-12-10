@@ -24,7 +24,7 @@
     <% if @image_id_to_comments[image.id] %>
       <% @image_id_to_comments[image.id].each_with_index do |elm, index| %>
         <% if index < 3 %>
-          <div class="bs-callout bs-callout-info"><%= elm.comment %></div>
+          <div class="bs-callout bs-callout-info other-user-comment"><%= elm.comment %></div>
         <% end %>
       <% end %>
       <% path = '/user_post_images/' + image.id.to_s %>
