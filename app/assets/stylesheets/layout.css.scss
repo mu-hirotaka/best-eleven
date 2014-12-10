@@ -427,8 +427,7 @@ button#question-request-btn {
 }
 
 button.user-image-opinion-btn {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px auto 5px auto;
 }
 
 .more-btn {
@@ -598,7 +597,7 @@ button.user-image-opinion-btn {
 }
 
 .user-image-opinion {
-  margin-top: 10px;
+  margin: 10px auto 0px auto;
   resize: none;
   width: 100%;
 }
@@ -693,14 +692,14 @@ button.user-image-opinion-btn {
 
 .user-post-image-question {
   font-size: 16px;
-  margin: 5px 0px -1px 0px;
+  margin: 5px auto -1px auto;
   padding: 8px 0px;
   background-color: #000;
   color: #fff;
 }
 
 .point-value {
-  font-size: 13px;
+  font-size: 18px;
 }
 
 .selection-inner-player-name {
@@ -730,5 +729,72 @@ button.user-image-opinion-btn {
 
 .bs-callout-info {
   border-left-color: #ffee00;
+}
+
+.sns_btn {
+	width: 100%;
+	display: table;
+	font-size: 18px;
+  border-collapse: separate;
+  border-spacing: 5px 0;
+  margin: 5px auto 0px auto;
+}
+
+.sns_btn .twBtn {
+	display: table-cell;
+	width: 45%;
+	height: 45px;
+  font-size: 14px;
+	line-height: 45px;
+	background-color: #00aced;
+	background-image: url('/images/icon/btn_tw.png');
+	background-repeat: no-repeat;
+	background-position: 5px 50%;
+	background-size: 40px 40px;
+	text-align: center;
+	text-decoration : none;
+	color: white;
+	text-indent: 1em;
+	border-bottom: 3px solid rgba(0,0,0,0.4);
+	border-radius:2px;
+}
+
+.sns_btn .fbBtn {
+	display: table-cell;
+	width: 30%;
+	height: 45px;
+  font-size: 14px;
+	line-height: 45px;
+	background-color: #3b5998;
+	background-image: url('/images/icon/btn_fb.png');
+	background-repeat: no-repeat;
+	background-position: 5px 50%;
+	background-size: 40px 40px;
+	text-align: center;
+	text-decoration : none;
+	color: white;
+	text-indent: 1em;
+	border-bottom: 3px solid rgba(0,0,0,0.4);
+	border-radius:2px;
+}
+
+.sns_btn .goodBtn {
+  display: table-cell;
+  opacity: 0.6;
+	width: 45%;
+	height: 45px;
+  font-size: 14px;
+	line-height: 45px;
+	background-color: #ffee00;
+	background-image: url('/images/icon/btn_fb.png');
+	background-repeat: no-repeat;
+	background-position: 5px 50%;
+	background-size: 40px 40px;
+	text-align: center;
+	text-decoration : none;
+	color: black;
+	text-indent: 1em;
+	border-bottom: 3px solid rgba(0,0,0,0.4);
+	border-radius:2px;
 }
 

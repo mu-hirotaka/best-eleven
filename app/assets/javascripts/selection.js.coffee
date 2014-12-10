@@ -257,17 +257,23 @@ $ ->
         $('#result-comment').show()
 
   $('.user_post_images.index').ready ->
-    $pointBtn = $('.btn-point')
-    $tweetBtn = $('.btn-tweet')
-    width = $('.container').width()
+    $pointBtn = $('.goodBtn')
+    $tweetBtn = $('.twBtn')
+
+    width = Math.min($('.container').width(), 400)
     height = 4 / 3 * width
     $('.user-post-image').css({ width: width, height: height });
+    $('.user-post-image-question').css({ width: width });
+    $('.sns_btn').css({ width: width });
+    $('.user-image-opinion').css({ width: width });
+    $('.user-image-opinion-btn').css({ width: width });
 
     $pointBtn.each ->
       $this = $(this)
-      if !localStorage.getItem('good-' + $this.attr('data-image-id'))
+      if localStorage.getItem('good-' + $this.attr('data-image-id'))
+        $this.addClass('disabled');
+      else
         $this.css({opacity:"1.0"})
-        $this.removeAttr("disabled")
 
     $tweetBtn.on click: ->
       $this = $(this)
@@ -278,8 +284,10 @@ $ ->
 
     $pointBtn.on click: ->
       $this = $(this)
+      if $this.hasClass('disabled')
+        return false
+      $this.addClass('disabled');
       $this.css({opacity:"0.6"})
-      $this.attr("disabled", "disabled")
       id = $this.attr('data-image-id')
       $point = $this.children('span')
       nextPoint = parseInt($point.text()) + 1
