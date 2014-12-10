@@ -80,7 +80,7 @@ $ ->
       else
         return false
 
-    width = $('.container').width()
+    width = Math.min($('.container').width(), 400)
     height = 4 / 3 * width
 
     $('#formation-base').css({ width: width, height: height });

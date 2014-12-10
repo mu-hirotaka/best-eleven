@@ -127,7 +127,7 @@ html, body {
 }
 
 div.selection-attention {
-  margin: 5px 0px;
+  margin: 5px 0px 0px 0px;
   color: #f00;
 }
 
@@ -152,6 +152,8 @@ div.selection-attention {
 #formation-base {
   position: relative;
   box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .formation-base-image {
