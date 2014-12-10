@@ -9,13 +9,7 @@
     <div class="arrow_box"><%= @image.comment %></div>
   <% end %>
 
-  <div class="sns_btn">
-      <a class="twBtn" data-image-id="<%= @image.id %>">ツイート</a>
-      <!--
-      <a class="fbBtn" href="#">いいね！</a>
-      -->
-      <a class="goodBtn" data-image-id="<%= @image.id %>"><span class="point-value"><%= @image.point %></span> Good</a>
-  </div>
+  <%= render 'shared/share_button', image: @image %>
 
   <% if @image_id_to_comments[@image.id] %>
     <% @image_id_to_comments[@image.id].each_with_index do |elm, index| %>
