@@ -46,7 +46,7 @@ $ ->
       $this = $(this)
       id = $this.attr('data-image-id')
       host = location.host + '/user_post_images/' + id
-      url = 'http://twitter.com/share?url=http://' + host + '&text='
+      url = 'http://twitter.com/share?url=http://' + host + '&text=' + encodeURIComponent('#俺ブン')
       location.href = url
 
     $pointBtn.on click: ->
@@ -290,7 +290,7 @@ $ ->
       $this = $(this)
       id = $this.attr('data-image-id')
       host = location.host + '/user_post_images/' + id
-      url = 'http://twitter.com/share?url=http://' + host + '&text='
+      url = 'http://twitter.com/share?url=http://' + host + '&text=' + encodeURIComponent('#俺ブン')
       location.href = url
 
     $pointBtn.on click: ->
@@ -336,7 +336,7 @@ $ ->
       $this = $(this)
       id = $this.attr('data-image-id')
       host = location.host + '/user_post_images/' + id
-      url = 'http://twitter.com/share?url=http://' + host + '&text='
+      url = 'http://twitter.com/share?url=http://' + host + '&text=' + encodeURIComponent('#俺ブン')
       location.href = url
 
     $pointBtn.on click: ->
@@ -382,7 +382,7 @@ $ ->
       $this = $(this)
       id = $this.attr('data-image-id')
       host = location.host + '/user_post_images/' + id
-      url = 'http://twitter.com/share?url=http://' + host + '&text='
+      url = 'http://twitter.com/share?url=http://' + host + '&text=' + encodeURIComponent('#俺ブン')
       location.href = url
 
     $pointBtn.on click: ->

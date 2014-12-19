@@ -41,6 +41,10 @@ html, body {
   }
 }
 
+.common-tab {
+  font-size: 18px;
+}
+
 .common-title {
   margin-top: 10px;
   margin-bottom: 5px;
@@ -608,6 +612,7 @@ button.user-image-opinion-btn {
   position: relative;
   background: #ffee00;
   border: 3px solid #000000;
+  text-align: left;
   span {
     color: #000;
     font-size: 15px;

@@ -3,7 +3,7 @@
   <div class="common-title">
     <p>人気のあるイレブン</p>
   </div>
-  <a href="<%= user_post_image_root_path %>">新着</a> | 人気
+  <span class="common-tab"><a href="<%= user_post_image_root_path %>">新着</a> | 人気</span>
   <% @images.each do |image| %>
     <div class="user-post-image-question"><%= @question_to_title[image.question_id] %>ベストイレブン</div>
     <div style="position:relative;">
