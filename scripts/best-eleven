@@ -1,0 +1,25 @@
+#!/bin/sh
+# chkconfig: 2345 90 10
+# description: best-eleven init script
+
+USER="ec2-user"
+lockfile="/var/lock/subsys/best-eleven"
+
+case "$1" in
+  start)
+    touch $lockfile
+    echo "start"
+    su -l $USER -c '/home/$USER/best-eleven/bin/bundle exec unicorn_rails -c /home/$USER/best-eleven/config/unicorn.rb -D -E production'
+    ;;
+  restart)
+    su -l $USER -c 'kill -USR2 `cat /tmp/unicorn.pid`'
+    ;;
+  stop)
+    echo "stop"
+    su -l $USER -c 'kill -QUIT `cat /tmp/unicorn.pid`'
+    rm -f $lockfile
+    ;;
+  *)
+    echo "not implemented"
+    ;;
+esac

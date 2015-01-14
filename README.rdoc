@@ -68,7 +68,11 @@ S3にバケットを作成し、access_key_idとsecret_access_keyを取得した
   $ bin/rake db:seed RAILS_ENV=production
   $ ruby -e 'require "securerandom"; print SecureRandom.hex(64)' > ~/.rails_secret_key_base
   $ export SECRET_KEY_BASE=`cat ~/.rails_secret_key_base`
-  $ bin/bundle exec unicorn_rails -c config/unicorn.rb -D -E production
+  # 起動スクリプト設定
+  $ sudo cp scripts/best-eleven /etc/init.d/
+  $ sudo chmod +x /etc/init.d/best-eleven
+  $ sudo chkconfig --add best-eleven
+  $ sudo service best-eleven start
 
 === nginx install(ec2-userで起動する場合の例)
   $ sudo yum -y install nginx
