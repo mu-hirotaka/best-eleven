@@ -3,7 +3,7 @@
   <div class="common-title">
     <p>最近投稿されたイレブン</p>
   </div>
-  <span class="common-tab">新着 | <a href="/user_post_images/order_by_point">人気</a></span>
+  <span class="common-tab">新着 | <a href="/user_post_images/order_by_point">人気</a> | <a href="/user_post_images/order_by_comment">コメント</a></span>
   <% @images.each do |image| %>
     <div class="user-post-image-question"><%= @question_to_title[image.question_id] %>ベストイレブン</div>
     <div style="position:relative;">

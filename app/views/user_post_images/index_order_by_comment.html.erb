@@ -1,9 +1,9 @@
 <div class="text-center">
   <%= render 'shared/header' %>
   <div class="common-title">
-    <p>人気のあるイレブン</p>
+    <p>コメント付き投稿イレブン</p>
   </div>
-  <span class="common-tab"><a href="<%= user_post_image_root_path %>">新着</a> | 人気 | <a href="/user_post_images/order_by_comment">コメント</a></span>
+  <span class="common-tab"><a href="<%= user_post_image_root_path %>">新着</a> | <a href="/user_post_images/order_by_point">人気</a> | コメント</span>
   <% @images.each do |image| %>
     <div class="user-post-image-question"><%= @question_to_title[image.question_id] %>ベストイレブン</div>
     <div style="position:relative;">

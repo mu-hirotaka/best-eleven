@@ -357,6 +357,52 @@ $ ->
         error: (jqXHR, textStatus, errorThrown) ->
         success: (data, textStatus, jqXHR) ->
 
+  $('.user_post_images.index_order_by_comment').ready ->
+    $pointBtn = $('.goodBtn')
+    $tweetBtn = $('.twBtn')
+
+    width = Math.min($('.container').width(), 400)
+    height = 4 / 3 * width
+    $('.user-post-image').css({ width: width, height: height });
+    $('.user-post-image-question').css({ width: width });
+    $('.sns_btn').css({ width: width });
+    $('.user-image-opinion').css({ width: width });
+    $('.user-image-opinion-btn').css({ width: width });
+    $('.arrow_box').css({ width: width });
+    $('.other-user-comment').css({ width: width });
+
+    $pointBtn.each ->
+      $this = $(this)
+      if localStorage.getItem('good-' + $this.attr('data-image-id'))
+        $this.addClass('disabled');
+      else
+        $this.css({opacity:"1.0"})
+
+    $tweetBtn.on click: ->
+      $this = $(this)
+      id = $this.attr('data-image-id')
+      host = location.host + '/user_post_images/' + id
+      url = 'http://twitter.com/share?url=http://' + host + '&text=' + encodeURIComponent('#俺ブン')
+      location.href = url
+
+    $pointBtn.on click: ->
+      $this = $(this)
+      if $this.hasClass('disabled')
+        return false
+      $this.addClass('disabled');
+      $this.css({opacity:"0.6"})
+      id = $this.attr('data-image-id')
+      $point = $this.children('span')
+      nextPoint = parseInt($point.text()) + 1
+      $point.text(nextPoint)
+      localStorage.setItem('good-' + id, true)
+      $.ajax '/user_post_images/good',
+        type: 'POST'
+        dataType: 'json'
+        data: { id: id }
+        error: (jqXHR, textStatus, errorThrown) ->
+        success: (data, textStatus, jqXHR) ->
+
   $('.user_post_images.show').ready ->
     $pointBtn = $('.goodBtn')
     $tweetBtn = $('.twBtn')

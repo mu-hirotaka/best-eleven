@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get  'user_post_images'                => 'user_post_images#index', as: :user_post_image_root
   get  'user_post_images/order_by_point' => 'user_post_images#index_order_by_point'
+  get  'user_post_images/order_by_comment' => 'user_post_images#index_order_by_comment'
   get  'user_post_images/:id'            => 'user_post_images#show'
   post 'user_post_images/good'           => 'user_post_images#good'
 
