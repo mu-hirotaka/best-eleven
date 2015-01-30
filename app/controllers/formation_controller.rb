@@ -5,6 +5,7 @@ class FormationController < BaseController
     questions = Question.all.map{|record| [record.id, record.title]}
     @question_to_title = Hash[questions]
     @images = UserPostImage.where(question_id: params[:qid]).order('point DESC').limit(3)
+    @ranking_url = '/user_post_images/ranking?qid=' + params[:qid]
 
     image_ids = []
     @images.each {|record|
