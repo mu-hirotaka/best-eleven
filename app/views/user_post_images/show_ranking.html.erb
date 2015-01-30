@@ -1,0 +1,36 @@
+<div class="text-center">
+  <%= render 'shared/header' %>
+  <div class="common-title">
+    <p>人気のあるイレブン</p>
+  </div>
+  <% @images.each do |image| %>
+    <div class="user-post-image-question"><%= @question_to_title[image.question_id] %>ベストイレブン</div>
+    <div style="position:relative;">
+      <%= image_tag(@image_host + image.image_name, class: 'user-post-image') %>
+    </div>
+    <% if image.comment && image.comment.length > 0 %>
+      <div class="arrow_box"><%= image.comment %></div>
+    <% end %>
+
+    <%= render 'shared/share_button', image: image %>
+
+    <% if @image_id_to_comments[image.id] %>
+      <% @image_id_to_comments[image.id].each_with_index do |elm, index| %>
+        <% if index < 3 %>
+          <div class="bs-callout bs-callout-info other-user-comment"><%= elm.comment %></div>
+        <% end %>
+      <% end %>
+      <% path = '/user_post_images/' + image.id.to_s %>
+      <button class="more-btn" onclick="location.href='<%= path %>'">もっと見る</button>
+    <% end %>
+    <form method="POST" action="/user_comments/create">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div><textarea rows="2" class="user-image-opinion" name="comment" placeholder="コメントを入力して下さい"></textarea></div>
+      <button type="submit" class="btn btn-warning user-image-opinion-btn">コメント送信</button>
+      <input type="hidden" name="image_id" value="<%= image.id %>" />
+    </form>
+  <% end %>
+  <%= paginate @images %>
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'" style="margin-top: 5px;">トップページ</button>
+  <%= render 'shared/footer_relative' %>
+</div>

@@ -1,0 +1,19 @@
+<div class="text-center">
+  <%= render 'shared/header' %>
+
+  <div class="common-title">
+    <p>すげぇイレブンランキング</p>
+  </div>
+
+  <div class="question-btn">
+  	<ul>
+      <% @questions.each do |value| %>
+        <li><button type="button" class="btn btn-lg btn-primary question-each-btn" data-question-id="<%= value.id %>" data-question-title="<%= value.title %>"><%= value.title %></button></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'">トップページ</button>
+
+  <%= render 'shared/footer_relative' %>
+</div>
