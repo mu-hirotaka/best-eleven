@@ -9,11 +9,13 @@
     <tr>
       <th>id</th>
       <th>comment</th>
+      <th>削除</th>
     </tr>
     <% @user_requests.each do |user_request| %>
       <tr>
         <td><%= user_request.id %></td>
         <td><%= user_request.comment %></td>
+        <td><%= link_to '削除', '/admin/user_question_request/' + user_request.id.to_s, :method => :delete %>
       </tr>
     <% end %>
   </table>

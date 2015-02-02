@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :formations, except: [ :new, :create, :destroy ]
     resources :questions, except: [ :new, :create, :destroy ]
     get 'user_question_requests' => 'questions#user_requests'
+    delete 'user_question_request/:id' => 'questions#user_request_destroy'
     resources :player_types, except: [ :new, :create, :destroy ]
     resources :user_post_images, only: [ :index, :destroy ]
     resource :maintenances, except: [ :index, :destroy ]

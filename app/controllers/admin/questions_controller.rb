@@ -27,6 +27,12 @@ class Admin::QuestionsController < Admin::Base
     @user_requests = @user_requests.page(params[:page])
   end
 
+  def user_request_destroy
+    user_request = UserQuestionRequest.find(params[:id])
+    user_request.destroy!
+    redirect_to :action => 'user_requests'
+  end
+
   private
   def question_params
     params.require(:question).permit(:title, :description, :valid_player_type_ids, :valid_st)
