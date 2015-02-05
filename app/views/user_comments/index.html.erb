@@ -1,0 +1,13 @@
+<div class="text-center">
+  <%= render 'shared/header' %>
+  <div class="common-title">
+    <p>最新記事コメント</p>
+  </div>
+  <% @comments.each do |comment| %>
+    <% path = '/user_post_images/' + comment.image_id.to_s %>
+    <div class="bs-callout bs-callout-info other-user-comment"><%= comment.comment %> [<a href="<%= path %>">閲覧</a>]</div>
+  <% end %>
+  <%= paginate @comments %>
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'" style="margin-top: 5px;">トップページ</button>
+  <%= render 'shared/footer_relative' %>
+</div>

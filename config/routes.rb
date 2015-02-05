@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   post 'user_post_images/good'           => 'user_post_images#good'
 
   post 'user_comments/create'   => 'user_comments#create'
+  get 'user_comments'   => 'user_comments#index'
 
   get  '/auth/:provider/callback', :to => 'sessions#callback'
   post '/auth/:provider/callback', :to => 'sessions#callback'

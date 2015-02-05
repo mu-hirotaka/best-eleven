@@ -8,4 +8,9 @@ class UserCommentsController < BaseController
     end
     redirect_to controller: 'user_post_images', action: 'show', id: image_id
   end
+
+  def index
+    @comments = UserComment.all.order(created_at: :desc)
+    @comments = @comments.page(params[:page])
+  end
 end
