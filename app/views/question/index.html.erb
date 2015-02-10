@@ -5,14 +5,33 @@
     <p>募集中のイレブン</p>
   </div>
 
-  <div class="question-btn">
-  	<ul>
-      <% @questions.each do |value| %>
-        <li><button type="button" class="btn btn-lg btn-primary question-each-btn" data-question-id="<%= value.id %>" data-question-title="<%= value.title %>"><%= value.title %></button></li>
-        <li><div class="arrow_box"><span><%= value.description %></span></div></li>
-      <% end %>
-    </ul>
-  </div>
+  <% if params["qtype"] && (params["qtype"].to_i > 1) %>
+    <span class="common-tab"><a href="/question">サッカー</a> | その他</span>
+    <div class="spacer-bottom"></div>
+    <div class="question-btn">
+    	<ul>
+        <% @questions.each do |value| %>
+          <% if [1,2,5].include?(value.id) %>
+            <li><button type="button" class="btn btn-lg btn-primary question-each-btn" data-question-id="<%= value.id %>" data-question-title="<%= value.title %>"><%= value.title %></button></li>
+            <li><div class="arrow_box"><span><%= value.description %></span></div></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <span class="common-tab">サッカー | <a href="/question?qtype=2">その他</a></span>
+    <div class="spacer-bottom"></div>
+    <div class="question-btn">
+    	<ul>
+        <% @questions.each do |value| %>
+          <% if [3,4,6].include?(value.id) %>
+            <li><button type="button" class="btn btn-lg btn-primary question-each-btn" data-question-id="<%= value.id %>" data-question-title="<%= value.title %>"><%= value.title %></button></li>
+            <li><div class="arrow_box"><span><%= value.description %></span></div></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <form method="POST" action="<%= question_send_request_path %>">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
