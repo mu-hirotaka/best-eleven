@@ -24,7 +24,6 @@ class Admin::QuestionsController < Admin::Base
 
   def user_requests
     @user_requests = UserQuestionRequest.all.order(created_at: :desc)
-    @user_requests = @user_requests.page(params[:page])
   end
 
   def user_request_destroy
