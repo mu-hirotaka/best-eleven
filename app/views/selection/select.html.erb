@@ -1,6 +1,5 @@
 <div class="text-center">
   <%= render 'shared/header' %>
-
   <div class="player-selection">
     <div class="row" style="margin-top:5px;">
       <div class="col-xs-5" style="padding-left:10px; padding-right:10px;">
@@ -35,5 +34,28 @@
   <button type="button" id="select-done-btn" class="btn btn-lg btn-primary">決定</button>
   <button type="button" class="btn btn-lg btn-warning" onclick="location.href='/selection'">キャンセル</button>
 
-  <%= render 'shared/footer' %>
+  <% if @player_counters && @player_counters.length > 9 %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>人気順位</th>
+          <th>名前</th>
+          <th>選択回数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% [0,1,2,3,4,5,6,7,8,9].each do |num| %>
+        <tr>
+          <th><%= num + 1 %></th>
+          <% pid = @player_counters[num].pid %>
+          <% tmp_player = @all_players[pid] %>
+          <td style="text-align:left;"><%= tmp_player["short_name"] %></td>
+          <td style="text-align:left;"><%= @player_counters[num].num %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
+  <%= render 'shared/footer_relative' %>
 </div>

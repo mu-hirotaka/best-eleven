@@ -40,6 +40,15 @@ class ImageController < BaseController
       dr.text(value["x"].to_i + 42 - metrix.width / 2, value["y"].to_i + 108, tmp_player["short_name"])
       player.resize!(0.85)
       ground = ground.composite(player, value["x"].to_i, value["y"].to_i, Magick::OverCompositeOp)
+
+      p_counter = PlayerCounter.where(:qid => question_id, :pid => player_ids[i].to_i).first
+      if p_counter
+        p_counter.num = p_counter.num + 1
+      else
+        p_counter = PlayerCounter.new(qid: question_id, pid: player_ids[i].to_i, num: 1)
+      end
+      p_counter.save
+
     }
     dr.draw(ground)
 

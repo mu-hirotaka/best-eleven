@@ -14,6 +14,7 @@ require 'RMagick'
 
     players = Player.all.map{|player| [player.id, player.attributes]}
     players = Hash[players]
+    @all_players = players
     @before_player = players[@bid].nil? ? nil : players[@bid]
 
     type_to_name = PlayerType.all.map{|record| [record.id, record.title]}
@@ -31,5 +32,8 @@ require 'RMagick'
     else
       @type_to_players = type_to_players
     end
+
+    @player_counters = PlayerCounter.where(qid: question_id).map{|player| player}.sort_by{|record| - record.num}
+
   end
 end

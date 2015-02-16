@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022024856) do
+ActiveRecord::Schema.define(version: 20150213083732) do
 
   create_table "formations", force: true do |t|
     t.string   "type_name",      null: false
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20141022024856) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "player_counters", force: true do |t|
+    t.integer  "qid",        null: false
+    t.integer  "pid",        null: false
+    t.integer  "num",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "player_counters", ["qid"], name: "index_player_counters_on_qid", using: :btree
 
   create_table "player_types", force: true do |t|
     t.string   "title",      null: false
