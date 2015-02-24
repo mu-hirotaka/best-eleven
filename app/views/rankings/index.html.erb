@@ -1,0 +1,15 @@
+<div class="text-center">
+  <%= render 'shared/header' %>
+
+  <div class="common-title">
+    <p>ランキング</p>
+  </div>
+
+  <button type="button" class="btn btn-lg btn-primary" onclick="location.href='/user_post_images/rankings'">すげぇイレブンランキング</button>
+
+  <button type="button" class="btn btn-lg btn-primary" onclick="location.href='/rankings/questions'" style="margin-top: 8px;">人気選手ランキング</button>
+
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'" style="margin-top: 8px;">トップページ</button>
+
+  <%= render 'shared/footer_relative' %>
+</div>

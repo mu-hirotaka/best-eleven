@@ -2,14 +2,14 @@
   <%= render 'shared/header' %>
 
   <div class="common-title">
-    <p>すげぇイレブンランキング</p>
+    <p>人気選手ランキング</p>
   </div>
 
   <% if params["qtype"] && (params["qtype"].to_i > 1) %>
-    <span class="common-tab"><a href="/user_post_images/rankings">サッカー</a> | その他</span>
+    <span class="common-tab"><a href="/rankings/questions">サッカー</a> | その他</span>
     <div class="spacer-bottom"></div>
     <div class="question-btn">
-      <ul>
+    	<ul>
         <% @questions.each do |value| %>
           <% if [1,2,5].include?(value.id) %>
             <li><button type="button" class="btn btn-lg btn-primary question-each-btn" data-question-id="<%= value.id %>" data-question-title="<%= value.title %>"><%= value.title %></button></li>
@@ -18,10 +18,10 @@
       </ul>
     </div>
   <% else %>
-    <span class="common-tab">サッカー | <a href="/user_post_images/rankings?qtype=2">その他</a></span>
+    <span class="common-tab">サッカー | <a href="/rankings/questions?qtype=2">その他</a></span>
     <div class="spacer-bottom"></div>
     <div class="question-btn">
-      <ul>
+    	<ul>
         <% @questions.each do |value| %>
           <% if [3,4,6,7].include?(value.id) %>
             <li><button type="button" class="btn btn-lg btn-primary question-each-btn" data-question-id="<%= value.id %>" data-question-title="<%= value.title %>"><%= value.title %></button></li>

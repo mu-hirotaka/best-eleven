@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   get  'selection/show' => 'selection#show', as: :selection_show
   get  'selection/select' => 'selection#select', as: :selection_select
 
+  get  'rankings' => 'rankings#index', as: :rankings_root
+  get  'rankings/questions' => 'rankings#questions'
+  get  'rankings/question' => 'rankings#question'
+
   post 'image/create' => 'image#create', as: :image_create
   get  'twitter', :to => 'twitter#index', as: :twitter_root
   post 'twitter/tweet', :to => 'twitter#tweet'

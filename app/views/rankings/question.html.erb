@@ -1,0 +1,36 @@
+<div class="text-center">
+  <%= render 'shared/header' %>
+
+  <div class="common-title">
+    <p>人気のある選手</p>
+  </div>
+
+  <% if @player_counters && @player_counters.length > 0 %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>人気順位</th>
+          <th>名前</th>
+          <th>選択回数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @player_counters.each_with_index do |record, i| %>
+        <tr>
+          <th><%= i + 1 %></th>
+          <% pid = record.pid %>
+          <% tmp_player = @all_players[pid] %>
+          <td style="text-align:left;"><%= tmp_player["short_name"] %></td>
+          <td style="text-align:left;"><%= record.num %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    まだデータがありません
+  <% end %>
+
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='javascript:history.back()'" style="margin-top: 5px;">戻る</button>
+
+  <%= render 'shared/footer_relative' %>
+</div>

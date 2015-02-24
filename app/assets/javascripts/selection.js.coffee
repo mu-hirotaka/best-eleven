@@ -501,6 +501,12 @@ $ ->
         error: (jqXHR, textStatus, errorThrown) ->
         success: (data, textStatus, jqXHR) ->
 
+  $('.rankings.questions').ready ->
+    $('.question-each-btn').on click: ->
+      $this = $(this)
+      questionId = $this.attr('data-question-id')
+      location.href = '/rankings/question' + '?qid=' + questionId
+
 #    _.each {one : 1, two : 2, three : 3}, (num, key) -> console.log num
 #  $('#selection-done').on click: ->
 #    $(':checkbox').each (index, element) =>
