@@ -16,7 +16,7 @@
         <td><%= comment.id %></td>
         <td><%= comment.image_id %></td>
         <td><%= comment.comment %></td>
-        <td><%= link_to '削除', '/admin/user_comments/' + comment.id.to_s, :method => :delete %>
+        <td><%= link_to '削除', '/admin/user_comments/' + comment.id.to_s, :method => :delete %></td>
       </tr>
     <% end %>
   </table>
