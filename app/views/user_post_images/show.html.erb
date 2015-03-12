@@ -23,6 +23,7 @@
     <input type="hidden" name="image_id" value="<%= @image.id %>" />
   </form>
 
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='javascript:history.back()'" style="margin-top: 8px;">戻る</button>
   <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= user_post_image_root_path %>'" style="margin-top: 8px;">投稿されたイレブン</button>
   <button type="button" class="btn btn-lg btn-success" onclick="location.href='/user_comments'" style="margin-top: 8px;">記事コメント一覧</button>
   <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'" style="margin-top: 8px;">トップページ</button>

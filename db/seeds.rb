@@ -637,6 +637,41 @@
   { :id => 628, :type_id => 9, :full_name => 'ビクトル・バルデス', :short_name => 'V・バルデス', :valid_st => 1 },
   { :id => 629, :type_id => 9, :full_name => 'ファビアン・バルテズ', :short_name => 'F・バルテズ', :valid_st => 1 },
   { :id => 630, :type_id => 9, :full_name => 'ファン・デル・サール', :short_name => 'ファン・デル・サール', :valid_st => 1 },
+
+  { :id => 631, :type_id => 10, :full_name => 'イカフライ', :short_name => 'イカフライ', :valid_st => 1 },
+  { :id => 632, :type_id => 10, :full_name => '海の幸', :short_name => '海の幸', :valid_st => 1 },
+  { :id => 633, :type_id => 10, :full_name => 'エビあさり', :short_name => 'エビあさり', :valid_st => 1 },
+  { :id => 634, :type_id => 10, :full_name => 'エビカツ', :short_name => 'エビカツ', :valid_st => 1 },
+  { :id => 635, :type_id => 10, :full_name => 'エビ煮込み', :short_name => 'エビ煮込み', :valid_st => 1 },
+  { :id => 636, :type_id => 10, :full_name => 'オクラ山芋', :short_name => 'オクラ山芋', :valid_st => 1 },
+  { :id => 637, :type_id => 10, :full_name => 'カニクリームコロッケ', :short_name => 'カニクリームコロッケ', :valid_st => 1 },
+  { :id => 638, :type_id => 10, :full_name => 'きのこ', :short_name => 'きのこ', :valid_st => 1 },
+  { :id => 639, :type_id => 10, :full_name => '牛カルビ', :short_name => '牛カルビ', :valid_st => 1 },
+  { :id => 640, :type_id => 10, :full_name => 'コーン', :short_name => 'コーン', :valid_st => 1 },
+  { :id => 641, :type_id => 10, :full_name => '魚フライ', :short_name => '魚フライ', :valid_st => 1 },
+  { :id => 642, :type_id => 10, :full_name => 'スクランブルエッグ', :short_name => 'スクランブルエッグ', :valid_st => 1 },
+  { :id => 643, :type_id => 10, :full_name => 'ソーセージ', :short_name => 'ソーセージ', :valid_st => 1 },
+  { :id => 644, :type_id => 10, :full_name => 'たっぷりあさり', :short_name => 'たっぷりあさり', :valid_st => 1 },
+  { :id => 645, :type_id => 10, :full_name => 'チーズ', :short_name => 'チーズ', :valid_st => 1 },
+  { :id => 646, :type_id => 10, :full_name => 'チーズハンバーグ', :short_name => 'チーズハンバーグ', :valid_st => 1 },
+  { :id => 647, :type_id => 10, :full_name => 'チキンカツ', :short_name => 'チキンカツ', :valid_st => 1 },
+  { :id => 648, :type_id => 10, :full_name => 'チキン煮込み', :short_name => 'チキン煮込み', :valid_st => 1 },
+  { :id => 649, :type_id => 10, :full_name => 'ツナ', :short_name => 'ツナ', :valid_st => 1 },
+  { :id => 650, :type_id => 10, :full_name => 'トマト', :short_name => 'トマト', :valid_st => 1 },
+  { :id => 651, :type_id => 10, :full_name => 'トマトアスパラ', :short_name => 'トマトアスパラ', :valid_st => 1 },
+  { :id => 652, :type_id => 10, :full_name => 'とんかつ', :short_name => 'とんかつ', :valid_st => 1 },
+  { :id => 653, :type_id => 10, :full_name => 'なす', :short_name => 'なす', :valid_st => 1 },
+  { :id => 654, :type_id => 10, :full_name => '納豆', :short_name => '納豆', :valid_st => 1 },
+  { :id => 655, :type_id => 10, :full_name => 'ハンバーグ', :short_name => 'ハンバーグ', :valid_st => 1 },
+  { :id => 656, :type_id => 10, :full_name => '半熟卵つくね', :short_name => '半熟卵つくね', :valid_st => 1 },
+  { :id => 657, :type_id => 10, :full_name => 'ビーフカツ', :short_name => 'ビーフカツ', :valid_st => 1 },
+  { :id => 658, :type_id => 10, :full_name => 'ヒレカツ', :short_name => 'ヒレカツ', :valid_st => 1 },
+  { :id => 659, :type_id => 10, :full_name => '豚しゃぶ', :short_name => '豚しゃぶ', :valid_st => 1 },
+  { :id => 660, :type_id => 10, :full_name => 'フライドチキン', :short_name => 'フライドチキン', :valid_st => 1 },
+  { :id => 661, :type_id => 10, :full_name => 'ほうれん草', :short_name => 'ほうれん草', :valid_st => 1 },
+  { :id => 662, :type_id => 10, :full_name => 'メンチカツ', :short_name => 'メンチカツ', :valid_st => 1 },
+  { :id => 663, :type_id => 10, :full_name => '野菜', :short_name => '野菜', :valid_st => 1 },
+  { :id => 664, :type_id => 10, :full_name => 'ロースカツ', :short_name => 'ロースカツ', :valid_st => 1 },
 ].each do |record|
   player = Player.where(:id => record[:id]).first
   if player
@@ -680,6 +715,7 @@ end
   { :id => 7, :title => '歴代ACミラン', :description => '歴代選手(1988〜2015年)でベストイレブンを組め', :valid_player_type_ids => '[7]', :valid_st => 1 },
   { :id => 8, :title => '歴代Jリーグ', :description => '歴代受賞者(1993〜2014年)でJリーグベストイレブンを組め', :valid_player_type_ids => '[8]', :valid_st => 1 },
   { :id => 9, :title => '歴代マンチェスターU', :description => '歴代選手(1986〜2015年)でベストイレブンを組め', :valid_player_type_ids => '[9]', :valid_st => 1 },
+  { :id => 10, :title => 'カレートッピング', :description => 'カレーのトッピングでベストイレブンを組め', :valid_player_type_ids => '[10]', :valid_st => 1 },
 ].each do |record|
   question = Question.where(:id => record[:id]).first
   if question
@@ -703,6 +739,7 @@ end
   { :id => 7, :title => '歴代ACミラン' },
   { :id => 8, :title => '歴代Jリーグ' },
   { :id => 9, :title => '歴代マンチェスターU' },
+  { :id => 10, :title => 'カレートッピング' },
 ].each do |record|
   player_type = PlayerType.where(:id => record[:id]).first
   if player_type
