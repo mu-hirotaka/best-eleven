@@ -36,7 +36,7 @@
               <% end %>
             <% else %>
               <% value.each do |player| %>
-                <option value="<%= player[:id] %>" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+                <option value="<%= player[:id] %>" data-position="0" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
               <% end %>
             <% end %>
           </select>
@@ -51,6 +51,11 @@
       <button class="btn btn-sm btn-default" id="position-df" style="width: 15%;">DF</button>
       <button class="btn btn-sm btn-default" id="position-gk" style="width: 15%;">GK</button>
     <% end %>
+    <div id="storage-all" style="display:none;"></div>
+    <div id="storage-fw" style="display:none;"></div>
+    <div id="storage-mf" style="display:none;"></div>
+    <div id="storage-df" style="display:none;"></div>
+    <div id="storage-gk" style="display:none;"></div>
   </div>
 
   <button type="button" id="select-done-btn" class="btn btn-lg btn-primary">決定</button>

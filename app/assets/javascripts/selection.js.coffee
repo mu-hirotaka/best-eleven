@@ -158,6 +158,30 @@ $ ->
       if cache
         selector = 'select.select-target option[value=' + cache + ']'
         $(selector).remove()
+
+    $storageAll = $('#storage-all')
+    $storageFw = $('#storage-fw')
+    $storageMf = $('#storage-mf')
+    $storageDf = $('#storage-df')
+    $storageGk = $('#storage-gk')
+    $('.select-target > option').each ->
+      $this = $(this)
+      $storageAll.append($this.clone())
+      positionNum = parseInt($this.attr('data-position'))
+      if positionNum == 1
+        $storageFw.append($this.clone())
+      else if positionNum == 2
+        $storageMf.append($this.clone())
+      else if positionNum == 3
+        $storageDf.append($this.clone())
+      else if positionNum == 4
+        $storageGk.append($this.clone())
+      else
+        $storageFw.append($this.clone())
+        $storageMf.append($this.clone())
+        $storageDf.append($this.clone())
+        $storageGk.append($this.clone())
+
     fieldId = $('#select-player-after').attr('data-fid')
     localStorage.removeItem('tmp-f' + fieldId + '-player-name')
     $('.select-target').on change: ->
@@ -198,9 +222,8 @@ $ ->
       $positionDf.addClass('btn-default')
       $positionGk.removeClass('btn-danger')
       $positionGk.addClass('btn-default')
-      $('.select-target > option').each ->
-        $this = $(this)
-        $this.css('display', 'block');
+      $('.select-target').empty();
+      $('.select-target').append($storageAll.children())
 
     $positionFw.on click: ->
       $positionFw.removeClass('btn-default')
@@ -213,11 +236,8 @@ $ ->
       $positionDf.addClass('btn-default')
       $positionGk.removeClass('btn-danger')
       $positionGk.addClass('btn-default')
-      $('.select-target > option').each ->
-        $this = $(this)
-        $this.css('display', 'block')
-        if parseInt($this.attr('data-position')) != 0 && parseInt($this.attr('data-position')) != 1
-          $this.css('display', 'none')
+      $('.select-target').empty();
+      $('.select-target').append($storageFw.children())
 
     $positionMf.on click: ->
       $positionMf.removeClass('btn-default')
@@ -230,11 +250,8 @@ $ ->
       $positionDf.addClass('btn-default')
       $positionGk.removeClass('btn-danger')
       $positionGk.addClass('btn-default')
-      $('.select-target > option').each ->
-        $this = $(this)
-        $this.css('display', 'block')
-        if parseInt($this.attr('data-position')) != 0 && parseInt($this.attr('data-position')) != 2
-          $this.css('display', 'none')
+      $('.select-target').empty();
+      $('.select-target').append($storageMf.children())
 
     $positionDf.on click: ->
       $positionDf.removeClass('btn-default')
@@ -247,11 +264,8 @@ $ ->
       $positionMf.addClass('btn-default')
       $positionGk.removeClass('btn-danger')
       $positionGk.addClass('btn-default')
-      $('.select-target > option').each ->
-        $this = $(this)
-        $this.css('display', 'block')
-        if parseInt($this.attr('data-position')) != 0 && parseInt($this.attr('data-position')) != 3
-          $this.css('display', 'none')
+      $('.select-target').empty();
+      $('.select-target').append($storageDf.children())
 
     $positionGk.on click: ->
       $positionGk.removeClass('btn-default')
@@ -264,11 +278,8 @@ $ ->
       $positionMf.addClass('btn-default')
       $positionDf.removeClass('btn-danger')
       $positionDf.addClass('btn-default')
-      $('.select-target > option').each ->
-        $this = $(this)
-        $this.css('display', 'block')
-        if parseInt($this.attr('data-position')) != 0 && parseInt($this.attr('data-position')) != 4
-          $this.css('display', 'none')
+      $('.select-target').empty();
+      $('.select-target').append($storageGk.children())
 
   $('.selection.show').ready ->
     $tweetBtn = $('#twitter-tweet-btn')
