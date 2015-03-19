@@ -147,6 +147,12 @@ $ ->
       location.href = '/formation?qid=' + localStorage.getItem('current-question-id')
 
   $('.selection.select').ready ->
+    $positionAll = $('#position-all')
+    $positionFw = $('#position-fw')
+    $positionMf = $('#position-mf')
+    $positionDf = $('#position-df')
+    $positionGk = $('#position-gk')
+
     for index in [1..11]
       cache = localStorage.getItem('fid' + index)
       if cache
@@ -181,6 +187,88 @@ $ ->
         localStorage.removeItem(tmpKeyName)
       location.href = '/selection?aid=' + playerId + '&fid=' + fieldId
 
+    $positionAll.on click: ->
+      $positionAll.removeClass('btn-default')
+      $positionAll.addClass('btn-danger')
+      $positionFw.removeClass('btn-danger')
+      $positionFw.addClass('btn-default')
+      $positionMf.removeClass('btn-danger')
+      $positionMf.addClass('btn-default')
+      $positionDf.removeClass('btn-danger')
+      $positionDf.addClass('btn-default')
+      $positionGk.removeClass('btn-danger')
+      $positionGk.addClass('btn-default')
+      $('.select-target > option').each ->
+        $this = $(this)
+        $this.css('display', 'block');
+
+    $positionFw.on click: ->
+      $positionFw.removeClass('btn-default')
+      $positionFw.addClass('btn-danger')
+      $positionAll.removeClass('btn-danger')
+      $positionAll.addClass('btn-default')
+      $positionMf.removeClass('btn-danger')
+      $positionMf.addClass('btn-default')
+      $positionDf.removeClass('btn-danger')
+      $positionDf.addClass('btn-default')
+      $positionGk.removeClass('btn-danger')
+      $positionGk.addClass('btn-default')
+      $('.select-target > option').each ->
+        $this = $(this)
+        $this.css('display', 'block')
+        if parseInt($this.attr('data-position')) != 0 && parseInt($this.attr('data-position')) != 1
+          $this.css('display', 'none')
+
+    $positionMf.on click: ->
+      $positionMf.removeClass('btn-default')
+      $positionMf.addClass('btn-danger')
+      $positionAll.removeClass('btn-danger')
+      $positionAll.addClass('btn-default')
+      $positionFw.removeClass('btn-danger')
+      $positionFw.addClass('btn-default')
+      $positionDf.removeClass('btn-danger')
+      $positionDf.addClass('btn-default')
+      $positionGk.removeClass('btn-danger')
+      $positionGk.addClass('btn-default')
+      $('.select-target > option').each ->
+        $this = $(this)
+        $this.css('display', 'block')
+        if parseInt($this.attr('data-position')) != 0 && parseInt($this.attr('data-position')) != 2
+          $this.css('display', 'none')
+
+    $positionDf.on click: ->
+      $positionDf.removeClass('btn-default')
+      $positionDf.addClass('btn-danger')
+      $positionAll.removeClass('btn-danger')
+      $positionAll.addClass('btn-default')
+      $positionFw.removeClass('btn-danger')
+      $positionFw.addClass('btn-default')
+      $positionMf.removeClass('btn-danger')
+      $positionMf.addClass('btn-default')
+      $positionGk.removeClass('btn-danger')
+      $positionGk.addClass('btn-default')
+      $('.select-target > option').each ->
+        $this = $(this)
+        $this.css('display', 'block')
+        if parseInt($this.attr('data-position')) != 0 && parseInt($this.attr('data-position')) != 3
+          $this.css('display', 'none')
+
+    $positionGk.on click: ->
+      $positionGk.removeClass('btn-default')
+      $positionGk.addClass('btn-danger')
+      $positionAll.removeClass('btn-danger')
+      $positionAll.addClass('btn-default')
+      $positionFw.removeClass('btn-danger')
+      $positionFw.addClass('btn-default')
+      $positionMf.removeClass('btn-danger')
+      $positionMf.addClass('btn-default')
+      $positionDf.removeClass('btn-danger')
+      $positionDf.addClass('btn-default')
+      $('.select-target > option').each ->
+        $this = $(this)
+        $this.css('display', 'block')
+        if parseInt($this.attr('data-position')) != 0 && parseInt($this.attr('data-position')) != 4
+          $this.css('display', 'none')
 
   $('.selection.show').ready ->
     $tweetBtn = $('#twitter-tweet-btn')

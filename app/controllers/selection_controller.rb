@@ -35,5 +35,18 @@ require 'RMagick'
 
     @player_counters = PlayerCounter.where(qid: question_id).map{|player| player}.sort_by{|record| - record.num}
 
+    positions = {
+      1  => { :type => 1, },
+      2  => { :type => 1, },
+      3  => { :type => 2, :fw => { :min => 93, :max => 106 }, :mf => { :min => 73, :max => 92 }, :df => { :min => 53, :max => 72 }, :gk => { :min => 50, :max => 52 } },
+      4  => { :type => 2, :fw => { :min => 164, :max => 177 }, :mf => { :min => 138, :max => 163 }, :df => { :min => 120, :max => 137 }, :gk => { :min => 116, :max => 119 } },
+      5  => { :type => 1, },
+      6  => { :type => 2, :fw => { :min => 292, :max => 310 }, :mf => { :min => 264, :max => 291 }, :df => { :min => 236, :max => 263 }, :gk => { :min => 229, :max => 235 } },
+      7  => { :type => 2, :fw => { :min => 311, :max => 342 }, :mf => { :min => 343, :max => 370 }, :df => { :min => 371, :max => 400 }, :gk => { :min => 401, :max => 405 } },
+      8  => { :type => 2, :fw => { :min => 406, :max => 444 }, :mf => { :min => 445, :max => 493 }, :df => { :min => 494, :max => 531 }, :gk => { :min => 532, :max => 545 } },
+      9  => { :type => 2, :fw => { :min => 546, :max => 567 }, :mf => { :min => 568, :max => 596 }, :df => { :min => 597, :max => 623 }, :gk => { :min => 624, :max => 630 } },
+      10 => { :type => 1, },
+    }
+    @position = positions[question_id]
   end
 end

@@ -21,13 +21,35 @@
       <div style="margin-top:20px; margin-bottom:5px;">
         <form action="" method="post">
           <select name="aid" class="select-target">
-            <option value="0" data-image-path="/images/players/0.jpg">選択してください</option>
-            <% value.each do |player| %>
-              <option value="<%= player[:id] %>" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+            <option value="0" data-position="0" data-image-path="/images/players/0.jpg">選択してください</option>
+            <% if @position[:type] > 1 %>
+              <% value.each do |player| %>
+                <% if (@position[:fw][:min] <= player[:id]) && (player[:id] <= @position[:fw][:max]) %>
+                  <option value="<%= player[:id] %>" data-position="1" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+                <% elsif (@position[:mf][:min] <= player[:id]) && (player[:id] <= @position[:mf][:max]) %>
+                  <option value="<%= player[:id] %>" data-position="2" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+                <% elsif (@position[:df][:min] <= player[:id]) && (player[:id] <= @position[:df][:max]) %>
+                  <option value="<%= player[:id] %>" data-position="3" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+                <% elsif (@position[:gk][:min] <= player[:id]) && (player[:id] <= @position[:gk][:max]) %>
+                  <option value="<%= player[:id] %>" data-position="4" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+                <% end %>
+              <% end %>
+            <% else %>
+              <% value.each do |player| %>
+                <option value="<%= player[:id] %>" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+              <% end %>
             <% end %>
           </select>
         </form>
       </div>
+    <% end %>
+
+    <% if @position[:type] > 1 %>
+      <button class="btn btn-sm btn-danger" id="position-all" style="width: 15%;">ALL</button>
+      <button class="btn btn-sm btn-default" id="position-fw" style="width: 15%;">FW</button>
+      <button class="btn btn-sm btn-default" id="position-mf" style="width: 15%;">MF</button>
+      <button class="btn btn-sm btn-default" id="position-df" style="width: 15%;">DF</button>
+      <button class="btn btn-sm btn-default" id="position-gk" style="width: 15%;">GK</button>
     <% end %>
   </div>
 
