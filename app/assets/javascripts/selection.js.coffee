@@ -223,7 +223,7 @@ $ ->
       $positionGk.removeClass('btn-danger')
       $positionGk.addClass('btn-default')
       $('.select-target').empty();
-      $('.select-target').append($storageAll.children())
+      $('.select-target').append($storageAll.children().clone())
 
     $positionFw.on click: ->
       $positionFw.removeClass('btn-default')
@@ -237,7 +237,7 @@ $ ->
       $positionGk.removeClass('btn-danger')
       $positionGk.addClass('btn-default')
       $('.select-target').empty();
-      $('.select-target').append($storageFw.children())
+      $('.select-target').append($storageFw.children().clone())
 
     $positionMf.on click: ->
       $positionMf.removeClass('btn-default')
@@ -251,7 +251,7 @@ $ ->
       $positionGk.removeClass('btn-danger')
       $positionGk.addClass('btn-default')
       $('.select-target').empty();
-      $('.select-target').append($storageMf.children())
+      $('.select-target').append($storageMf.children().clone())
 
     $positionDf.on click: ->
       $positionDf.removeClass('btn-default')
@@ -265,7 +265,7 @@ $ ->
       $positionGk.removeClass('btn-danger')
       $positionGk.addClass('btn-default')
       $('.select-target').empty();
-      $('.select-target').append($storageDf.children())
+      $('.select-target').append($storageDf.children().clone())
 
     $positionGk.on click: ->
       $positionGk.removeClass('btn-default')
@@ -279,7 +279,7 @@ $ ->
       $positionDf.removeClass('btn-danger')
       $positionDf.addClass('btn-default')
       $('.select-target').empty();
-      $('.select-target').append($storageGk.children())
+      $('.select-target').append($storageGk.children().clone())
 
   $('.selection.show').ready ->
     $tweetBtn = $('#twitter-tweet-btn')
