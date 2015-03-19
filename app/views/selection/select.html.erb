@@ -21,22 +21,22 @@
       <div style="margin-top:20px; margin-bottom:5px;">
         <form action="" method="post">
           <select name="aid" class="select-target">
-            <option value="0" data-position="0" data-image-path="/images/players/0.jpg">選択してください</option>
+            <option value="0" data-position="0" data-image-path="/images/players/0.jpg?v=1">選択してください</option>
             <% if @position[:type] > 1 %>
               <% value.each do |player| %>
                 <% if (@position[:fw][:min] <= player[:id]) && (player[:id] <= @position[:fw][:max]) %>
-                  <option value="<%= player[:id] %>" data-position="1" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+                  <option value="<%= player[:id] %>" data-position="1" data-image-path="/images/players/<%= player[:id] %>.png?v=1"><%= player[:short_name] %></option>
                 <% elsif (@position[:mf][:min] <= player[:id]) && (player[:id] <= @position[:mf][:max]) %>
-                  <option value="<%= player[:id] %>" data-position="2" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+                  <option value="<%= player[:id] %>" data-position="2" data-image-path="/images/players/<%= player[:id] %>.png?v=1"><%= player[:short_name] %></option>
                 <% elsif (@position[:df][:min] <= player[:id]) && (player[:id] <= @position[:df][:max]) %>
-                  <option value="<%= player[:id] %>" data-position="3" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+                  <option value="<%= player[:id] %>" data-position="3" data-image-path="/images/players/<%= player[:id] %>.png?v=1"><%= player[:short_name] %></option>
                 <% elsif (@position[:gk][:min] <= player[:id]) && (player[:id] <= @position[:gk][:max]) %>
-                  <option value="<%= player[:id] %>" data-position="4" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+                  <option value="<%= player[:id] %>" data-position="4" data-image-path="/images/players/<%= player[:id] %>.png?v=1"><%= player[:short_name] %></option>
                 <% end %>
               <% end %>
             <% else %>
               <% value.each do |player| %>
-                <option value="<%= player[:id] %>" data-position="0" data-image-path="/images/players/<%= player[:id] %>.png"><%= player[:short_name] %></option>
+                <option value="<%= player[:id] %>" data-position="0" data-image-path="/images/players/<%= player[:id] %>.png?v=1"><%= player[:short_name] %></option>
               <% end %>
             <% end %>
           </select>
