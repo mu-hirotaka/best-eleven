@@ -5,7 +5,7 @@
   </div>
   <span class="common-tab"><a href="<%= user_post_image_root_path %>">新着</a> | 人気 | <a href="/user_post_images/order_by_comment">コメント</a></span>
   <% @images.each do |image| %>
-    <div class="user-post-image-question"><%= @question_to_title[image.question_id] %>ベストイレブン</div>
+    <div class="user-post-image-question"><%= @question_to_title[image.question_id] %></div>
     <div style="position:relative;">
       <%= image_tag(@image_host + image.image_name, class: 'user-post-image') %>
     </div>

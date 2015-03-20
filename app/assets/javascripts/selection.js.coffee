@@ -303,7 +303,7 @@ $ ->
     questionTitle = localStorage.getItem('current-question-title')
     if questionTitle
       $title = $('.common-title > p')
-      $title.text(questionTitle + 'ベストイレブン')
+      $title.text(questionTitle)
 
     internalComment = localStorage.getItem('current-internal-comment')
     url = 'http://' + location.host + '/'
