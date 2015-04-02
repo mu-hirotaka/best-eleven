@@ -47,6 +47,7 @@ require 'RMagick'
       9  => { :type => 2, :fw => { :min => 546, :max => 567 }, :mf => { :min => 568, :max => 596 }, :df => { :min => 597, :max => 623 }, :gk => { :min => 624, :max => 630 } },
       10 => { :type => 1, },
       11  => { :type => 2, :fw => { :min => 665, :max => 688 }, :mf => { :min => 689, :max => 730 }, :df => { :min => 731, :max => 763 }, :gk => { :min => 764, :max => 770 } },
+      12  => { :type => 2, :fw => { :min => 771, :max => 804 }, :mf => { :min => 805, :max => 851 }, :df => { :min => 852, :max => 890 }, :gk => { :min => 891, :max => 897 } },
     }
     @position = positions[question_id]
   end
