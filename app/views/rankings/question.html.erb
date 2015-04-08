@@ -4,14 +4,13 @@
   <div class="common-title">
     <p>人気のある選手</p>
   </div>
-
   <% if @player_counters && @player_counters.length > 0 %>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>人気順位</th>
+          <th>順位</th>
           <th>名前</th>
-          <th>選択回数</th>
+          <th>選択回数(選択率)</th>
         </tr>
       </thead>
       <tbody>
@@ -21,7 +20,7 @@
           <% pid = record.pid %>
           <% tmp_player = @all_players[pid] %>
           <td style="text-align:left;"><%= tmp_player["short_name"] %></td>
-          <td style="text-align:left;"><%= record.num %></td>
+          <td style="text-align:left;"><%= record.num %>(<%= BigDecimal((100.to_f * record.num / @user_post_image_num).to_s).floor(2) %>%)</td>
         </tr>
         <% end %>
       </tbody>

@@ -7,6 +7,8 @@ class RankingsController < ApplicationController
     players = Player.all.map{|player| [player.id, player.attributes]}
     players = Hash[players]
     @all_players = players
+
+    @user_post_image_num = UserPostImage.where(question_id: question_id).count
   end
   def questions
     @questions = Question.where("valid_st = ?", 1).order('id DESC')
