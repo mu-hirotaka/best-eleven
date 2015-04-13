@@ -8,6 +8,7 @@ class RankingsController < ApplicationController
     players = Hash[players]
     @all_players = players
 
+    @qid = question_id
     @user_post_image_num = UserPostImage.where(question_id: question_id).count
   end
   def questions
