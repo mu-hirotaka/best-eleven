@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213083732) do
+ActiveRecord::Schema.define(version: 20150417093129) do
 
   create_table "formations", force: true do |t|
     t.string   "type_name",      null: false
@@ -89,5 +89,14 @@ ActiveRecord::Schema.define(version: 20150213083732) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "user_twitter_post_images", force: true do |t|
+    t.integer  "uid",        null: false
+    t.integer  "image_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_twitter_post_images", ["uid"], name: "index_user_twitter_post_images_on_uid", using: :btree
 
 end

@@ -344,17 +344,19 @@ $ ->
         img = $('<img>').attr({ src: data.path, width: width, height: height})
         $('#result-image').append(img)
         localStorage.setItem('current-image-url', data.path)
+        localStorage.setItem('current-image-id', data.user_post_image_id)
         if $imageComment.val().length <= 140
           $tweetBtn.css({opacity:"1.0"})
           $tweetBtn.removeAttr("disabled")
 
   $('.twitter.index').ready ->
     url = localStorage.getItem('current-image-url')
+    user_post_image_id = localStorage.getItem('current-image-id')
     comment = localStorage.getItem('current-comment')
     $.ajax '/twitter/tweet',
       type: 'POST'
       dataType: 'json'
-      data: { url: url, comment: comment }
+      data: { url: url, comment: comment, user_post_image_id: user_post_image_id }
       error: (jqXHR, textStatus, errorThrown) ->
         $('.common-title > p').text('投稿エラー')
         $('#spinner-container').hide()
@@ -605,6 +607,50 @@ $ ->
       $this = $(this)
       questionId = $this.attr('data-question-id')
       location.href = '/rankings/question' + '?qid=' + questionId
+
+  $('.my_page.index').ready ->
+    $pointBtn = $('.goodBtn')
+    $tweetBtn = $('.twBtn')
+
+    width = Math.min($('.container').width(), 400)
+    height = 4 / 3 * width
+    $('.user-post-image').css({ width: width, height: height });
+    $('.user-post-image-question').css({ width: width });
+    $('.sns_btn').css({ width: width });
+    $('.arrow_box').css({ width: width });
+    $('.other-user-comment').css({ width: width });
+
+    $pointBtn.each ->
+      $this = $(this)
+      if localStorage.getItem('good-' + $this.attr('data-image-id'))
+        $this.addClass('disabled');
+      else
+        $this.css({opacity:"1.0"})
+
+    $tweetBtn.on click: ->
+      $this = $(this)
+      id = $this.attr('data-image-id')
+      host = location.host + '/user_post_images/' + id
+      url = 'http://twitter.com/share?url=http://' + host + '&text=' + encodeURIComponent('#俺ブン')
+      location.href = url
+
+    $pointBtn.on click: ->
+      $this = $(this)
+      if $this.hasClass('disabled')
+        return false
+      $this.addClass('disabled');
+      $this.css({opacity:"0.6"})
+      id = $this.attr('data-image-id')
+      $point = $this.children('span')
+      nextPoint = parseInt($point.text()) + 1
+      $point.text(nextPoint)
+      localStorage.setItem('good-' + id, true)
+      $.ajax '/user_post_images/good',
+        type: 'POST'
+        dataType: 'json'
+        data: { id: id }
+        error: (jqXHR, textStatus, errorThrown) ->
+        success: (data, textStatus, jqXHR) ->
 
 #    _.each {one : 1, two : 2, three : 3}, (num, key) -> console.log num
 #  $('#selection-done').on click: ->

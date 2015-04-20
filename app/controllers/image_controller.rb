@@ -68,7 +68,7 @@ class ImageController < BaseController
     end
     user_post_image.save
 
-    render :json => { :status => 'success', :path => Settings.s3.image_url_path + output_filename }
+    render :json => { :status => 'success', :path => Settings.s3.image_url_path + output_filename, :user_post_image_id =>  user_post_image.id }
   end
 end
 module Magick

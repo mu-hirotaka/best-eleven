@@ -1,0 +1,40 @@
+<div class="text-center">
+  <%= render 'shared/header' %>
+  <div class="common-title">
+    <p>マイ俺ブン</p>
+  </div>
+  <% if @images && @images.length > 0 %>
+    <% @images.each do |image| %>
+      <% if @image_id_to_image_info[image.image_id] %>
+        <% image_info = @image_id_to_image_info[image.image_id] %>
+        <div class="user-post-image-question"><%= @question_to_title[image_info.question_id] %></div>
+        <div style="position:relative;">
+          <%= image_tag(@image_host + image_info.image_name, class: 'user-post-image') %>
+        </div>
+        <% if image_info.comment && image_info.comment.length > 0 %>
+          <div class="arrow_box"><%= image_info.comment %></div>
+        <% end %>
+    
+        <%= render 'shared/share_button', image: image_info %>
+    
+        <% if @image_id_to_comments[image.image_id] %>
+          <% @image_id_to_comments[image.image_id].each_with_index do |elm, index| %>
+            <% if index < 3 %>
+              <div class="bs-callout bs-callout-info other-user-comment"><%= elm.comment %></div>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% path = '/user_post_images/' + image.image_id.to_s %>
+        <button class="more-btn" onclick="location.href='<%= path %>'" style="margin-top: 5px;">もっと見る</button>
+        <div class="spacer-10"></div>
+      <% end %>
+    <% end %>
+  <% else %>
+    まだ投稿がありません。<br>
+    Twitter投稿した俺ブンのみ閲覧することができます。
+  <% end %>
+
+  <%= paginate @images %>
+  <button type="button" class="btn btn-lg btn-success" onclick="location.href='<%= root_path %>'" style="margin-top: 5px;">トップページ</button>
+  <%= render 'shared/footer_relative' %>
+</div>

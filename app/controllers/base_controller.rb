@@ -1,5 +1,6 @@
 class BaseController < ApplicationController
   before_action :check_service_status
+  after_action  :store_location
   helper_method :current_user
 
   def check_service_status
@@ -28,4 +29,9 @@ class BaseController < ApplicationController
       return false
     end
   end
+
+  def store_location
+    session[:previous_url] = request.fullpath
+  end
+
 end

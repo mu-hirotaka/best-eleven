@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'welcome#index', as: :root
+  get  'mypage' => 'my_page#index', as: :mypage_root
   get  'maintenance' => 'maintenance#index', as: :maintenance_root
 
   get  'question' => 'question#index', as: :question_root
