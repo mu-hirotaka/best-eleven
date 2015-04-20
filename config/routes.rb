@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     delete 'user_question_request/:id' => 'questions#user_request_destroy'
     resources :player_types, except: [ :new, :create, :destroy ]
     resources :user_post_images, only: [ :index, :destroy ]
+    resources :user_twitter_post_image, only: [ :index, :destroy ]
     resource :maintenances, except: [ :index, :destroy ]
     resources :user_comments, only: [ :index, :destroy ]
   end

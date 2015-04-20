@@ -1,0 +1,27 @@
+<%= render 'admin/shared/header' %>
+
+<% @title = 'ユーザーTwitter投稿一覧' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <%= paginate @images %>
+  <table class="listing">
+    <tr>
+      <th>id</th>
+      <th>uid<th>
+      <th>image_id</th>
+      <th>created_at</th>
+      <th>削除</th>
+    </tr>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= image.id %></td>
+        <td><%= image.uid %></td>
+        <td><%= image.image_id %></td>
+        <td><%= image.created_at %></td>
+        <td><%= link_to '削除', '/admin/user_twitter_post_image/' + image.id.to_s, :method => :delete %>
+      </tr>
+    <% end %>
+  </table>
+  <%= paginate @images %>
+</div>
