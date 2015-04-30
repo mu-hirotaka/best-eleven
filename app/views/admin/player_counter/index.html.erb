@@ -1,0 +1,25 @@
+<%= render 'admin/shared/header' %>
+
+<% @title = 'player_counters' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <table class="listing">
+    <tr>
+      <th>id</th>
+      <th>qid<th>
+      <th>pid</th>
+      <th>num</th>
+      <th>削除</th>
+    </tr>
+    <% @player_counters.each do |pc| %>
+      <tr>
+        <td><%= pc.id %></td>
+        <td><%= pc.qid %></td>
+        <td><%= pc.pid %></td>
+        <td><%= pc.num %></td>
+        <td><%= link_to '削除', '/admin/player_counter/' + pc.id.to_s, :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -11,6 +11,7 @@
       <th>description</th>
       <th>valid_player_type_ids</th>
       <th>valid_st</th>
+      <th>player_counter</th>
       <th>アクション</th>
     </tr>
     <% @questions.each do |question| %>
@@ -20,6 +21,7 @@
         <td><%= question.description %></td>
         <td><%= question.valid_player_type_ids %></td>
         <td><%= question.valid_st %></td>
+        <td><%= link_to 'player_counter', '/admin/player_counter?qid=' + question.id.to_s %></td>
         <td class="actions">
           <%= link_to '編集', [ :edit, :admin, question ] %>
         </td>

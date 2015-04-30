@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     resources :player_types, except: [ :new, :create, :destroy ]
     resources :user_post_images, only: [ :index, :destroy ]
     resources :user_twitter_post_image, only: [ :index, :destroy ]
+    resources :player_counter, only: [ :index, :destroy ]
     resource :maintenances, except: [ :index, :destroy ]
     resources :user_comments, only: [ :index, :destroy ]
   end
