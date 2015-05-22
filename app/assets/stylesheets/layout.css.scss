@@ -968,3 +968,27 @@ button.user-image-opinion-btn {
   margin-right: -15px;
 }
 
+.point-sticky {
+  position: absolute;
+  line-height: 1;
+  background: #FF797D;
+  font-size: 12px;
+  color: #fff;
+}
+.point-sticky:after {
+  position: absolute;
+  content: " ";
+  height: 0;
+  width: 0;
+}
+.point-sticky-l {
+  top: .5em;
+  left: -6px;
+  padding: .2em;
+}
+.point-sticky-l:after {
+  left: 0;
+  top: 100%;
+  border-top:6px solid #C83539;
+  border-left:6px solid transparent;
+}

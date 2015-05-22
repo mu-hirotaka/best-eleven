@@ -1448,7 +1448,7 @@ end
   { :id => 14, :title => '歴代アーセナル', :description => '歴代選手(1992〜2015年)でベストイレブンを組め', :valid_player_type_ids => '[14]', :valid_st => 1 },
   { :id => 15, :title => '寿司ネタ', :description => '産地直送! 新鮮でおいしい寿司ネタで極上のイレブンを作れ!', :valid_player_type_ids => '[15]', :valid_st => 1 },
   { :id => 16, :title => '歴代ブラジル代表', :description => '歴代代表選手でベストイレブンを組め', :valid_player_type_ids => '[16]', :valid_st => 1 },
-  { :id => 17, :title => '14・15欧州', :description => 'サッカー界著名人が選んだ選手でベストイレブンを組め', :valid_player_type_ids => '[17]', :valid_st => 1 },
+  { :id => 17, :title => '14・15欧州', :description => 'サッカー界の著名人が選んだ今シーズンの欧州クラブ選手でベストイレブンを組め', :valid_player_type_ids => '[17]', :valid_st => 1 },
 ].each do |record|
   question = Question.where(:id => record[:id]).first
   if question

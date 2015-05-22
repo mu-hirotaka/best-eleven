@@ -1,8 +1,6 @@
 <% if current_user %>
-  <% if is_smartphone? %>
-    <div class="tu-banner"><a href="http://goo.gl/hyxAnE" target="_blank"><img src="/images/tu/banner1.jpg"></a></div>
-    <div class="tu-banner"><a href="http://goo.gl/e9pkWr" target="_blank"><img src="/images/tu/banner2.jpg"></a></div>
-  <% end %>
+  <div class="tu-banner"><a href="http://goo.gl/hyxAnE" target="_blank"><img src="/images/tu/banner1.jpg"></a></div>
+  <div class="tu-banner"><a href="http://goo.gl/e9pkWr" target="_blank"><img src="/images/tu/banner2.jpg"></a></div>
   <div id="footer-top-relative">
     <p><%= current_user.name %>さんでログイン中 <%= link_to 'ログアウト', logout_path %></p>
     <p>Copyright 2010-2015 FromOne co.,Ltd All Rights Reserved.</p>
