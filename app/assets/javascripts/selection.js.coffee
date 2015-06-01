@@ -286,7 +286,7 @@ $ ->
     $imageComment = $('#user-image-comment')
     $commentLength = $('#user-image-comment-length')
     setCommentLength = (init) ->
-      length = $imageComment.val().length
+      length = $imageComment.val().length + 23
       if length > 140
         $commentLength.text(length + '文字(文字数を減らしてください)')
         $commentLength.css({"color":"red"})
