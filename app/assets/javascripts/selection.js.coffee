@@ -351,7 +351,7 @@ $ ->
         $('#result-image').append(img)
         localStorage.setItem('current-image-url', data.path)
         localStorage.setItem('current-image-id', data.user_post_image_id)
-        if $imageComment.val().length <= 140
+        if ($imageComment.val().length + 23) <= 140
           $tweetBtn.css({opacity:"1.0"})
           $tweetBtn.removeAttr("disabled")
 
