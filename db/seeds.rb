@@ -1398,6 +1398,46 @@
   { :id => 1381, :type_id => 17, :full_name => 'チェフ', :short_name => 'チェフ', :valid_st => 1 },
   { :id => 1382, :type_id => 17, :full_name => 'ノイアー', :short_name => 'ノイアー', :valid_st => 1 },
   { :id => 1383, :type_id => 17, :full_name => 'ブッフォン', :short_name => 'ブッフォン', :valid_st => 1 },
+
+  { :id => 1384, :type_id => 18, :full_name => '阿修羅・原', :short_name => '阿修羅・原', :valid_st => 1 },
+  { :id => 1385, :type_id => 18, :full_name => 'アニマル浜口', :short_name => 'アニマル浜口', :valid_st => 1 },
+  { :id => 1386, :type_id => 18, :full_name => 'アントニオ猪木', :short_name => 'アントニオ猪木', :valid_st => 1 },
+  { :id => 1387, :type_id => 18, :full_name => '上田馬之助', :short_name => '上田馬之助', :valid_st => 1 },
+  { :id => 1388, :type_id => 18, :full_name => '永源遙', :short_name => '永源遙', :valid_st => 1 },
+  { :id => 1389, :type_id => 18, :full_name => '大仁田厚', :short_name => '大仁田厚', :valid_st => 1 },
+  { :id => 1390, :type_id => 18, :full_name => '川田利明', :short_name => '川田利明', :valid_st => 1 },
+  { :id => 1391, :type_id => 18, :full_name => '木村健悟', :short_name => '木村健悟', :valid_st => 1 },
+  { :id => 1392, :type_id => 18, :full_name => '越中詩郎', :short_name => '越中詩郎', :valid_st => 1 },
+  { :id => 1393, :type_id => 18, :full_name => '小橋建太', :short_name => '小橋建太', :valid_st => 1 },
+  { :id => 1394, :type_id => 18, :full_name => '小林邦昭', :short_name => '小林邦昭', :valid_st => 1 },
+  { :id => 1395, :type_id => 18, :full_name => '坂口征二', :short_name => '坂口征二', :valid_st => 1 },
+  { :id => 1396, :type_id => 18, :full_name => 'ザ・グレート・カブキ', :short_name => 'ザ・グレート・カブキ', :valid_st => 1 },
+  { :id => 1397, :type_id => 18, :full_name => 'ザ・グレート・サスケ', :short_name => 'ザ・グレート・サスケ', :valid_st => 1 },
+  { :id => 1398, :type_id => 18, :full_name => '佐々木健介', :short_name => '佐々木健介', :valid_st => 1 },
+  { :id => 1399, :type_id => 18, :full_name => 'ジャイアント馬場', :short_name => 'ジャイアント馬場', :valid_st => 1 },
+  { :id => 1400, :type_id => 18, :full_name => 'ジャンボ鶴田', :short_name => 'ジャンボ鶴田', :valid_st => 1 },
+  { :id => 1401, :type_id => 18, :full_name => '獣神サンダー・ライガー', :short_name => '獣神サンダー・ライガー', :valid_st => 1 },
+  { :id => 1402, :type_id => 18, :full_name => 'タイガー・マスク', :short_name => 'タイガー・マスク', :valid_st => 1 },
+  { :id => 1403, :type_id => 18, :full_name => '高田延彦', :short_name => '高田延彦', :valid_st => 1 },
+  { :id => 1404, :type_id => 18, :full_name => '長州力', :short_name => '長州力', :valid_st => 1 },
+  { :id => 1405, :type_id => 18, :full_name => '蝶野正洋', :short_name => '蝶野正洋', :valid_st => 1 },
+  { :id => 1406, :type_id => 18, :full_name => '天龍源一郎', :short_name => '天龍源一郎', :valid_st => 1 },
+  { :id => 1407, :type_id => 18, :full_name => '橋本真也', :short_name => '橋本真也', :valid_st => 1 },
+  { :id => 1408, :type_id => 18, :full_name => '馳浩', :short_name => '馳浩', :valid_st => 1 },
+  { :id => 1409, :type_id => 18, :full_name => 'ハヤブサ', :short_name => 'ハヤブサ', :valid_st => 1 },
+  { :id => 1410, :type_id => 18, :full_name => '藤波辰爾', :short_name => '藤波辰爾', :valid_st => 1 },
+  { :id => 1411, :type_id => 18, :full_name => '藤原喜明', :short_name => '藤原喜明', :valid_st => 1 },
+  { :id => 1412, :type_id => 18, :full_name => '冬木弘道', :short_name => '冬木弘道', :valid_st => 1 },
+  { :id => 1413, :type_id => 18, :full_name => '星野勘太郎', :short_name => '星野勘太郎', :valid_st => 1 },
+  { :id => 1414, :type_id => 18, :full_name => '前田日明', :short_name => '前田日明', :valid_st => 1 },
+  { :id => 1415, :type_id => 18, :full_name => 'マサ斎藤', :short_name => 'マサ斎藤', :valid_st => 1 },
+  { :id => 1416, :type_id => 18, :full_name => '三沢光晴', :short_name => '三沢光晴', :valid_st => 1 },
+  { :id => 1417, :type_id => 18, :full_name => '武藤敬司', :short_name => '武藤敬司', :valid_st => 1 },
+  { :id => 1418, :type_id => 18, :full_name => '百田光雄', :short_name => '百田光雄', :valid_st => 1 },
+  { :id => 1419, :type_id => 18, :full_name => '谷津嘉章', :short_name => '谷津嘉章', :valid_st => 1 },
+  { :id => 1420, :type_id => 18, :full_name => '山本小鉄', :short_name => '山本小鉄', :valid_st => 1 },
+  { :id => 1421, :type_id => 18, :full_name => 'ラッシャー木村', :short_name => 'ラッシャー木村', :valid_st => 1 },
+  { :id => 1422, :type_id => 18, :full_name => '力道山', :short_name => '力道山', :valid_st => 1 },
 ].each do |record|
   player = Player.where(:id => record[:id]).first
   if player
@@ -1449,6 +1489,7 @@ end
   { :id => 15, :title => '寿司ネタ', :description => '産地直送! 新鮮でおいしい寿司ネタで極上のイレブンを作れ!', :valid_player_type_ids => '[15]', :valid_st => 1 },
   { :id => 16, :title => '歴代ブラジル代表', :description => '歴代代表選手でベストイレブンを組め', :valid_player_type_ids => '[16]', :valid_st => 1 },
   { :id => 17, :title => '14・15欧州', :description => 'サッカー界の著名人が選んだ今シーズンの欧州クラブ選手でベストイレブンを組め', :valid_player_type_ids => '[17]', :valid_st => 1 },
+  { :id => 18, :title => '名プロレスラー', :description => '名プロレスラーでベストイレブンを組め', :valid_player_type_ids => '[18]', :valid_st => 1 },
 ].each do |record|
   question = Question.where(:id => record[:id]).first
   if question
@@ -1480,6 +1521,7 @@ end
   { :id => 15, :title => '寿司ネタ' },
   { :id => 16, :title => '歴代ブラジル代表' },
   { :id => 17, :title => '14・15欧州' },
+  { :id => 18, :title => '名プロレスラー' },
 ].each do |record|
   player_type = PlayerType.where(:id => record[:id]).first
   if player_type
