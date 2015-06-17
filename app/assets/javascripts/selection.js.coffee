@@ -307,16 +307,10 @@ $ ->
 
     internalComment = localStorage.getItem('current-internal-comment')
     url = 'http://' + location.host + '/'
-    if qid == '17'
-      if internalComment
-        $imageComment.text(internalComment + ' 岩本輝雄と加藤未央が今シーズンの欧州サッカーを徹底総括！→http://goo.gl/cbXE4P 自分だけの欧州ベストイレブンでセンスを発揮！→http://oleven.soccer-king.jp/ #俺ブン')
-      else
-        $imageComment.text(' 岩本輝雄と加藤未央が今シーズンの欧州サッカーを徹底総括！→http://goo.gl/cbXE4P 自分だけの欧州ベストイレブンでセンスを発揮！→http://oleven.soccer-king.jp/ #俺ブン')
+    if internalComment
+      $imageComment.text(internalComment + ' #' + questionTitle + 'ベストイレブン #俺ブン ' + url)
     else
-      if internalComment
-        $imageComment.text(internalComment + ' #' + questionTitle + 'ベストイレブン #俺ブン ' + url)
-      else
-        $imageComment.text(' #' + questionTitle + 'ベストイレブン #俺ブン ' + url)
+      $imageComment.text(' #' + questionTitle + 'ベストイレブン #俺ブン ' + url)
 
     setCommentLength('init')
     players = []

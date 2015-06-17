@@ -1357,7 +1357,7 @@
   { :id => 1340, :type_id => 17, :full_name => 'シャビ・アロンソ', :short_name => 'X・アロンソ', :valid_st => 1 },
   { :id => 1341, :type_id => 17, :full_name => 'スターリング', :short_name => 'スターリング', :valid_st => 1 },
   { :id => 1342, :type_id => 17, :full_name => 'セスク', :short_name => 'セスク', :valid_st => 1 },
-  { :id => 1343, :type_id => 17, :full_name => 'ダビド・シルバ', :short_name => 'D・シルバ', :valid_st => 1 },
+  { :id => 1343, :type_id => 17, :full_name => 'ダビド・ルイス', :short_name => 'D・ルイス', :valid_st => 1 },
   { :id => 1344, :type_id => 17, :full_name => 'ユーリ・ティーレマンス', :short_name => 'ティーレマンス', :valid_st => 1 },
   { :id => 1345, :type_id => 17, :full_name => 'ハメス・ロドリゲス', :short_name => 'ハメス', :valid_st => 1 },
   { :id => 1346, :type_id => 17, :full_name => 'ピアニッチ', :short_name => 'ピアニッチ', :valid_st => 1 },
