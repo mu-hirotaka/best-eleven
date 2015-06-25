@@ -54,9 +54,9 @@ S3にバケットを作成し、access_key_idとsecret_access_keyを取得した
 
 === Twitter関連 セットアップ
   # 下記についてはメールでシェアいたします。
-  $ echo 'TW_CONSUMER_KEY=*****' >> ~/.bash_profile
+  $ echo 'export TW_CONSUMER_KEY=*****' >> ~/.bash_profile
   $ export TW_CONSUMER_KEY=*****
-  $ echo 'TW_CONSUMER_SECRET=*****' >> ~/.bash_profile
+  $ echo 'export TW_CONSUMER_SECRET=*****' >> ~/.bash_profile
   $ export TW_CONSUMER_SECRET=*****
 
 === best-eleven install
