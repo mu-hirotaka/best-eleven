@@ -28,8 +28,12 @@
     <div class="question-btn">
     	<ul>
         <% @questions.each do |value| %>
-          <% if [3,4,6,7,8,9,11,12,13,14,16,17].include?(value.id) %>
-            <li><button type="button" class="btn btn-lg btn-primary question-each-btn" data-question-id="<%= value.id %>" data-question-title="<%= value.title %>"><%= value.title %></button></li>
+          <% if [3,4,6,7,8,9,11,12,13,14,16,17,19].include?(value.id) %>
+            <% if value.id == 19 %>
+              <div style="position:relative;"><span class="point-sticky point-sticky-l">NEW</span><li><button type="button" class="btn btn-lg btn-primary question-each-btn" data-question-id="<%= value.id %>" data-question-title="<%= value.title %>"><%= value.title %></button></li></div>
+            <% else %>
+              <li><button type="button" class="btn btn-lg btn-primary question-each-btn" data-question-id="<%= value.id %>" data-question-title="<%= value.title %>"><%= value.title %></button></li>
+            <% end %>
             <li><div class="arrow_box"><span><%= value.description %></span></div></li>
           <% end %>
         <% end %>
